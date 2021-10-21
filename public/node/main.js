@@ -3,10 +3,17 @@ const { autoUpdater } = require('electron-updater');
 const fs = require('fs');
 const path = require('path');
 const sqlite3 = require('sqlite3');
+const isDev = require('electron-is-dev');
 const { fillVineta, generateCodeImage, pdfGenerator } = require('./pdfGenerator');
 const { generateSQL } = require('./xlsxImporter');
 
-let dbURL = "./cartas.sqlite"
+let dbURL;
+
+if (isDev) {
+  dbURL = "./cartas.sqlite";
+} else {
+  dbURL = path.join(app.getPath('userData'), "cartas.sqlite");
+}
 
 if(!fs.existsSync(dbURL)){
   console.log("Base no existe...");
