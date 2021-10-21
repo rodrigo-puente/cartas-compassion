@@ -1,0 +1,24 @@
+#navbar {
+  background-color: #005DAA;
+  padding: 30px 0;
+
+  a {
+    text-decoration: none;
+    color: white;
+    fill: currentColor;
+
+    &:hover  {
+      color: #ffc500;
+    }
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .row {
+    --bs-gutter-x: 0;
+  }
+}
+

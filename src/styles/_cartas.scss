@@ -1,0 +1,35 @@
+#cartas {
+  padding: 0;
+  background-color: #003266;
+
+  h3, label {
+    color: white;
+  }
+
+  .header {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 150px;
+
+    .layer {
+      background-color: rgba(0, 0, 0, 0.3); /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.3); /* Black w/opacity/see-through */
+      flex: 1;
+    }
+  }
+
+  h2 {
+    color: white;
+    text-shadow: black 0px 0px 10px;
+  }
+
+  small {
+    color: white;
+    text-shadow: black 0px 0px 10px;
+  }
+
+  .btn-primary {
+    background-color: #005DAA;
+  }
+}
