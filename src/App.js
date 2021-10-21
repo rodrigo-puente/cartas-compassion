@@ -26,8 +26,8 @@ export default function App() {
         <Route exact path="/realizadas" component={CartasRealizadas} />
         <Route exact path="/importar" component={ImportarCartas} />
         <Route exact path="/revision" component={CartasRevision} />
-        <Route exact path="/error" component={MissingTemplate} />
         <Route exact path="/template/SV-E-4S01-1/:userId" component={SVE4S01} />
+        <Route component={MissingTemplate} />
       </Switch>
     </Router>
   );
