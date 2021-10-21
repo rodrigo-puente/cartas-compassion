@@ -8,7 +8,7 @@
   "author": "Rodrigo Puente",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodrigo-puente/cartas-compassion.git"
+    "url": "https://github.com/rodrigo-puente/cartas-compassion.git"
   },
   "build": {
     "appId": "com.rodrigopuente.triciclo",
@@ -27,14 +27,13 @@
       "build/**/*"
     ],
     "directories": {
-      "buildResources": "build",
-      "output": "dist_electron"
+      "buildResources": "build"
     },
     "publish": [
       {
         "provider": "github",
-        "owner": "rodrigo-puente",
-        "repo": "cartas-compassion"
+        "private": false,
+        "releaseType": "release"
       }
     ]
   },
@@ -44,7 +43,6 @@
     "bwip-js": "^3.0.4",
     "canvas": "^2.8.0",
     "cross-env": "^7.0.3",
-    "dotenv": "^10.0.0",
     "electron-is-dev": "^2.0.0",
     "electron-log": "^4.4.1",
     "electron-updater": "^4.3.9",
@@ -66,10 +64,10 @@
     "react-eject": "react-app-rewired eject",
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
-    "release": "yarn react-build && electron-builder --publish=always",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\"",
+    "release": "yarn increment-version && yarn react-build && electron-builder --publish=always",
     "build": "yarn react-build && yarn electron-builder -p never",
-    "deploy": "yarn react-build && yarn electron-builder -p always",
-    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\""
+    "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push"
   },
   "eslintConfig": {
     "extends": [
@@ -98,6 +96,7 @@
     "electron-reload": "^2.0.0-alpha.1",
     "react-app-rewired": "^2.1.8",
     "sass-loader": "^12.1.0",
+    "versiony": "^2.0.1",
     "wait-on": "^6.0.0"
   }
 }

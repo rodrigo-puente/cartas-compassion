@@ -7,7 +7,6 @@ import {
 
 // Importar componentes
 import Navbar from './components/shared/Navbar';
-import Footer from './components/shared/Footer';
 import CartasPorRealizar from './pages/CartasPorRealizar';
 import CartasRealizadas from './pages/CartasRealizadas';
 import ImportarCartas from './pages/ImportarCartas';
@@ -30,7 +29,6 @@ export default function App() {
         <Route exact path="/error" component={MissingTemplate} />
         <Route exact path="/template/SV-E-4S01-1/:userId" component={SVE4S01} />
       </Switch>
-      <Footer />
     </Router>
   );
 }
