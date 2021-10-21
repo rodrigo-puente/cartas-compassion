@@ -1,4 +1,5 @@
 const { app, ipcMain, dialog } = require('electron');
+const { autoUpdater } = require('electron-updater');
 const fs = require('fs');
 const path = require('path');
 const sqlite3 = require('sqlite3');
@@ -87,3 +88,11 @@ ipcMain.on('import-xlxs', (event, data) => {
     event.reply('xlxs-result', err === null);
   });
 })
+
+ipcMain.on('app-version', (event) => {
+  event.reply('version-result', app.getVersion());
+});
+
+ipcMain.on('restart-app', (event) => {
+  autoUpdater.quitAndInstall();
+});

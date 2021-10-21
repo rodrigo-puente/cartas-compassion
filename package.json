@@ -18,7 +18,10 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "build/icon.ico",
-      "installerHeaderIcon": "build/icon.ico"
+      "installerHeaderIcon": "build/icon.ico",
+      "publish": [
+        "github"
+      ]
     },
     "files": [
       "build/**/*"
@@ -26,7 +29,14 @@
     "directories": {
       "buildResources": "build",
       "output": "dist_electron"
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "rodrigo-puente",
+        "repo": "cartas-compassion"
+      }
+    ]
   },
   "license": "MIT",
   "dependencies": {
@@ -34,8 +44,10 @@
     "bwip-js": "^3.0.4",
     "canvas": "^2.8.0",
     "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "electron-is-dev": "^2.0.0",
     "electron-log": "^4.4.1",
+    "electron-updater": "^4.3.9",
     "moment": "^2.29.1",
     "node-sass": "^6.0.1",
     "pdfkit": "^0.12.3",
@@ -55,7 +67,8 @@
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
     "release": "yarn react-build && electron-builder --publish=always",
-    "build": "yarn react-build && yarn electron-builder",
+    "build": "yarn react-build && yarn electron-builder -p never",
+    "deploy": "yarn react-build && yarn electron-builder -p always",
     "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\""
   },
   "eslintConfig": {

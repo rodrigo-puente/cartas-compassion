@@ -55,3 +55,12 @@ export function importXLSX(datos) {
     ipcRenderer.send('import-xlxs', datos);
   });
 }
+
+export function getVersion() {
+  return new Promise((resolve) => {
+    ipcRenderer.once('version-result', (_, arg) => {
+      resolve(arg);
+    });
+    ipcRenderer.send('app-version')
+  })
+}
