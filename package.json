@@ -13,6 +13,7 @@
   "build": {
     "appId": "com.rodrigopuente.triciclo",
     "productName": "Cartas Compassion",
+    "artifactName": "cartas-compassion-${version}-${os}-${arch}.${ext}",
     "copyright": "Copyright © 2021 ${author}",
     "nsis": {
       "oneClick": false,
@@ -65,9 +66,8 @@
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
     "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\"",
-    "release": "yarn increment-version && yarn react-build && electron-builder --publish=always",
-    "build": "yarn react-build && yarn electron-builder -p never",
-    "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push"
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-builder -p never"
   },
   "eslintConfig": {
     "extends": [
@@ -96,7 +96,6 @@
     "electron-reload": "^2.0.0-alpha.1",
     "react-app-rewired": "^2.1.8",
     "sass-loader": "^12.1.0",
-    "versiony": "^2.0.1",
     "wait-on": "^6.0.0"
   }
 }
