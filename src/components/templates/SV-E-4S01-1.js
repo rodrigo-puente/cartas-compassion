@@ -47,7 +47,7 @@ function SVE4S011Template({ id }) {
     }
 
     setDisabled(true);
-    const info = {...datos, fecha: moment().format('M-d-yyyy')};
+    const info = {...datos, fecha: moment().format('DD-MMM-YYYY')};
     sendInsert([JSON.stringify(info), id]).then((response) => {
       return generatePDF(data, info, "SV-E-4S01-1");
     }).then((response) => {
