@@ -2,7 +2,6 @@ const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const { promisify } = require('util');
 const bwipjs = require('bwip-js');
-const crypto = require("crypto");
 const moment = require("moment");
 const path = require("path");
 const assetPath = path.join(__dirname, '..', 'node', 'assets');
@@ -52,24 +51,28 @@ function generateHeader(doc, vineta){
   doc.fontSize(6);
 
   const qr = doc.openImage(path.join(assetPath, 'qrcode.png'));
-  doc.image(qr, 150, 65, {
+  doc.image(qr, 285, 65, {
     fit: [30, 30]
   })
-  doc.text(vineta.qrcode, 100, 100);
+  doc.text(vineta.qrcode, 260, 100);
 
   const barcode = doc.openImage(path.join(assetPath, 'barcode.png'));
-  doc.image(barcode, 280, 60, {
-    fit: [80, 80]
+  doc.image(barcode, 380, 60, {
+    fit: [100, 40]
   })
-  doc.text(vineta.barcode, 295, 110);
+  doc.text(vineta.barcode, 400, 105);
+}
+
+function generateRandomIntegerInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function fillVineta(user) {
   const date = moment().format('YYYYMMDD');
-  const randomId = crypto.randomBytes(3).toString('hex');
+  const randomId = generateRandomIntegerInRange(10000, 99999);
 
   return {
-    qrcode: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}`,
+    qrcode: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}`,
     barcode: `${user.beneficiario_id_global}-${user.supporter_id_global}`,
     pdfName: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}-${date}-${randomId}.pdf`,
     socio: `${user.supporter_id_global || ""} - ${user.supporter_favorito || ''} - ${user.supporter_sexo || ""}`,
@@ -131,12 +134,18 @@ async function pdfGenerator(vineta, user, data, template){
 
     // Si adjuntó imágenes las ponemos en la tercera página
     if (data["imgs"].length) {
+      const sizes = {
+        1: 300,
+        2: 250,
+        3: 200,
+        4: 150,
+      }
       doc.addPage();
       data["imgs"].forEach((i, idx)=> {
         if (idx >= 4) return;
         const img = doc.openImage(i);
         doc.image(img, {
-          fit: [500, 140], 
+          fit: [500, sizes[data["imgs"].length] || 120], 
           align: 'center'
         });
         doc.text('\n\n');
