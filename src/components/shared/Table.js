@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { sendAsync } from '../../message-control/renderer';
+import { CARD_STATES } from '../../lib/constants';
 
-function Table() {
+function Table({ state }) {
   const [cartas, setCartas] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const data = await sendAsync('SELECT * FROM cartas WHERE estado = "Sin comenzar"');
+      console.log(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
+      const data = await sendAsync(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
       setCartas(data);
     }
     
     getData();
-  }, []);
+  }, [state]);
 
   return (
     <div className="mb-3">
@@ -20,22 +22,17 @@ function Table() {
         <table className="table">
           <thead>
             <tr>
+              <th>Acciones</th>
               <th className="text-center" scope="col">ID Template</th>
-              <th className="text-center" scope="col">Beneficiario ID iglesia</th>
-              <th className="text-center" scope="col">Beneficiario ID local</th>
+              <th className="text-center" scope="col">Proyecto</th>
+              <th className="text-center" scope="col">Código</th>
               <th className="text-center" scope="col">Beneficiario nombre preferido</th>
-              <th className="text-center" scope="col">Benificiario ID global</th>
-              <th className="text-center" scope="col">Beneficiario sexo</th>
-              <th className="text-center" scope="col">Beneficiario edad</th>
-              <th className="text-center" scope="col">Estado</th>
-              <th className="text-center" scope="col">Tipo de comunicación</th>
-              <th className="text-center" scope="col">Comunicación ID global</th>
+              <th className="text-center" scope="col">Sexo</th>
+              <th className="text-center" scope="col">Edad</th>
+              <th className="text-center" scope="col">C0</th>
               <th className="text-center" scope="col">Socio nombre preferido</th>
-              <th className="text-center" scope="col">Socio tipo de relación</th>
-              <th className="text-center" scope="col">Socio sexo</th>
-              <th className="text-center" scope="col">Socio ID global</th>
-              <th className="text-center" scope="col">Socio país</th>
-              <th className="text-center" scope="col">Target lang</th>
+              <th className="text-center" scope="col">Sexo</th>
+              <th className="text-center" scope="col">País</th>
             </tr>
           </thead>
           <tbody>
@@ -43,21 +40,16 @@ function Table() {
               cartas.map((x) => 
                 <tr key={x.id}>
                   <td><Link to={`/template/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                  <td>{x.id_plantilla}</td>
                   <td>{x.beneficiario_iglesia}</td>
                   <td>{x.beneficiario_id}</td>
                   <td>{x.beneficiario_preferido}</td>
-                  <td>{x.beneficiario_id_global}</td>
                   <td>{x.beneficiario_sexo}</td>
                   <td>{x.beneficiario_edad}</td>
-                  <td>{x.estado}</td>
-                  <td>{x.comunicacion_tipo}</td>
                   <td>{x.comunicacion_id_global}</td>
                   <td>{x.supporter_favorito}</td>
-                  <td>{x.supporter_tipo_relacion}</td>
                   <td>{x.supporter_sexo}</td>
-                  <td>{x.supporter_id_global}</td>
                   <td>{x.supporter_country}</td>
-                  <td>{x.target_lang}</td>
                 </tr>
               )
             }
@@ -65,8 +57,8 @@ function Table() {
         </table>
       </div>
       { cartas.length === 0 && 
-        <p className="text-center text-white">No se encontraron cartas.</p>
-      }
+          <p className="text-center text-white">No se encontraron cartas.</p>
+        }
     </div>
   );
 }
