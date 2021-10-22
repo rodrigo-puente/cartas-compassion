@@ -1,35 +1,33 @@
 import React, { useState, useEffect } from "react";
 import moment from 'moment';
-import { sendAsync, sendInsert, generatePDF, selectFile, selectDir } from '../../message-control/renderer';
+import { sendAsync, sendInsert, generatePDF } from '../../message-control/renderer';
+import { handleImgsMsg, handleImgsImg, handleDir, handleImg, handleInputChange } from '../../lib/fileInteractions';
+import { CARD_STATES, CARDS_SIN_COMENZAR } from '../../lib/constants';
 
 function SVE4S011Template({ id }) {
-  const [route, setRoute] = useState([]);
-  const [imagen, setImagen] = useState([]);
-  const [imagenes, setImagenes] = useState([]);
-  const [data, setData] = useState({});
+  const [route, setRoute] = useState("");
+  const [img, setImg] = useState("");
+  const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
+  const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
-  const [datos, setDatos] = useState({
-    'field-1': '',
-    'img': [],
-    'imgs': [],
-    'imgs-texto': '',
-    'route': []
+  const [form, setForm] = useState({
+    'field-1': ''
   });
 
   useEffect(() => {
     async function getData() {
       const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
-      setData(result[0]);
+      setCarta(result[0]);
 
-      if(result.length && result[0].estado !== "Sin comenzar") {
-        const newDatos = JSON.parse(result[0].formulario);
+      if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
+        const newform = JSON.parse(result[0].formulario);
+        setForm(newform);
 
-        setDatos(newDatos);
-
-        Object.keys(newDatos).forEach((key) => {
-          if (key === 'fecha' || key === 'imgs' || key === 'img' || key === 'route') return;
+        const skipKeys = ["fecha", "imgs", "img", "route"];
+        Object.keys(newform).forEach((key) => {
+          if (skipKeys.includes(key)) return;
           try {
-            document.getElementById(key).value = newDatos[key];
+            document.getElementById(key).value = newform[key];
           } catch(err) {
             console.log("Propiedad no existe: ", key);
           }
@@ -46,92 +44,52 @@ function SVE4S011Template({ id }) {
       return;
     }
 
-    setDisabled(true);
-    const info = {...datos, fecha: moment().format('DD-MMM-YYYY')};
-    sendInsert([JSON.stringify(info), id]).then((response) => {
-      return generatePDF(data, info, "SV-E-4S01-1");
+    const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
+
+    sendInsert([JSON.stringify(data), id]).then((response) => {
+      return generatePDF(carta, data, "SV-E-4S01-1");
     }).then((response) => {
-      if (response) {
-        alert("Formulario guardado con éxito");
-      } else {
-        alert("Hubo un error guardando el formulario...");
-      }
+      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
       setDisabled(false);
     }).catch((err) => {
-      console.dir(err);
       setDisabled(false);
     });
-  }
-
-  const handleInputChange = (event) => {
-    setDatos({
-      ...datos,
-      [event.target.name]: event.target.value
-    })
-  }
-
-  const imageResults = (stateKey, result, setter) => {
-    const newDatos = {}
-    if (!result.canceled) {
-      setter(result.filePaths)
-      newDatos[`${stateKey}`] = result.filePaths
-      setDatos({...datos, ...newDatos})
-    }
-  }
-
-  const selectOneImageFile = async(stateKey, setter) => {
-    const result = await selectFile();
-    imageResults(stateKey, result, setter);
-  }
-
-  const selectMultipleImageFile = async(stateKey, setter) => {
-    const result = await selectFile({ multiple: true });
-    imageResults(stateKey, result, setter);
-  }
-
-  const selectFolder = async(stateKey, setter) => {
-    const result = await selectDir();
-    imageResults(stateKey, result, setter);
-  }
-
-  const PrintFiles = ({ data }) => {
-    const listItems = data.map((value, idx) => <li key={idx}>{value}</li>)
-    return (
-      <ul className="text-white">
-        {listItems}
-      </ul>
-    )
   }
 
   return (
     <form onSubmit={(e)=> {e.preventDefault(); handleSubmit()}}>
       <div className="form-group mb-3">
-        <label htmlFor="field-1" className="mb-1">1. Escribe algo especial o agradecimiento</label> 
-        <textarea onChange={handleInputChange} id="field-1" name="field-1" cols="40" rows="10" className="form-control" maxLength="2000" required></textarea>
-        <small>Máximo de caracteres {datos["field-1"].length}/2000</small>
+        <label htmlFor="field-1" className="mb-2">1. Escribe algo especial o agradecimiento</label> 
+        <textarea onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" cols="40" rows="10" className="form-control" maxLength="2000" required></textarea>
+        <small>Máximo de caracteres {form["field-1"].length}/2000</small>
       </div>
       <div className="form-group mb-3">
-        <label htmlFor="img" className="mb-1">2. Adjunta un dibujo</label><br/>
-        <PrintFiles data={imagen}/>
-        <button type="button" className="btn btn-success" onClick={() => selectOneImageFile('img', setImagen)}>Elige una imagen</button>
-        <input type="hidden" onChange={handleInputChange} id="img" name="img"  className="form-control" />
+        <label htmlFor="img" className="mb-2">2. Adjunta un dibujo</label><br/>
+        <input type="text" onClick={handleImg(setImg)} value={img} id="img" name="img"  className="form-control" readOnly />
       </div>
-      <hr/>
-      <div className="form-group mb-3">
-        <label htmlFor="imgs" className="mb-1">3. Agrega hasta 4 imágenes del niño o joven</label><br/>
-        <PrintFiles data={imagenes}/>
-        <button type="button" className="btn btn-success" onClick={() => selectMultipleImageFile('imgs', setImagenes)}>Elige hasta 4 imágenes</button>
-        <input type="hidden" onChange={handleInputChange} id="imgs" name="imgs"  className="form-control" readOnly />
-      </div>
-      <div className="form-group mb-3">
-        <label htmlFor="imgs-texto" className="mb-1">4. Algún texto que quieras agregar a las imágenes</label> 
-        <input type="text" onChange={handleInputChange} id="imgs-texto" name="imgs-texto" className="form-control" />
+      <br/>
+      <div className="row mb-3">
+        <h6 className='text-white mb-3'>Agrega Imágenes extra</h6>
+        {
+          imgs.map((item, idx) => {
+            return (
+              <div className="col-sm-3 col-md-6 mb-4" key={idx}>
+                <div style={ {padding: '10px', backgroundColor: '#005DAA', borderRadius: '5px'} }>
+                  <div className="form-group mb-3" key={idx}>
+                    <label htmlFor={`imgs[${idx}][img]`} className="mb-2">Agrega una imagen del niño o joven</label><br/>
+                    <input type="text" onClick={handleImgsImg(idx, imgs, setImgs)} value={item.img} id={`imgs[${idx}][img]`} name={`imgs[${idx}][img]`} className="form-control mb-3" readOnly />
+                    <label htmlFor={`imgs[${idx}][copy]`} className="mb-2">Agrega un texto a la imagen</label> 
+                    <input type="text" onChange={handleImgsMsg(idx, imgs, setImgs)} value={item.msg} id={`imgs[${idx}][msg]`} name={`imgs[${idx}][msg]`} className="form-control" />
+                  </div>
+                </div>
+              </div>
+            )
+          })
+        }      
       </div>
       <div className="form-group mb-5">
-        <label htmlFor="route" className="mb-1">5. Dónde quieres guardar el PDF</label><br/>
-        <PrintFiles data={route}/>
-        <input type="hidden" onChange={handleInputChange} id="route" name="route"  className="form-control" readOnly required />
-        <button type="button" className="btn btn-success" onClick={() => selectFolder('route', setRoute)}>Elige el folder</button>
+        <label htmlFor="route" className="mb-2">Dónde quieres guardar el PDF</label><br/>
+        <input type="text" onClick={handleDir(setRoute)} value={route} id="route" name="route"  className="form-control" readOnly required />
       </div>
       <div className="form-group mb-3 text-center">
         <button name="submit" type="submit" onSubmit={(e)=> {e.preventDefault(); handleSubmit()}} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>

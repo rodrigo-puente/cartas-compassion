@@ -18,8 +18,8 @@ function addCheckbox(doc, img, content) {
 }
 
 function addImage(doc, value, content) {
-  if (value === undefined || value.length === 0) return;
-  const img = doc.openImage(value[0]);
+  if (value === "") return;
+  const img = doc.openImage(value);
   doc.image(img, content.x, content.y, content.config);
 }
 
@@ -90,9 +90,8 @@ async function pdfGenerator(vineta, user, data, template){
     // Crear el documento en tamaño A4 
     const doc = new PDFDocument({size: 'A4', autoFirstPage: false});
 
-    const pdfStream = fs.createWriteStream(`${data['route'][0]}/${vineta.pdfName}`)
+    const pdfStream = fs.createWriteStream(`${data.route}/${vineta.pdfName}`)
     pdfStream.on('finish', function() {
-      console.log("File finished");
       resolve(true);
     });
 
@@ -132,8 +131,9 @@ async function pdfGenerator(vineta, user, data, template){
       });
     });
 
+    const imgs = data["imgs"].filter((x) => x.img !== "");
     // Si adjuntó imágenes las ponemos en la tercera página
-    if (data["imgs"].length) {
+    if (imgs.length) {
       const sizes = {
         1: 300,
         2: 250,
@@ -141,17 +141,15 @@ async function pdfGenerator(vineta, user, data, template){
         4: 150,
       }
       doc.addPage();
-      data["imgs"].forEach((i, idx)=> {
-        if (idx >= 4) return;
-        const img = doc.openImage(i);
-        doc.image(img, {
-          fit: [500, sizes[data["imgs"].length] || 120], 
-          align: 'center'
-        });
-        doc.text('\n\n');
-      });
+      imgs.forEach((i, idx)=> {
+        if (i.img === "") return;
 
-      doc.text(data["imgs-texto"] || "");
+        const img = doc.openImage(i.img);
+        doc.image(img, {
+          fit: [500, sizes[imgs.length] || 120], 
+          align: 'center'
+        }).text(i.msg, {align: 'center'});
+      });
     }
 
     doc.pipe(pdfStream);

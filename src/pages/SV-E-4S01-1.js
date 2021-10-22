@@ -23,13 +23,12 @@ function SVE4S011() {
       </div>
       <div className="container">
         <div className="row pt-4">
-          <div className="col-sm-6 mb-5">
-            <h3 className="text-center">Formulario</h3>
-            <SVE4S011Template id={userId} />
-          </div>
-          <div className="offset-sm-1 col-sm-5">
-            <h3 className="text-center">Información básica</h3>
+          <div className="col-sm-12 mt-3 mb-3">
+            <h3 className="text-center">Estás llenando la carta de</h3>
             <Vineta id={userId}/>
+          </div>
+          <div className="col-sm-12 mb-5">
+            <SVE4S011Template id={userId} />
           </div>
         </div>
       </div>

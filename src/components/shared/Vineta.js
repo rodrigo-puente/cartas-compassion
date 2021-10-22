@@ -3,6 +3,7 @@ import { sendAsync } from '../../message-control/renderer';
 import '../../styles/_vineta.scss';
 
 function Vineta({ id }) {
+  const spanStyle = { paddingRight: '20px' };
   const [vineta, setVineta] = useState({});
 
   useEffect(() => {
@@ -16,45 +17,31 @@ function Vineta({ id }) {
 
   return (
     <div className="row" id="vineta">
-      <div className="col-sm-6 text-center mb-2">
-        <h5>Beneficiario</h5>
-        <div className="mb-2">
-          ID local:<br/>
-          <strong>{vineta.beneficiario_id}</strong>
-        </div>
-        <div className="mb-2">
-          Nombre:<br/>
-          <strong>{vineta.beneficiario_preferido}</strong>
-        </div>
-        <div className="mb-2">
-          Edad:<br/>
-          <strong>{vineta.edad}</strong>
-        </div>
+      <div className="col-sm-12 text-center mb-3">
+        <p>
+          <span style={spanStyle}><strong>Beneficiario:</strong> {vineta.beneficiario_preferido}</span>
+          <span style={spanStyle}><strong>Código:</strong> {vineta.beneficiario_id}</span>
+          <span style={spanStyle}><strong>Edad:</strong> {vineta.beneficiario_edad}</span>
+          <span style={spanStyle}><strong>Sexo:</strong> {vineta.beneficiario_sexo}</span>
+        </p>
+        <p>
+          <span style={spanStyle}><strong>Patrocinador:</strong> {vineta.supporter_favorito}</span>
+          <span style={spanStyle}><strong>Sexo:</strong> {vineta.supporter_sexo || "n/a"}</span>
+          <span style={spanStyle}><strong>País:</strong> {vineta.supporter_country || "n/a"}</span>
+        </p>
+        <p>
+          <span style={spanStyle}><strong>C0:</strong> {vineta.comunicacion_id_global}</span>
+        </p>
       </div>
-      <div className="col-sm-6 text-center mb-2"> 
-        <h5>Socio</h5>
-        <div className="mb-2">
-          Nombre:<br/>
-          <strong>{vineta.supporter_favorito}</strong>
-        </div>
-        <div className="mb-2">
-          País:<br/>
-          <strong>{vineta.supporter_country}</strong>
-        </div>
-      </div>
-      <hr/>
-      <div className="col-sm-12 text-center">
-        <div>
+      <div className="col-sm-6 text-center mb-3">
           Tipo de comunicación:<br/>
           <strong>{vineta.comunicacion_tipo}</strong>
-        </div>
       </div>
-      <div className="col-sm-12 text-center">
-        <div>
-          Preguntas:<br/>
-          <strong>{vineta.preguntas}</strong>
-        </div>
+      <div className="col-sm-6 text-center mb-5">
+        Preguntas:<br/>
+        <strong>{vineta.preguntas}</strong>
       </div>
+      <hr/>
     </div>
   );
 }
