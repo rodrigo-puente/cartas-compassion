@@ -50,7 +50,7 @@ function Navbar() {
       </div>
       <div className="row text-center">
         { update && 
-          <button className="btn btn-link text-white" onClick={restartAndUpdate}>Actualizacion disponible</button>
+          <button className="btn btn-link text-white" onClick={restartAndUpdate}>Actualización disponible</button>
         }
         { !update && 
           <small className="text-warning pt-2">v{version}</small>   
