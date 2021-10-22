@@ -100,6 +100,6 @@ ipcMain.on('app-version', (event) => {
   event.reply('version-result', app.getVersion());
 });
 
-ipcMain.on('restart-app', (event) => {
+ipcMain.on('restart-app', () => {
   autoUpdater.quitAndInstall();
 });

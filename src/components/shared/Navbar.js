@@ -1,14 +1,14 @@
 import React, {useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { getVersion } from "../../message-control/renderer";
+import { getVersion, notifyUpdate, restartAndUpdate } from "../../message-control/renderer";
 import '../../styles/_navbar.scss';
 import Letter from  '../../assets/envelope-regular.svg';
 import OpenLetter from '../../assets/envelope-open-regular.svg';
 import NewFile from '../../assets/file-excel-regular.svg';
 
-
 function Navbar() {
   const [version, setVersion] = useState("");
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -16,7 +16,14 @@ function Navbar() {
       setVersion(result);
     }
 
+    function checkUpdate() {
+      notifyUpdate().then((result) => {
+        setUpdate(result)
+      });
+    }
+
     getData();
+    checkUpdate();
   });
 
   return (
@@ -42,7 +49,12 @@ function Navbar() {
         </div>
       </div>
       <div className="row text-center">
-        <small className="text-warning pt-2">v{version}</small>
+        { update && 
+          <button className="btn btn-link text-white" onClick={restartAndUpdate}>Actualizacion disponible</button>
+        }
+        { !update && 
+          <small className="text-warning pt-2">v{version}</small>   
+        }
       </div>
     </div>
   );

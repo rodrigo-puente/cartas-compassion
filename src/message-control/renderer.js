@@ -1,6 +1,18 @@
 const electron = window.require('electron');
 const { ipcRenderer } = electron;
 
+export function notifyUpdate() {
+  return new Promise((resolve) => {
+    ipcRenderer.once('update-available', (_, arg) => {
+      resolve(true)
+    });
+  });
+}
+
+export function restartAndUpdate() {
+  ipcRenderer.send('restart-app');
+}
+
 export function sendAsync(sql) {
   return new Promise((resolve) => {
     ipcRenderer.once('query-result', (_, arg) => {

@@ -77,5 +77,5 @@ app.on('activate', () => {
 });
 
 autoUpdater.on('update-downloaded', () => {
-  autoUpdater.quitAndInstall();
+  mainWindow.webContents.send('update-available');
 });
