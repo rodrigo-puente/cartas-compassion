@@ -101,7 +101,7 @@ async function pdfGenerator(vineta, user, data, template){
     const font = path.join(assetPath, 'roboto-italic.ttf');
     const checkIMG = doc.openImage(path.join(assetPath, 'check.png'));
 
-    doc.fontSize(8);
+    doc.fontSize(10);
     doc.font(font);
 
     [page1, page2].forEach((i, idx) => {
@@ -112,10 +112,9 @@ async function pdfGenerator(vineta, user, data, template){
 
       if (idx === 0) {
         doc.font('Times-Roman');
-        doc.fontSize(10);
         generateHeader(doc, vineta);
         doc.font(font);
-        doc.fontSize(8);
+        doc.fontSize(10);
       }
 
       const content = i.items

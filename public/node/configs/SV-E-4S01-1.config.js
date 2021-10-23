@@ -6,7 +6,7 @@ const config = {
         x: 45,
         y: 210,
         width: 500,
-        lineGap: 11,
+        lineGap: 8,
       },
       "fecha": {
         x: 450,
