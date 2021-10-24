@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import Vineta from '../components/shared/Vineta';
-import SVD1S1116Template from "../components/templates/SV-D-1S11-16";
+import SVC1S113Template from "../components/templates/SV-C-1S11-3";
 import '../styles/_cartas.scss';
 
-function SVD1S1116() {
+function SVC1S113() {
   const { userId } = useParams();
   const bgStyles = {
-    backgroundImage: `url(${require(`../assets/SV-D-1S11-16.png`).default})`,
+    backgroundImage: `url(${require(`../assets/SV-C-1S11-3.png`).default})`,
   }
 
   return (
@@ -16,7 +16,7 @@ function SVD1S1116() {
         <div className="layer d-flex align-items-center justify-content-center">
           <div>
             <h2 className="text-center">Mis favoritos</h2>
-            <small>Plantilla SV-D-1S11-16</small>
+            <small>Plantilla SV-C-1S11-3</small>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ function SVD1S1116() {
             <Vineta id={userId}/>
           </div>
           <div className="col-sm-12 mb-5">
-            <SVD1S1116Template id={userId} />
+            <SVC1S113Template id={userId} />
           </div>
         </div>
       </div>
@@ -35,4 +35,4 @@ function SVD1S1116() {
   );
 }
 
-export default SVD1S1116;
+export default SVC1S113;

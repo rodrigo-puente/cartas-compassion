@@ -7,7 +7,7 @@ import '../styles/_cartas.scss';
 function SVE4S011() {
   const { userId } = useParams();
   const bgStyles = {
-    backgroundImage: `url(${require(`../assets/SV-E-4S01-1/header.png`).default})`,
+    backgroundImage: `url(${require(`../assets/SV-E-4S01-1.png`).default})`,
   }
 
   return (

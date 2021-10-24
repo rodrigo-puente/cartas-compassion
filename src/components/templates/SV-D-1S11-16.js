@@ -48,8 +48,6 @@ function SVD1S1116Template({ id }) {
       return;
     }
 
-    console.dir(form);
-
     const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
     sendInsert([JSON.stringify(data), id]).then((response) => {
@@ -81,7 +79,7 @@ function SVD1S1116Template({ id }) {
           </table>
         </div>
         <div className="col-sm-12 col-md-4">
-          <label htmlFor="field-1-7" className="mb-2 me-2">Otro:</label>
+          <label htmlFor="field-1-7" className="mb-2 me-2">Otro</label>
           <input type="text" onChange={handleInputChange(form, setForm)} id="field-1-7" name="field-1-7" className="form-control d-inline w-auto" maxLength="20" />
           <br/><small>Máximo de caracteres {form["field-1-7"]?.length}/20</small>
         </div>
@@ -102,13 +100,13 @@ function SVD1S1116Template({ id }) {
           </table>
         </div>
         <div className="col-sm-12 col-md-4">
-          <label htmlFor="field-2-6" className="mb-2 me-2">Otro:</label>
+          <label htmlFor="field-2-6" className="mb-2 me-2">Otro</label>
           <input type="text" onChange={handleInputChange(form, setForm)} id="field-2-6" name="field-2-6" className="form-control d-inline w-auto" maxLength="20" />
           <br/><small>Máximo de caracteres {form["field-2-6"]?.length}/20</small>
         </div>
       </div>
       <div className="form-group">
-        <label className="mb-2">3. Mis versículos favoritos de la biblia son:</label> 
+        <label className="mb-2">3. Mis versículos favoritos de la biblia son</label> 
         <div className="row">
           <div className="col-sm-12 col-md-6 mb-4">
             <label htmlFor="field-3-1" className="mb-2">Antiguo testamento</label><br/>
@@ -138,7 +136,7 @@ function SVD1S1116Template({ id }) {
           </table>
         </div>
         <div className="col-sm-12 col-md-4">
-          <label htmlFor="field-4-6" className="mb-2 me-2">Otro:</label>
+          <label htmlFor="field-4-6" className="mb-2 me-2">Otro</label>
           <input type="text" onChange={handleInputChange(form, setForm)} id="field-4-6" name="field-4-6" className="form-control d-inline w-auto" maxLength="20" />
           <br/><small>Máximo de caracteres {form["field-4-6"]?.length}/20</small>
         </div>
