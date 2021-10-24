@@ -38,7 +38,7 @@ function SVC1S114Template({ id }) {
         })
       }
     }
-    
+
     getData();
   }, [id]);
 
@@ -49,9 +49,10 @@ function SVC1S114Template({ id }) {
     }
 
     const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
+    console.dir(data);
 
     sendInsert([JSON.stringify(data), id]).then((response) => {
-      return generatePDF(carta, data, "SV-D-1S11-16");
+      return generatePDF(carta, data, "SV-C-1S11-4");
     }).then((response) => {
       response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
       setDisabled(false);
@@ -95,19 +96,19 @@ function SVC1S114Template({ id }) {
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-4" className="mb-2 me-2">4. En la iglesia me gusta (escuchar historias bíblicas, jugar con amigos, jugar juegos)</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="20" />
-          <small>Máximo de caracteres {form["field-4"]?.length}/20</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="50" />
+          <small>Máximo de caracteres {form["field-4"]?.length}/50</small>
         </div>
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-5" className="mb-2 me-2">5. Mi mejor amigo/amiga se llama</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" className="form-control" maxLength="20" />
-          <small>Máximo de caracteres {form["field-5"]?.length}/20</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" className="form-control" maxLength="35" />
+          <small>Máximo de caracteres {form["field-5"]?.length}/35</small>
         </div>
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-6" className="mb-2">6. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="480" required></textarea>
-        <small>Máximo de caracteres {form["field-6"]?.length}/480</small>
+        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="520" required></textarea>
+        <small>Máximo de caracteres {form["field-6"]?.length}/520</small>
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-6 form-group mb-4">
@@ -116,8 +117,8 @@ function SVC1S114Template({ id }) {
         </div>
         <div className="col-sm-12 col-md-6 form-group mb-4">
           <label htmlFor="field-7" className="mb-2 me-2">Nombre y parentesco con quien escribe la carta</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-7" name="field-7" className="form-control" maxLength="20" />
-          <small>Máximo de caracteres {form["field-7"]?.length}/20</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-7" name="field-7" className="form-control" maxLength="45" />
+          <small>Máximo de caracteres {form["field-7"]?.length}/45</small>
         </div>
       </div>
 

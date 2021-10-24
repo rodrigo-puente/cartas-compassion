@@ -88,7 +88,7 @@ function fillVineta(user) {
 async function pdfGenerator(vineta, user, data, template){
   return new Promise((resolve) => {
     // Crear el documento en tamaño A4 
-    const doc = new PDFDocument({size: 'A4', autoFirstPage: false});
+    const doc = new PDFDocument({size: 'A4', autoFirstPage: false, margins: { bottom: 0 }});
 
     const pdfStream = fs.createWriteStream(`${data.route}/${vineta.pdfName}`)
     pdfStream.on('finish', function() {
