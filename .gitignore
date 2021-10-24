@@ -29,6 +29,5 @@ barcode.png
 qrcode.png
 prueba.xlsx
 
-cartas.sqlite
-public/cartas.sqlite
+*.sqlite
 /dist

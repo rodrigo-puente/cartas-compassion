@@ -2,7 +2,15 @@
   padding: 10px 10px;
   color: white;
 
-  strong {
+  strong, td {
     color: #ffc500;
+  }
+
+  th {
+    color: white;
+  }
+
+  .table, td, th, thead, tbody {
+    border: 1px solid white;
   }
 }

@@ -14,7 +14,7 @@ function addText(doc, text, content){
 }
 
 function addCheckbox(doc, img, content) {
-  doc.image(img, content.x, content.y, content.config);
+  doc.image(img, content.x, content.y, { width: 8, height: 8 });
 }
 
 function addImage(doc, value, content) {

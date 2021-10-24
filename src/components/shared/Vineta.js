@@ -3,7 +3,6 @@ import { sendAsync } from '../../message-control/renderer';
 import '../../styles/_vineta.scss';
 
 function Vineta({ id }) {
-  const spanStyle = { paddingRight: '20px' };
   const [vineta, setVineta] = useState({});
 
   useEffect(() => {
@@ -18,26 +17,60 @@ function Vineta({ id }) {
   return (
     <div className="row" id="vineta">
       <div className="col-sm-12 text-center mb-3">
-        <p>
-          <span style={spanStyle}><strong>Beneficiario:</strong> {vineta.beneficiario_preferido}</span>
-          <span style={spanStyle}><strong>Código:</strong> {vineta.beneficiario_id}</span>
-          <span style={spanStyle}><strong>Edad:</strong> {vineta.beneficiario_edad}</span>
-          <span style={spanStyle}><strong>Sexo:</strong> {vineta.beneficiario_sexo}</span>
-        </p>
-        <p>
-          <span style={spanStyle}><strong>Patrocinador:</strong> {vineta.supporter_favorito}</span>
-          <span style={spanStyle}><strong>Sexo:</strong> {vineta.supporter_sexo || "n/a"}</span>
-          <span style={spanStyle}><strong>País:</strong> {vineta.supporter_country || "n/a"}</span>
-        </p>
-        <p>
-          <span style={spanStyle}><strong>C0:</strong> {vineta.comunicacion_id_global}</span>
-        </p>
+        
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Beneficiario</th>
+              <th scope="col">Código</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Sexo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{vineta.beneficiario_preferido}</td>
+              <td>{vineta.beneficiario_id}</td>
+              <td>{vineta.beneficiario_edad}</td>
+              <td>{vineta.beneficiario_sexo}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Patrocinador</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">País</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{vineta.supporter_favorito}</td>
+              <td>{vineta.supporter_sexo || "n/a"}</td>
+              <td>{vineta.supporter_country || "n/a"}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">C0</th>
+              <th scope="col">Tipo de comunicación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{vineta.comunicacion_id_global}</td>
+              <td>{vineta.comunicacion_tipo}</td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
-      <div className="col-sm-6 text-center mb-3">
-          Tipo de comunicación:<br/>
-          <strong>{vineta.comunicacion_tipo}</strong>
-      </div>
-      <div className="col-sm-6 text-center mb-5">
+      <div className="col-sm-12 text-center mb-5">
         Preguntas:<br/>
         <strong>{vineta.preguntas}</strong>
       </div>
