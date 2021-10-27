@@ -97,15 +97,14 @@ async function pdfGenerator(vineta, user, data, template){
     });
 
     const vinetaConfig = require(`./configs/${template}.config`);
-    const page1 = vinetaConfig.page1;
-    const page2 = vinetaConfig.page2;
     const font = path.join(assetPath, 'roboto-italic.ttf');
     const checkIMG = doc.openImage(path.join(assetPath, 'check.png'));
 
     doc.fontSize(10);
     doc.font(font);
 
-    [page1, page2].forEach((i, idx) => {
+    Object.keys(vinetaConfig).forEach((key, idx) => {
+      let i = vinetaConfig[key]
       const bg = doc.openImage(path.join(assetPath, user.id_plantilla, i.bg));
 
       doc.addPage();
@@ -117,8 +116,11 @@ async function pdfGenerator(vineta, user, data, template){
         doc.font(font);
         doc.fontSize(8);
       }
+      console.log("header");
 
       const content = i.items
+      console.log(content);
+      if (content === {}) return;
       Object.keys(content).forEach((key) => {
         let field = content[key]
         if(field.checkbox){
