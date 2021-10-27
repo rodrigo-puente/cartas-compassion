@@ -59,8 +59,8 @@ function SVE4S011Template({ id }) {
     <form onSubmit={(e)=> {e.preventDefault(); handleSubmit()}}>
       <div className="form-group mb-3">
         <label htmlFor="field-1" className="mb-2">1. Escribe algo especial o agradecimiento</label> 
-        <textarea onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" cols="40" rows="10" className="form-control" maxLength="1850" required></textarea>
-        <small>Máximo de caracteres {form["field-1"]?.length}/1850</small>
+        <textarea onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" cols="40" rows="10" className="form-control" maxLength="2500" required></textarea>
+        <small>Máximo de caracteres {form["field-1"]?.length}/2500</small>
       </div>
       <div className="form-group mb-3">
         <label htmlFor="img" className="mb-2">2. Adjunta un dibujo</label><br/>

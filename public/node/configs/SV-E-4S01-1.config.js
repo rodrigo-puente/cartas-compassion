@@ -4,9 +4,9 @@ const config = {
     items: {
       "field-1": {
         x: 45,
-        y: 210,
+        y: 212,
         width: 500,
-        lineGap: 8,
+        lineGap: 10,
       },
       "fecha": {
         x: 450,

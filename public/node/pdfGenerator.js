@@ -7,6 +7,7 @@ const path = require("path");
 const assetPath = path.join(__dirname, '..', 'node', 'assets');
 
 function addText(doc, text, content){
+  if (text === undefined) return;
   doc.text(text.replaceAll(/\n|\r/g, ""), content.x, content.y, {
     width: content.width || null,
     lineGap: content.lineGap || 8,

@@ -107,8 +107,8 @@ function SVC1S114Template({ id }) {
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-6" className="mb-2">6. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="600" required></textarea>
-        <small>Máximo de caracteres {form["field-6"]?.length}/600</small>
+        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="650" required></textarea>
+        <small>Máximo de caracteres {form["field-6"]?.length}/650</small>
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-6 form-group mb-4">

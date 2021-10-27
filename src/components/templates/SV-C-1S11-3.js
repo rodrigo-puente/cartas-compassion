@@ -65,38 +65,38 @@ function SVC1S113Template({ id }) {
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-1" className="mb-2 me-2">1. Mi comida favorita es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" className="form-control" maxLength="60" />
-          <small>Máximo de caracteres {form["field-1"]?.length}/60</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" className="form-control" maxLength="70" />
+          <small>Máximo de caracteres {form["field-1"]?.length}/70</small>
         </div>
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-2" className="mb-2 me-2">2. Mi color favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-2" name="field-2" className="form-control" maxLength="60" />
-          <small>Máximo de caracteres {form["field-2"]?.length}/60</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-2" name="field-2" className="form-control" maxLength="70" />
+          <small>Máximo de caracteres {form["field-2"]?.length}/70</small>
         </div>
       </div>
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-3" className="mb-2 me-2">3. Mi amigo favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-3" name="field-3" className="form-control" maxLength="50" />
-          <small>Máximo de caracteres {form["field-3"]?.length}/50</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-3" name="field-3" className="form-control" maxLength="60" />
+          <small>Máximo de caracteres {form["field-3"]?.length}/60</small>
         </div>
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-4" className="mb-2 me-2">4. Mi animal favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="30" />
-          <small>Máximo de caracteres {form["field-4"]?.length}/30</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="40" />
+          <small>Máximo de caracteres {form["field-4"]?.length}/40</small>
         </div>
       </div>
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-5" className="mb-2 me-2">5. Mi cuento favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" className="form-control" maxLength="40" />
-          <small>Máximo de caracteres {form["field-5"]?.length}/40</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" className="form-control" maxLength="52" />
+          <small>Máximo de caracteres {form["field-5"]?.length}/52</small>
         </div>
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-6" className="mb-2">6. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="480" required></textarea>
-        <small>Máximo de caracteres {form["field-6"]?.length}/480</small>
+        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="660" required></textarea>
+        <small>Máximo de caracteres {form["field-6"]?.length}/660</small>
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-6 form-group mb-4">
