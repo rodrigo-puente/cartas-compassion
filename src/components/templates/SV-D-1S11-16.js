@@ -110,13 +110,13 @@ function SVD1S1116Template({ id }) {
         <div className="row">
           <div className="col-sm-12 col-md-6 mb-4">
             <label htmlFor="field-3-1" className="mb-2">Antiguo testamento</label><br/>
-            <textarea onChange={handleInputChange(form, setForm)} id="field-3-1" name="field-3-1" cols="30" rows="3" className="form-control" maxLength="120"></textarea>
-            <small>Máximo de caracteres {form["field-3-1"]?.length}/120</small>
+            <textarea onChange={handleInputChange(form, setForm)} id="field-3-1" name="field-3-1" cols="30" rows="3" className="form-control" maxLength="140"></textarea>
+            <small>Máximo de caracteres {form["field-3-1"]?.length}/140</small>
           </div>
           <div className="col-sm-12 col-md-6 mb-4">
             <label htmlFor="field-3-2" className="mb-2">Nuevo testamento</label><br/>
-            <textarea onChange={handleInputChange(form, setForm)} id="field-3-2" name="field-3-2" cols="30" rows="3" className="form-control" maxLength="100" required></textarea>
-            <small>Máximo de caracteres {form["field-3-2"]?.length}/100</small>
+            <textarea onChange={handleInputChange(form, setForm)} id="field-3-2" name="field-3-2" cols="30" rows="3" className="form-control" maxLength="120" required></textarea>
+            <small>Máximo de caracteres {form["field-3-2"]?.length}/120</small>
           </div>
         </div>
       </div>
@@ -143,8 +143,8 @@ function SVD1S1116Template({ id }) {
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-5" className="mb-2">5. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" cols="30" rows="3" className="form-control" maxLength="480" required></textarea>
-        <small>Máximo de caracteres {form["field-5"]?.length}/480</small>
+        <textarea onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" cols="30" rows="3" className="form-control" maxLength="640" required></textarea>
+        <small>Máximo de caracteres {form["field-5"]?.length}/640</small>
       </div>
       <div className="form-group mb-4">
         <label htmlFor="img" className="mb-2">6. Adjunta un dibujo</label><br/>

@@ -96,8 +96,8 @@ function SVC1S114Template({ id }) {
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-4" className="mb-2 me-2">4. En la iglesia me gusta (escuchar historias bíblicas, jugar con amigos, jugar juegos)</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="50" />
-          <small>Máximo de caracteres {form["field-4"]?.length}/50</small>
+          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="65" />
+          <small>Máximo de caracteres {form["field-4"]?.length}/65</small>
         </div>
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-5" className="mb-2 me-2">5. Mi mejor amigo/amiga se llama</label>
@@ -107,8 +107,8 @@ function SVC1S114Template({ id }) {
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-6" className="mb-2">6. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="520" required></textarea>
-        <small>Máximo de caracteres {form["field-6"]?.length}/520</small>
+        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="600" required></textarea>
+        <small>Máximo de caracteres {form["field-6"]?.length}/600</small>
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-6 form-group mb-4">

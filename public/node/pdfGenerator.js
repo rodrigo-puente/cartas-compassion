@@ -7,7 +7,7 @@ const path = require("path");
 const assetPath = path.join(__dirname, '..', 'node', 'assets');
 
 function addText(doc, text, content){
-  doc.text(text, content.x, content.y, {
+  doc.text(text.replaceAll(/\n|\r/g, ""), content.x, content.y, {
     width: content.width || null,
     lineGap: content.lineGap || 8,
   })
@@ -114,7 +114,7 @@ async function pdfGenerator(vineta, user, data, template){
         doc.font('Times-Roman');
         generateHeader(doc, vineta);
         doc.font(font);
-        doc.fontSize(10);
+        doc.fontSize(8);
       }
 
       const content = i.items

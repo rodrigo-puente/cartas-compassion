@@ -23,7 +23,7 @@ function Table({ state }) {
           <thead>
             <tr>
               <th>Acciones</th>
-              <th className="text-center" scope="col">ID Template</th>
+              <th className="text-center" scope="col">Tipo de comunicación</th>
               <th className="text-center" scope="col">Proyecto</th>
               <th className="text-center" scope="col">Código</th>
               <th className="text-center" scope="col">Beneficiario nombre preferido</th>
@@ -40,7 +40,7 @@ function Table({ state }) {
               cartas.map((x) => 
                 <tr key={x.id}>
                   <td><Link to={`/template/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
-                  <td>{x.id_plantilla}</td>
+                  <td>{x.comunicacion_tipo}</td>
                   <td>{x.beneficiario_iglesia}</td>
                   <td>{x.beneficiario_id}</td>
                   <td>{x.beneficiario_preferido}</td>

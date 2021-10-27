@@ -4,13 +4,13 @@ const config = {
     items: {
       "field-1": {
         x: 60,
-        y: 250,
+        y: 255,
         width: 235,
         lineGap: 4,
       },
       "field-2": {
         x: 60,
-        y: 330,
+        y: 335,
         width: 235,
         lineGap: 4,
       },
@@ -51,19 +51,19 @@ const config = {
       },
       "field-4": {
         x: 377,
-        y: 337,
+        y: 340,
         width: 175,
         lineGap: 8,
       },
       "field-5": {
-        x: 315,
+        x: 320,
         y: 484,
         width: 200,
-        lineGap: 4,
+        lineGap: 6,
       },
       "fecha": {
         x: 450,
-        y: 170,
+        y: 173,
         width: 220,
         lineGap: 11,
       }
@@ -74,9 +74,9 @@ const config = {
     items: {
       "field-6": {
         x: 50,
-        y: 58,
+        y: 60,
         width: 490,
-        lineGap: 6,
+        lineGap: 8,
       },
       "img": {
         image: true,
@@ -88,7 +88,7 @@ const config = {
         },
       },
       "field-7": {
-        x: 212,
+        x: 215,
         y: 770,
         width: 320,
         lineGap: 6,

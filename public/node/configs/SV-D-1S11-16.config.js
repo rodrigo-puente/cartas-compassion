@@ -71,15 +71,15 @@ const config = {
       },
       "field-3-1": {
         x: 55,
-        y: 592,
+        y: 595,
         width: 235,
-        lineGap: 4,
+        lineGap: 6,
       },
       "field-3-2": {
         x: 55,
-        y: 680,
+        y: 682,
         width: 185,
-        lineGap: 4,
+        lineGap: 6,
       },
       "field-4-1": {
         checkbox: true,
@@ -125,9 +125,9 @@ const config = {
     items: {
       "field-5": {
         x: 50,
-        y: 60,
+        y: 62,
         width: 500,
-        lineGap: 5,
+        lineGap: 8,
       },
       "field-6": {
         checkbox: true,
