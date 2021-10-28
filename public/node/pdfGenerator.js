@@ -11,6 +11,7 @@ function addText(doc, text, content){
   doc.text(text.replaceAll(/(\r\n|\n|\r)/gm, ""), content.x, content.y, {
     width: content.width || null,
     lineGap: content.lineGap || 8,
+    lineBreak: false
   })
 }
 
