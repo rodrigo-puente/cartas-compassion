@@ -1,9 +1,10 @@
 import { selectFile, selectDir } from '../message-control/renderer';
 
 export const handleInputChange = (form, setForm) => (event) => {
+  console.log(event.target.type);
   setForm({
     ...form,
-    [event.target.name]: event.target.value
+    [event.target.name]: event.target.type === "checkbox" ? event.target.checked : event.target.value
   })
 }
 

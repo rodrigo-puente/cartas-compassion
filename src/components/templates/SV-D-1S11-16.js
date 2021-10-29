@@ -21,15 +21,15 @@ function SVD1S1116Template({ id }) {
       if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
         const newform = JSON.parse(result[0].formulario);
         setForm(newform);
-        console.dir(newform);
 
         const skipKeys = ["fecha", "imgs", "img", "route"];
         Object.keys(newform).forEach((key) => {
           if (skipKeys.includes(key)) return;
           try {
             const val = newform[key];
-            if(["on", "off"].includes(val)) {
-              document.getElementById(key).checked = val === "on" ? "checked" : "" ;
+            console.log(val);
+            if([true, false].includes(val)) {
+              document.getElementById(key).checked = val;
             } else {
               document.getElementById(key).value = val;
             }
@@ -52,7 +52,6 @@ function SVD1S1116Template({ id }) {
     const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
     console.dir(data);
-
     sendInsert([JSON.stringify(data), id]).then((response) => {
       return generatePDF(carta, data, "SV-D-1S11-16");
     }).then((response) => {
