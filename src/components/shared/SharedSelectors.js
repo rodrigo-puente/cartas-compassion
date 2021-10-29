@@ -1,5 +1,5 @@
 import React from "react";
-import { handleImgsMsg, handleImgsImg, handleDir } from '../../lib/fileInteractions';
+import { handleImgsMsg, handleImgsImg, handleDir, cleanImgs } from '../../lib/fileInteractions';
 
 function SharedSelectors({ imgs, setImgs, route, setRoute }) {
 
@@ -17,6 +17,7 @@ function SharedSelectors({ imgs, setImgs, route, setRoute }) {
                     <input type="text" onClick={handleImgsImg(idx, imgs, setImgs)} value={item.img} id={`imgs[${idx}][img]`} name={`imgs[${idx}][img]`} className="form-control mb-3" readOnly />
                     <label htmlFor={`imgs[${idx}][copy]`} className="mb-2">Agrega un texto a la imagen</label> 
                     <input type="text" onChange={handleImgsMsg(idx, imgs, setImgs)} value={item.msg} id={`imgs[${idx}][msg]`} name={`imgs[${idx}][msg]`} className="form-control" />
+                    <button onClick={cleanImgs(idx, imgs, setImgs)} type="button" className="btn btn-link text-white">Limpiar</button>
                   </div>
                 </div>
               </div>

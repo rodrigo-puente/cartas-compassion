@@ -8,14 +8,14 @@ const assetPath = path.join(__dirname, '..', 'node', 'assets');
 
 function addText(doc, text, content){
   if (text === undefined) return;
-  doc.text(text.replaceAll(/(\r\n|\n|\r)/gm, ""), content.x, content.y, {
+  doc.text(text.replaceAll(/\r?\n|\r/g, " "), content.x, content.y, {
     width: content.width || null,
-    lineGap: content.lineGap || 8,
-    lineBreak: false
-  })
+    lineGap: content.lineGap || 8  
+  });
 }
 
-function addCheckbox(doc, img, content) {
+function addCheckbox(doc, value, content, img) {
+  if (value != "on") return;
   doc.image(img, content.x, content.y, { width: 8, height: 8 });
 }
 
@@ -105,8 +105,11 @@ async function pdfGenerator(vineta, user, data, template){
     doc.font(font);
 
     Object.keys(vinetaConfig).forEach((key, idx) => {
-      let i = vinetaConfig[key]
+      const i = vinetaConfig[key]
       const bg = doc.openImage(path.join(assetPath, user.id_plantilla, i.bg));
+      const content = i.items;
+
+      if (content === {}) return;
 
       doc.addPage();
       doc.image(bg, 0, 0, { width: doc.page.width, height: doc.page.height });
@@ -117,15 +120,11 @@ async function pdfGenerator(vineta, user, data, template){
         doc.font(font);
         doc.fontSize(8);
       }
-      console.log("header");
-
-      const content = i.items
-      console.log(content);
-      if (content === {}) return;
+    
       Object.keys(content).forEach((key) => {
         let field = content[key]
         if(field.checkbox){
-          addCheckbox(doc, checkIMG, field);
+          addCheckbox(doc, data[key], field, checkIMG);
         } else if(field.image) {
           addImage(doc, data[key], field);
         } else {
@@ -135,6 +134,7 @@ async function pdfGenerator(vineta, user, data, template){
     });
 
     const imgs = data["imgs"].filter((x) => x.img !== "");
+
     // Si adjuntó imágenes las ponemos en la tercera página
     if (imgs.length) {
       const sizes = {
@@ -143,16 +143,26 @@ async function pdfGenerator(vineta, user, data, template){
         3: 200,
         4: 150,
       }
-      doc.addPage();
-      imgs.forEach((i, idx)=> {
-        if (i.img === "") return;
+      const size = sizes[imgs.length];
 
-        const img = doc.openImage(i.img);
-        doc.image(img, {
-          fit: [500, sizes[imgs.length] || 120], 
-          align: 'center'
-        }).text(i.msg, {align: 'center'});
-      });
+      doc.addPage();
+
+      try {
+        imgs.forEach((i, idx) => {
+          let y = 50 + ((size + 40) * idx);
+          const img = doc.openImage(i.img);
+          doc.image(img, 50, y, {
+            fit: [500, size], 
+            align: 'center',
+            valign: 'center',
+          });
+          
+          y = y + size + 20;
+          doc.text(i.msg, 100, y);
+        });
+      } catch(err) { 
+        console.dir(err);
+      }
     }
 
     doc.pipe(pdfStream);

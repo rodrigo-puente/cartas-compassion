@@ -21,6 +21,7 @@ function SVD1S1116Template({ id }) {
       if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
         const newform = JSON.parse(result[0].formulario);
         setForm(newform);
+        console.dir(newform);
 
         const skipKeys = ["fecha", "imgs", "img", "route"];
         Object.keys(newform).forEach((key) => {
@@ -49,6 +50,8 @@ function SVD1S1116Template({ id }) {
     }
 
     const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
+
+    console.dir(data);
 
     sendInsert([JSON.stringify(data), id]).then((response) => {
       return generatePDF(carta, data, "SV-D-1S11-16");

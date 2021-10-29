@@ -13,6 +13,12 @@ export const handleImgsMsg = (idx, imgs, setImgs) => (e) => {
   setImgs(newArr);
 }
 
+export const cleanImgs = (idx, imgs, setImgs) => (e) => {
+  let newArr = [...imgs];
+  newArr[idx] = {img: "", msg: ""};
+  setImgs(newArr);
+}
+
 export const handleImgsImg = (idx, imgs, setImgs) => async (e) => {
   let newArr = [...imgs];
   const result = await selectFile();
