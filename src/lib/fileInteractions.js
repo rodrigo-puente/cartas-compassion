@@ -66,6 +66,7 @@ export const getData = async (id, config, setCarta, setForm) => {
 }
 
 export const handleSubmit = (id, templateID, carta, form, route, img, imgs, setDisabled) => (e) => {
+  e.preventDefault();
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
     return;
