@@ -1,6 +1,6 @@
 {
   "name": "cartas_compassion",
-  "version": "0.1.14",
+  "version": "0.2.0",
   "description": "Aplicación para generación de cartas dentro de Compassion",
   "private": true,
   "main": "public/electron.js",
@@ -65,9 +65,10 @@
     "react-eject": "react-app-rewired eject",
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
-    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\"",
-    "release": "yarn react-build && electron-builder --publish=always",
-    "build": "yarn react-build && yarn electron-builder -p never"
+    "start": "yarn copy-config && concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\"",
+    "release": "yarn copy-config && yarn react-build && electron-builder --publish=always",
+    "build": "yarn copy-config && yarn react-build && yarn electron-builder -p never",
+    "copy-config": "copyfiles -u 3 public/node/configs/*js src/configs"
   },
   "eslintConfig": {
     "extends": [
@@ -89,6 +90,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.3.0",
+    "copyfiles": "^2.4.1",
     "electron": "^15.1.0",
     "electron-builder": "^22.11.7",
     "electron-devtools-installer": "^3.2.0",

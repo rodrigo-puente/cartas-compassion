@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import moment from 'moment';
-import { sendAsync, sendInsert, generatePDF } from '../../message-control/renderer';
-import { handleImg, handleInputChange } from '../../lib/fileInteractions';
-import { CARD_STATES, CARDS_SIN_COMENZAR } from '../../lib/constants';
+import React, { useState, useEffect, useMemo } from "react";
+import { handleImg, handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
+import TextArea from "../shared/TextArea";
+import templateConfig from "../../configs/SV-E-4S01-1.config";
 
 function SVE4S011Template({ id }) {
+  const TEMPLATE_ID = "SV-E-4S01-1";
+  const CONFIG = useMemo(() => { return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }}, []);
   const [route, setRoute] = useState("");
   const [img, setImg] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
@@ -14,53 +15,14 @@ function SVE4S011Template({ id }) {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    async function getData() {
-      const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
-      setCarta(result[0]);
-
-      if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
-        const newform = JSON.parse(result[0].formulario);
-        setForm(newform);
-
-        const skipKeys = ["fecha", "imgs", "img", "route"];
-        Object.keys(newform).forEach((key) => {
-          if (skipKeys.includes(key)) return;
-          try {
-            document.getElementById(key).value = newform[key];
-          } catch(err) {
-            console.log("Propiedad no existe: ", key);
-          }
-        })
-      }
-    }
-    
-    getData();
-  }, [id]);
-
-  function handleSubmit() {
-    if (!route.length) {
-      alert("Debes elegir dónde quieres guardar el archivo");
-      return;
-    }
-
-    const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
-
-    sendInsert([JSON.stringify(data), id]).then((response) => {
-      return generatePDF(carta, data, "SV-E-4S01-1");
-    }).then((response) => {
-      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-      setDisabled(false);
-    }).catch((err) => {
-      setDisabled(false);
-    });
-  }
+    getData(id, CONFIG, setCarta, setForm);
+  }, [id, CONFIG]);
 
   return (
-    <form onSubmit={(e)=> {e.preventDefault(); handleSubmit()}}>
+    <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)}>
       <div className="form-group mb-3">
         <label htmlFor="field-1" className="mb-2">1. Escribe algo especial o agradecimiento</label> 
-        <textarea onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" cols="40" rows="10" className="form-control" maxLength="2500" required></textarea>
-        <small>Máximo de caracteres {form["field-1"]?.length}/2500</small>
+        <TextArea id="field-1" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="img" className="mb-2">2. Adjunta un dibujo</label><br/>
@@ -69,7 +31,7 @@ function SVE4S011Template({ id }) {
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />
       <div className="form-group mb-3 text-center">
-        <button name="submit" type="submit" onSubmit={(e)=> {e.preventDefault(); handleSubmit()}} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
+        <button name="submit" type="submit" onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
       </div>
     </form>
   );

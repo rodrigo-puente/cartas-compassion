@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import moment from 'moment';
-import { sendAsync, sendInsert, generatePDF } from '../../message-control/renderer';
-import { handleImg, handleInputChange } from '../../lib/fileInteractions';
-import { CARD_STATES, CARDS_SIN_COMENZAR } from '../../lib/constants';
+import React, { useState, useEffect, useMemo } from "react";
+import { handleImg, handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
+import Input from "../shared/Input";
+import TextArea from "../shared/TextArea";
+import templateConfig from "../../configs/SV-C-1S11-3.config";
 
 function SVC1S113Template({ id }) {
+  const TEMPLATE_ID = "SV-C-1S11-3";
+  const CONFIG = useMemo(() => { return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }}, []);
   const [route, setRoute] = useState("");
   const [img, setImg] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
@@ -14,89 +16,40 @@ function SVC1S113Template({ id }) {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    async function getData() {
-      const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
-      setCarta(result[0]);
-
-      if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
-        const newform = JSON.parse(result[0].formulario);
-        setForm(newform);
-
-        const skipKeys = ["fecha", "imgs", "img", "route"];
-        Object.keys(newform).forEach((key) => {
-          if (skipKeys.includes(key)) return;
-          try {
-            const val = newform[key];
-            if(["on", "off"].includes(val)) {
-              document.getElementById(key).checked = val === "on" ? "checked" : "" ;
-            } else {
-              document.getElementById(key).value = val;
-            }
-          } catch(err) {
-            console.log("Propiedad no existe: ", key);
-          }
-        })
-      }
-    }
-    
-    getData();
-  }, [id]);
-
-  function handleSubmit() {
-    if (!route.length) {
-      alert("Debes elegir dónde quieres guardar el archivo");
-      return;
-    }
-
-    const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
-
-    sendInsert([JSON.stringify(data), id]).then((response) => {
-      return generatePDF(carta, data, "SV-C-1S11-3");
-    }).then((response) => {
-      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-      setDisabled(false);
-    }).catch((err) => {
-      setDisabled(false);
-    });
-  }
+    getData(id, CONFIG, setCarta, setForm);
+  }, [id, CONFIG]);
 
   return (
-    <form onSubmit={(e)=> {e.preventDefault(); handleSubmit()}}>
+    <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)}>
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-1" className="mb-2 me-2">1. Mi comida favorita es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-1" name="field-1" className="form-control" maxLength="70" />
-          <small>Máximo de caracteres {form["field-1"]?.length}/70</small>
+          <Input id="field-1" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-2" className="mb-2 me-2">2. Mi color favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-2" name="field-2" className="form-control" maxLength="70" />
-          <small>Máximo de caracteres {form["field-2"]?.length}/70</small>
+          <Input id="field-2" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-3" className="mb-2 me-2">3. Mi amigo favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-3" name="field-3" className="form-control" maxLength="60" />
-          <small>Máximo de caracteres {form["field-3"]?.length}/60</small>
+          <Input id="field-3" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-4" className="mb-2 me-2">4. Mi animal favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4" name="field-4" className="form-control" maxLength="40" />
-          <small>Máximo de caracteres {form["field-4"]?.length}/40</small>
+          <Input id="field-4" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <div className="row">
         <div className="col-sm-6 form-group mb-4">
           <label htmlFor="field-5" className="mb-2 me-2">5. Mi cuento favorito es</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" className="form-control" maxLength="52" />
-          <small>Máximo de caracteres {form["field-5"]?.length}/52</small>
+          <Input id="field-5" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-6" className="mb-2">6. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" cols="30" rows="3" className="form-control" maxLength="660" required></textarea>
-        <small>Máximo de caracteres {form["field-6"]?.length}/660</small>
+        <TextArea id="field-6" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-6 form-group mb-4">
@@ -105,14 +58,13 @@ function SVC1S113Template({ id }) {
         </div>
         <div className="col-sm-12 col-md-6 form-group mb-4">
           <label htmlFor="field-7" className="mb-2 me-2">Nombre y parentesco con quien escribe la carta</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-7" name="field-7" className="form-control" maxLength="20" />
-          <small>Máximo de caracteres {form["field-7"]?.length}/20</small>
+          <Input id="field-7" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />
       <div className="form-group mb-4 text-center">
-        <button name="submit" type="submit" onSubmit={(e)=> {e.preventDefault(); handleSubmit()}} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
+        <button name="submit" type="submit" onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
       </div>
     </form>
   );

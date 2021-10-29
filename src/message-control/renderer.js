@@ -23,6 +23,7 @@ export function sendAsync(sql) {
 }
 
 export function sendInsert(datos) {
+  console.log(datos);
   const sql = "UPDATE cartas SET formulario = ?, estado = 'Impreso y enviado a la ICP' WHERE id = ?";
   return new Promise((resolve) => {
     ipcRenderer.once('insert-result', (_, arg) => {

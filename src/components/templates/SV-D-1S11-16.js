@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import moment from 'moment';
-import { sendAsync, sendInsert, generatePDF } from '../../message-control/renderer';
-import { handleImg, handleInputChange } from '../../lib/fileInteractions';
-import { CARD_STATES, CARDS_SIN_COMENZAR } from '../../lib/constants';
+import React, { useState, useEffect, useMemo } from "react";
+import { handleImg, handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
+import Input from "../shared/Input";
+import TextArea from "../shared/TextArea";
+import templateConfig from "../../configs/SV-D-1S11-16.config";
 
 function SVD1S1116Template({ id }) {
+  const TEMPLATE_ID = "SV-D-1S11-16";
+  const CONFIG = useMemo(() => { return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }}, []);
   const [route, setRoute] = useState("");
   const [img, setImg] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
@@ -14,54 +16,11 @@ function SVD1S1116Template({ id }) {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    async function getData() {
-      const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
-      setCarta(result[0]);
-
-      if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
-        const newform = JSON.parse(result[0].formulario);
-        setForm(newform);
-
-        const skipKeys = ["fecha", "imgs", "img", "route"];
-        Object.keys(newform).forEach((key) => {
-          if (skipKeys.includes(key)) return;
-          try {
-            const val = newform[key];
-            if([true, false].includes(val)) {
-              document.getElementById(key).checked = val;
-            } else {
-              document.getElementById(key).value = val;
-            }
-          } catch(err) {
-            console.log("Propiedad no existe: ", key);
-          }
-        })
-      }
-    }
-    
-    getData();
-  }, [id]);
-
-  function handleSubmit() {
-    if (!route.length) {
-      alert("Debes elegir dónde quieres guardar el archivo");
-      return;
-    }
-
-    const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
-
-    sendInsert([JSON.stringify(data), id]).then((response) => {
-      return generatePDF(carta, data, "SV-D-1S11-16");
-    }).then((response) => {
-      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-      setDisabled(false);
-    }).catch((err) => {
-      setDisabled(false);
-    });
-  }
+    getData(id, CONFIG, setCarta, setForm);
+  }, [id, CONFIG]);
 
   return (
-    <form onSubmit={(e)=> {e.preventDefault(); handleSubmit()}}>
+    <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)}>
       <div className="form-group mb-4">
         <label className="mb-2">1. Mi comida favorita es</label> 
         <div className="table-responsive">
@@ -80,8 +39,7 @@ function SVD1S1116Template({ id }) {
         </div>
         <div className="col-sm-12 col-md-4">
           <label htmlFor="field-1-7" className="mb-2 me-2">Otro</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-1-7" name="field-1-7" className="form-control d-inline w-auto" maxLength="20" />
-          <br/><small>Máximo de caracteres {form["field-1-7"]?.length}/20</small>
+          <Input id="field-1-7" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <div className="form-group mb-4">
@@ -101,8 +59,7 @@ function SVD1S1116Template({ id }) {
         </div>
         <div className="col-sm-12 col-md-4">
           <label htmlFor="field-2-6" className="mb-2 me-2">Otro</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-2-6" name="field-2-6" className="form-control d-inline w-auto" maxLength="20" />
-          <br/><small>Máximo de caracteres {form["field-2-6"]?.length}/20</small>
+          <Input id="field-2-6" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <div className="form-group">
@@ -110,13 +67,11 @@ function SVD1S1116Template({ id }) {
         <div className="row">
           <div className="col-sm-12 col-md-6 mb-4">
             <label htmlFor="field-3-1" className="mb-2">Antiguo testamento</label><br/>
-            <textarea onChange={handleInputChange(form, setForm)} id="field-3-1" name="field-3-1" cols="30" rows="3" className="form-control" maxLength="140"></textarea>
-            <small>Máximo de caracteres {form["field-3-1"]?.length}/140</small>
+            <TextArea id="field-3-1" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
           </div>
           <div className="col-sm-12 col-md-6 mb-4">
             <label htmlFor="field-3-2" className="mb-2">Nuevo testamento</label><br/>
-            <textarea onChange={handleInputChange(form, setForm)} id="field-3-2" name="field-3-2" cols="30" rows="3" className="form-control" maxLength="120" required></textarea>
-            <small>Máximo de caracteres {form["field-3-2"]?.length}/120</small>
+            <TextArea id="field-3-2" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
           </div>
         </div>
       </div>
@@ -137,14 +92,12 @@ function SVD1S1116Template({ id }) {
         </div>
         <div className="col-sm-12 col-md-4">
           <label htmlFor="field-4-6" className="mb-2 me-2">Otro</label>
-          <input type="text" onChange={handleInputChange(form, setForm)} id="field-4-6" name="field-4-6" className="form-control d-inline w-auto" maxLength="20" />
-          <br/><small>Máximo de caracteres {form["field-4-6"]?.length}/20</small>
+          <Input id="field-4-6" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
         </div>
       </div>
       <div className="form-group mb-4">
         <label htmlFor="field-5" className="mb-2">5. Un mensaje a mi patrocinador</label><br/>
-        <textarea onChange={handleInputChange(form, setForm)} id="field-5" name="field-5" cols="30" rows="3" className="form-control" maxLength="640" required></textarea>
-        <small>Máximo de caracteres {form["field-5"]?.length}/640</small>
+        <TextArea id="field-5" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-4">
         <label htmlFor="img" className="mb-2">6. Adjunta un dibujo</label><br/>
@@ -159,7 +112,7 @@ function SVD1S1116Template({ id }) {
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />
       <div className="form-group mb-4 text-center">
-        <button name="submit" type="submit" onSubmit={(e)=> {e.preventDefault(); handleSubmit()}} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
+        <button name="submit" type="submit" onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
       </div>
     </form>
   );
