@@ -27,7 +27,6 @@ function SVD1S1116Template({ id }) {
           if (skipKeys.includes(key)) return;
           try {
             const val = newform[key];
-            console.log(val);
             if([true, false].includes(val)) {
               document.getElementById(key).checked = val;
             } else {
@@ -51,7 +50,6 @@ function SVD1S1116Template({ id }) {
 
     const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
-    console.dir(data);
     sendInsert([JSON.stringify(data), id]).then((response) => {
       return generatePDF(carta, data, "SV-D-1S11-16");
     }).then((response) => {
