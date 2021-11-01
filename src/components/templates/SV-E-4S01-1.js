@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { handleImg, handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
+import { getData, handleSubmit } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
 import TextArea from "../shared/TextArea";
+import ImageSelector from "../shared/ImageSelector";
 import templateConfig from "../../configs/SV-E-4S01-1.config";
 
 function SVE4S011Template({ id }) {
@@ -22,11 +23,11 @@ function SVE4S011Template({ id }) {
     <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)}>
       <div className="form-group mb-3">
         <label htmlFor="field-1" className="mb-2">1. Escribe algo especial o agradecimiento</label> 
-        <TextArea id="field-1" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
+        <TextArea id="field-1" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="img" className="mb-2">2. Adjunta un dibujo</label><br/>
-        <input type="text" onClick={handleImg(setImg)} value={img} id="img" name="img"  className="form-control" readOnly />
+        <ImageSelector img={img} setImg={setImg} />
       </div>
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />

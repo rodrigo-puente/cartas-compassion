@@ -40,6 +40,10 @@ export const handleImg = (setImg) => async (e) => {
   if (!result.canceled && result.filePaths.length) setImg(result.filePaths[0]);
 }
 
+export const cleanImg = (setImg) => async (e) => {
+  setImg("");
+}
+
 export const getData = async (id, config, setCarta, setForm) => {
   const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
   setCarta(result[0]);
@@ -65,7 +69,7 @@ export const getData = async (id, config, setCarta, setForm) => {
   }
 }
 
-export const handleSubmit = (id, templateID, carta, form, route, img, imgs, setDisabled) => (e) => {
+export const handleSubmit = (id, templateID, carta, form, route, img, imgs, setDisabled, copyFields = []) => (e) => {
   e.preventDefault();
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
@@ -74,9 +78,14 @@ export const handleSubmit = (id, templateID, carta, form, route, img, imgs, setD
 
   const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
+  let fieldsToCopy = {};
+  copyFields.forEach((i, idx) => {
+    fieldsToCopy[`${i}-copy`] = data[i];
+  });
+
   sendInsert([JSON.stringify(data), id]).then((response) => {
     console.log("SEND INSERT RESPONSE: ", response);
-    return generatePDF(carta, data, templateID);
+    return generatePDF(carta, { ...data, ...fieldsToCopy }, templateID);
   }).then((response) => {
     console.log("GENERATE PDF RESPONSE: ", response);
     response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");

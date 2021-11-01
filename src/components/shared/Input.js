@@ -1,4 +1,6 @@
-function Input({ id, handleInputChange, form, setForm, config }) {
+import { handleInputChange } from '../../lib/fileInteractions';
+
+function Input({ id, form, setForm, config }) {
   return (
     <div>
       <input type="text" onChange={handleInputChange(form, setForm)} id={id} name={id} className="form-control" maxLength={config[id]?.max} />

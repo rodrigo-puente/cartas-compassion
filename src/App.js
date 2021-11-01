@@ -15,8 +15,9 @@ import SVC1S113 from './pages/SV-C-1S11-3';
 import SVC1S114 from './pages/SV-C-1S11-4';
 import SVD1S1112 from './pages/SV-D-1S11-12';
 import SVD1S1116 from './pages/SV-D-1S11-16';
-import SVE4S01 from './pages/SV-E-4S01-1';
-import SVF4S01 from './pages/SV-F-4S01-1';
+import SVE4S011 from './pages/SV-E-4S01-1';
+import SVF4S011 from './pages/SV-F-4S01-1';
+import SVK3S111 from './pages/SV-K-3S11-1';
 import MissingTemplate from './pages/MissingTemplate';
 
 // Importar Bootstrap
@@ -35,8 +36,9 @@ export default function App() {
         <Route exact path="/template/SV-C-1S11-4/:userId" component={SVC1S114} />
         <Route exact path="/template/SV-D-1S11-12/:userId" component={SVD1S1112} />
         <Route exact path="/template/SV-D-1S11-16/:userId" component={SVD1S1116} />
-        <Route exact path="/template/SV-E-4S01-1/:userId" component={SVE4S01} />
-        <Route exact path="/template/SV-F-4S01-1/:userId" component={SVF4S01} />
+        <Route exact path="/template/SV-E-4S01-1/:userId" component={SVE4S011} />
+        <Route exact path="/template/SV-F-4S01-1/:userId" component={SVF4S011} />
+        <Route exact path="/template/SV-K-3S11-1/:userId" component={SVK3S111} />
         <Route component={MissingTemplate} />
       </Switch>
     </Router>

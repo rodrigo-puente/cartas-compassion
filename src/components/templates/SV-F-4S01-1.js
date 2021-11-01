@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
+import { getData, handleSubmit } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
 import TextArea from "../shared/TextArea";
 import templateConfig from "../../configs/SV-F-4S01-1.config";
@@ -22,23 +22,23 @@ function SVF4S011Template({ id }) {
     <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)}>
       <div className="form-group mb-3">
         <label htmlFor="field-1" className="mb-2">1. Un mensaje de agradecimiento a mi patrocinador</label> 
-        <TextArea id="field-1" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
+        <TextArea id="field-1" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="field-2" className="mb-2">2. ¿Qué beneficios he recibido del proyecto?</label> 
-        <TextArea id="field-2" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
+        <TextArea id="field-2" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="field-3" className="mb-2">3. Mis planes para el futuro</label> 
-        <TextArea id="field-3" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
+        <TextArea id="field-3" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="field-4" className="mb-2">4. Mis peticiones de oración</label> 
-        <TextArea id="field-4" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
+        <TextArea id="field-4" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="field-5" className="mb-2">5. Un saludo final para mi patrocinador</label> 
-        <TextArea id="field-5" handleInputChange={handleInputChange} form={form} setForm={setForm} config={CONFIG} />
+        <TextArea id="field-5" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />
