@@ -17,7 +17,7 @@ const config = {
         max: 2
       },
       "field-2-copy": {
-        x: 90,
+        x: 95,
         y: 470,
         width: 220,
         lineGap: 11,
