@@ -19,6 +19,10 @@ function addCheckbox(doc, value, content, img) {
   doc.image(img, content.x, content.y, { width: 8, height: 8 });
 }
 
+function addSelect(doc, content, img) {
+  doc.image(img, content.x, content.y, { width: 8, height: 8 });
+}
+
 function addImage(doc, value, content) {
   if (value === "") return;
   const img = doc.openImage(value);
@@ -127,6 +131,9 @@ async function pdfGenerator(vineta, user, data, template){
           addCheckbox(doc, data[key], field, checkIMG);
         } else if(field.image) {
           addImage(doc, data[key], field);
+        } else if (field.select) {
+          addText(doc, data[key], field);
+          addSelect(doc, field["options"][data[key]], checkIMG);
         } else {
           addText(doc, data[key], field);
         }

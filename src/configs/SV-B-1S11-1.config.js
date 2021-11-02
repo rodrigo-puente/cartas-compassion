@@ -18,28 +18,28 @@ const config = {
       },
       "field-3-1": {
         checkbox: true,
-        x: 90,
-        y: 445,
+        x: 95,
+        y: 457,
       },
       "field-3-2": {
         checkbox: true,
-        x: 120,
-        y: 445,
+        x: 125,
+        y: 457,
       },
       "field-3-3": {
         checkbox: true,
-        x: 150,
-        y: 445,
+        x: 155,
+        y: 457,
       },
       "field-3-4": {
         checkbox: true,
-        x: 180,
-        y: 445,
+        x: 185,
+        y: 457,
       },
       "field-3-5": {
         checkbox: true,
-        x: 210,
-        y: 445,
+        x: 215,
+        y: 457,
       },
       "field-4-1": {
         x: 66,
@@ -64,14 +64,14 @@ const config = {
       },
       "field-5": {
         x: 50,
-        y: 635,
+        y: 634,
         width: 230,
         lineGap: 10,
         max: 80
       },
       "field-6": {
         x: 335,
-        y: 218,
+        y: 217,
         width: 230,
         lineGap: 10,
         max: 80
