@@ -24,14 +24,14 @@ const config = {
         max: 2
       },
       "field-2-1-copy": {
-        x: 88,
+        x: 87,
         y: 348,
         width: 200,
         lineGap: 10,
         max: 2
       },
       "field-2-2-copy": {
-        x: 150,
+        x: 149,
         y: 348,
         width: 200,
         lineGap: 10,
@@ -62,14 +62,14 @@ const config = {
         y: 565,
         width: 230,
         lineGap: 10,
-        max: 190
+        max: 200
       },
       "field-5-1": {
         x: 315,
         y: 228,
         width: 230,
         lineGap: 10,
-        max: 220
+        max: 235
       },
       "field-5-2": {
         x: 418,

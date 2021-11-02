@@ -6,7 +6,7 @@ import TextArea from "../shared/TextArea";
 import ImageSelector from "../shared/ImageSelector";
 import templateConfig from "../../configs/SV-A-1S11-1.config";
 
-function SVC1S113Template({ id }) {
+function SVA1S111Template({ id }) {
   const TEMPLATE_ID = "SV-A-1S11-1";
   const CONFIG = useMemo(() => { return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }}, []);
   const [route, setRoute] = useState("");
@@ -89,4 +89,4 @@ function SVC1S113Template({ id }) {
   );
 }
 
-export default SVC1S113Template;
+export default SVA1S111Template;

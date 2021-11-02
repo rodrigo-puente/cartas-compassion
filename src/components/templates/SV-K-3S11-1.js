@@ -5,7 +5,7 @@ import TextArea from "../shared/TextArea";
 import templateConfig from "../../configs/SV-K-3S11-1.config";
 import Input from "../shared/Input";
 
-function SVF4S011Template({ id }) {
+function SVK3S111Template({ id }) {
   const TEMPLATE_ID = "SV-K-3S11-1";
   const CONFIG = useMemo(() => { return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }}, []);
   const [route, setRoute] = useState("");
@@ -82,5 +82,5 @@ function SVF4S011Template({ id }) {
   );
 }
 
-export default SVF4S011Template;
+export default SVK3S111Template;
  

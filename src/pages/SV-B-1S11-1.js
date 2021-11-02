@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import Vineta from '../components/shared/Vineta';
-import SVA1S111Template from "../components/templates/SV-A-1S11-1";
+import SVB1S111Template from "../components/templates/SV-B-1S11-1";
 import '../styles/_cartas.scss';
 
-function SVA1S111() {
+function SVB1S111() {
   const { userId } = useParams();
   const bgStyles = {
-    backgroundImage: `url(${require(`../assets/SV-A-1S11-1.png`).default})`,
+    backgroundImage: `url(${require(`../assets/SV-B-1S11-1.png`).default})`,
   }
 
   return (
@@ -15,8 +15,8 @@ function SVA1S111() {
       <div className="text-center header d-flex flex-column" style={bgStyles}>
         <div className="layer d-flex align-items-center justify-content-center">
           <div>
-            <h2 className="text-center">Mi primera carta</h2>
-            <small>Plantilla SV-A-1S11-1</small>
+            <h2 className="text-center">Todo sobre mí</h2>
+            <small>Plantilla SV-B-1S11-1</small>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ function SVA1S111() {
             <Vineta id={userId}/>
           </div>
           <div className="col-sm-12 mb-5">
-            <SVA1S111Template id={userId} />
+            <SVB1S111Template id={userId} />
           </div>
         </div>
       </div>
@@ -35,4 +35,4 @@ function SVA1S111() {
   );
 }
 
-export default SVA1S111;
+export default SVB1S111;
