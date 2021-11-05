@@ -4,7 +4,7 @@ import Vineta from '../components/shared/Vineta';
 import SVC1S111Template from "../components/templates/SV-C-1S11-1";
 import '../styles/_cartas.scss';
 
-function SVB1S111() {
+function SVCS111() {
   const { userId } = useParams();
   const bgStyles = {
     backgroundImage: `url(${require(`../assets/SV-C-1S11-1.png`).default})`,
@@ -35,4 +35,4 @@ function SVB1S111() {
   );
 }
 
-export default SVB1S111;
+export default SVCS111;
