@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
+import { getData, handleSubmit } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
 import Input from "../shared/Input";
 import TextArea from "../shared/TextArea";

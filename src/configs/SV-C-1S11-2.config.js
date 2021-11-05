@@ -37,12 +37,6 @@ const config = {
         lineGap: 10,
         max: 65
       },
-      "fecha": {
-        x: 440,
-        y: 155,
-        width: 220,
-        lineGap: 11,
-      }
     }
   },
   page2: {
