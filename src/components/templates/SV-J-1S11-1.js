@@ -29,9 +29,9 @@ function SVJ1S111Template({ id }) {
           <table className="table mb-2">
             <thead>
               <tr>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-1-1" name="field-1-1" />En una ciudad</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-1-2" name="field-1-2" />En la costa</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-1-3" name="field-1-3" />En las tierras altas</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-1-1" value="field-1-1" name="field-1" />En una ciudad</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-1-2" value="field-1-2" name="field-1" />En la costa</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-1-3" value="field-1-3" name="field-1" />En las tierras altas</label></th>
               </tr>
             </thead>
           </table>

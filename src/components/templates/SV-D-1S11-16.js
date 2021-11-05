@@ -105,10 +105,10 @@ function SVD1S1116Template({ id }) {
         <ImageSelector img={img} setImg={setImg} />
       </div>
       <div className="form-group mb-4">
-        <label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-6" name="field-6" />Esta carta está escrita en tercera persona ya que el niño no puede escribir</label>
+        <label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-6-1" name="field-6" />Esta carta está escrita en tercera persona ya que el niño no puede escribir</label>
       </div>
       <div className="form-group mb-4">
-        <label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-7" name="field-7" />Esta carta está escrita por el niño</label>
+        <label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-6-2" name="field-6" />Esta carta está escrita por el niño</label>
       </div>
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />

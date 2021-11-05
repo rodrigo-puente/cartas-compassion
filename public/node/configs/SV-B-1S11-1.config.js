@@ -16,30 +16,35 @@ const config = {
         lineGap: 10,
         max: 80
       },
-      "field-3-1": {
-        checkbox: true,
-        x: 95,
-        y: 457,
-      },
-      "field-3-2": {
-        checkbox: true,
-        x: 125,
-        y: 457,
-      },
-      "field-3-3": {
-        checkbox: true,
-        x: 155,
-        y: 457,
-      },
-      "field-3-4": {
-        checkbox: true,
-        x: 185,
-        y: 457,
-      },
-      "field-3-5": {
-        checkbox: true,
-        x: 215,
-        y: 457,
+      "field-3": {
+        radio: true, 
+        options: {
+          "field-3-1": {
+            checkbox: true,
+            x: 95,
+            y: 457,
+          },
+          "field-3-2": {
+            checkbox: true,
+            x: 125,
+            y: 457,
+          },
+          "field-3-3": {
+            checkbox: true,
+            x: 155,
+            y: 457,
+          },
+          "field-3-4": {
+            checkbox: true,
+            x: 185,
+            y: 457,
+          },
+          "field-3-5": {
+            checkbox: true,
+            x: 215,
+            y: 457,
+          },
+        },
       },
       "field-4-1": {
         x: 66,
@@ -76,20 +81,25 @@ const config = {
         lineGap: 10,
         max: 80
       },
-      "field-7-1": {
-        checkbox: true,
-        x: 358,
-        y: 343,
-      },
-      "field-7-2": {
-        checkbox: true,
-        x: 443,
-        y: 343,
-      },
-      "field-7-3": {
-        checkbox: true,
-        x: 534,
-        y: 343,
+      "field-7": {
+        radio: true,
+        options: {
+          "field-7-1": {
+            checkbox: true,
+            x: 358,
+            y: 343,
+          },
+          "field-7-2": {
+            checkbox: true,
+            x: 443,
+            y: 343,
+          },
+          "field-7-3": {
+            checkbox: true,
+            x: 534,
+            y: 343,
+          },
+        },
       },
       "field-8": {
         x: 335,
@@ -115,7 +125,7 @@ const config = {
         y: 61,
         width: 490,
         lineGap: 8,
-        max: 680
+        max: 640
       },
       "img": {
         image: true,
@@ -127,16 +137,19 @@ const config = {
         },
       },
       "field-11": {
-        checkbox: true,
-        x: 50,
-        y: 203,
-        lineGap: 11,
-      },
-      "field-12": {
-        checkbox: true,
-        x: 50,
-        y: 215,
-        lineGap: 11,
+        radio: true,
+        options: {
+          "field-11-1": {
+            checkbox: true,
+            x: 50,
+            y: 203,
+          },
+          "field-11-2": {
+            checkbox: true,
+            x: 50,
+            y: 215,
+          },
+        }
       },
     }
   },
