@@ -208,14 +208,14 @@ const config = {
     items: {
       "field-4": {
         x: 60,
-        y: 85,
+        y: 65,
         width: 210,
         lineGap: 6,
         max: 250
       },
       "field-5": {
         x: 335,
-        y: 85,
+        y: 65,
         width: 210,
         lineGap: 6,
         max: 250
