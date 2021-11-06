@@ -22,7 +22,7 @@ function SVC1S111Template({ id }) {
 
   return (
     <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled)}>
-      <div class="row">
+      <div className="row">
         <div className="col-sm12- col-md-6 form-group mb-4">
           <label htmlFor="field-1" className="mb-2 me-2">1. Mi casa está hecha de (adobe, concreto, madera, lámina ...):</label>
           <Input id="field-1" form={form} setForm={setForm} config={CONFIG} />
