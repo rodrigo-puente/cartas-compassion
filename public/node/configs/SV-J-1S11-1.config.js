@@ -2,20 +2,25 @@ const config = {
   page1: {
     bg: "1.jpg",
     items: {
-      "field-1-1": {
-        checkbox: true,
-        x: 72,
-        y: 427,
-      },
-      "field-1-2": {
-        checkbox: true,
-        x: 146,
-        y: 427,
-      },
-      "field-1-3": {
-        checkbox: true,
-        x: 230,
-        y: 427,
+      "field-1": {
+        radio: true,
+          options: {
+            "field-1-1": {
+              checkbox: true,
+              x: 72,
+              y: 427,
+            },
+            "field-1-2": {
+              checkbox: true,
+              x: 146,
+              y: 427,
+            },
+            "field-1-3": {
+              checkbox: true,
+              x: 230,
+              y: 427,
+          }
+        }
       },
       "field-2": {
         select: true,

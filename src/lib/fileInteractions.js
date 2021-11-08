@@ -59,6 +59,8 @@ export const getData = async (id, config, setCarta, setForm) => {
         const val = newform[key];
         if(config[key].checkbox) {
           document.getElementById(key).checked = val;
+        } else if (config[key].radio) {
+          document.getElementById(val).checked = true;
         } else {
           document.getElementById(key).value = val;
         }

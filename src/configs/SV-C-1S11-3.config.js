@@ -53,7 +53,7 @@ const config = {
         y: 60,
         width: 490,
         lineGap: 8,
-        max: 660
+        max: 640
       },
       "img": {
         image: true,

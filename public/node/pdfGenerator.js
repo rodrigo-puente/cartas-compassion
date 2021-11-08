@@ -60,7 +60,7 @@ function generateHeader(doc, vineta){
   doc.image(qr, 285, 65, {
     fit: [30, 30]
   })
-  doc.text(vineta.qrcode, 260, 100);
+  doc.text(vineta.qrcode.replaceAll("--", "-"), 260, 100);
 
   const barcode = doc.openImage(path.join(assetPath, 'barcode.png'));
   doc.image(barcode, 380, 60, {
@@ -134,6 +134,8 @@ async function pdfGenerator(vineta, user, data, template){
         } else if (field.select) {
           addText(doc, data[key], field);
           addSelect(doc, field["options"][data[key]], checkIMG);
+        } else if (field.radio) {
+          addSelect(doc, field["options"][data[key]], checkIMG);
         } else {
           addText(doc, data[key], field);
         }
@@ -165,7 +167,9 @@ async function pdfGenerator(vineta, user, data, template){
           });
           
           y = y + size + 20;
-          doc.text(i.msg, 100, y);
+          doc.text(i.msg, 100, y, {
+            width: 420
+          });
         });
       } catch(err) { 
         console.dir(err);

@@ -117,21 +117,21 @@ const config = {
         y: 75,
         width: 220,
         lineGap: 9,
-        max: 350
+        max: 330
       },
       "field-5": {
         x: 55,
         y: 279,
         width: 220,
         lineGap: 9,
-        max: 350
+        max: 330
       },
       "field-6": {
         x: 55,
         y: 490,
         width: 220,
         lineGap: 9,
-        max: 350
+        max: 330
       },
     }
   },

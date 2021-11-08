@@ -39,11 +39,11 @@ function SVB1S111Template({ id }) {
           <table className="table mb-2">
             <thead>
               <tr>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-1" name="field-3-1" />Amarillo</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-2" name="field-3-2" />Café claro</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-3" name="field-3-3" />Café medio</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-4" name="field-3-4" />Cafe oscuro</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-5" name="field-3-5" />Negro</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-1" value="field-3-1" name="field-3" />Amarillo</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-2" value="field-3-2" name="field-3" />Café claro</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-3" value="field-3-3" name="field-3" />Café medio</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-4" value="field-3-4" name="field-3" />Cafe oscuro</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-5" value="field-3-5" name="field-3" />Negro</label></th>
               </tr>
             </thead>
           </table>
@@ -79,9 +79,9 @@ function SVB1S111Template({ id }) {
           <table className="table mb-2">
             <thead>
               <tr>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-7-1" name="field-7-1" />Cerca del mar</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-7-2" name="field-7-2" />Campo</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-7-3" name="field-7-3" />Ciudad</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-7-1" name="field-7" />Cerca del mar</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-7-2" name="field-7" />Campo</label></th>
+                <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-7-3" name="field-7" />Ciudad</label></th>
               </tr>
             </thead>
           </table>
@@ -106,10 +106,10 @@ function SVB1S111Template({ id }) {
         <ImageSelector img={img} setImg={setImg} />
       </div>
       <div className="form-group mb-4">
-        <label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-11" name="field-11" />Esta carta está escrita en tercera persona ya que el niño no puede escribir</label>
+        <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-11-1" name="field-11" />Esta carta está escrita en tercera persona ya que el niño no puede escribir</label>
       </div>
       <div className="form-group mb-4">
-        <label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-12" name="field-12" />Esta carta está escrita por el niño</label>
+        <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-11-2" name="field-11" />Esta carta está escrita por el niño</label>
       </div>
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />

@@ -21,14 +21,14 @@ const config = {
         y: 403,
         width: 220,
         lineGap: 11,
-        max: 90
+        max: 80
       },
       "field-4": {
         x: 50,
         y: 493,
         width: 220,
         lineGap: 11,
-        max: 90
+        max: 80
       },
       "field-5": {
         x: 80,
@@ -74,7 +74,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 750
+        max: 640
       },
       "img": {
         image: true,

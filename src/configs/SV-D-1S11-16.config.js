@@ -136,16 +136,19 @@ const config = {
         max: 640
       },
       "field-6": {
-        checkbox: true,
-        x: 36,
-        y: 765,
-        lineGap: 11,
-      },
-      "field-7": {
-        checkbox: true,
-        x: 36,
-        y: 778,
-        lineGap: 11,
+        radio: true,
+        options: {
+          "field-6-1": {
+            checkbox: true,
+            x: 36,
+            y: 765,
+          },
+          "field-6-2": {
+            checkbox: true,
+            x: 36,
+            y: 778,
+          },
+        }
       },
       "img": {
         image: true,

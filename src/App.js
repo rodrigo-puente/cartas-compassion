@@ -13,6 +13,7 @@ import ImportarCartas from './pages/ImportarCartas';
 import CartasRevision from './pages/CartasRevision';
 import SVA1S111 from './pages/SV-A-1S11-1';
 import SVB1S111 from './pages/SV-B-1S11-1';
+import SVC1S111 from './pages/SV-C-1S11-1';
 import SVC1S113 from './pages/SV-C-1S11-3';
 import SVC1S114 from './pages/SV-C-1S11-4';
 import SVD1S1112 from './pages/SV-D-1S11-12';
@@ -37,6 +38,7 @@ export default function App() {
         <Route exact path="/revision" component={CartasRevision} />
         <Route exact path="/template/SV-A-1S11-1/:userId" component={SVA1S111} />
         <Route exact path="/template/SV-B-1S11-1/:userId" component={SVB1S111} />
+        <Route exact path="/template/SV-C-1S11-1/:userId" component={SVC1S111} />
         <Route exact path="/template/SV-C-1S11-3/:userId" component={SVC1S113} />
         <Route exact path="/template/SV-C-1S11-4/:userId" component={SVC1S114} />
         <Route exact path="/template/SV-D-1S11-12/:userId" component={SVD1S1112} />
@@ -45,6 +47,7 @@ export default function App() {
         <Route exact path="/template/SV-F-4S01-1/:userId" component={SVF4S011} />
         <Route exact path="/template/SV-J-1S11-1/:userId" component={SVJ1S111} />
         <Route exact path="/template/SV-K-3S11-1/:userId" component={SVK3S111} />
+        
         <Route component={MissingTemplate} />
       </Switch>
     </Router>
