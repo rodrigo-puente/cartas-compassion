@@ -3,54 +3,54 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
-        x: 50,
-        y: 244,
-        width: 165,
-        lineGap: 10,
-        max: 65
+        x: 53,
+        y: 230,
+        width: 210,
+        lineGap: 11,
+        max: 265
       },
       "field-2": {
         radio: true,
         options: {
           "field-2-1": {
             checkbox: true,
-            x: 10,
-            y: 10
+            x: 83,
+            y: 438
           },
           "field-2-2": {
             checkbox: true,
-            x: 95,
-            y: 457,
+            x: 140,
+            y: 438,
           }
         }
       },
       "field-3": {
-        x: 50,
-        y: 244,
-        width: 165,
-        lineGap: 10,
-        max: 65
+        x: 160,
+        y: 550,
+        width: 150,
+        lineGap: 12,
+        max: 45
       },
       "field-4": {
-        x: 50,
-        y: 244,
-        width: 165,
+        x: 60,
+        y: 681,
+        width: 230,
         lineGap: 10,
-        max: 65
+        max: 45
       },
       "field-5-1": {
-        x: 50,
-        y: 244,
-        width: 165,
-        lineGap: 10,
-        max: 65
+        x: 319,
+        y: 230,
+        width: 250,
+        lineGap: 11,
+        max: 140
       },
       "field-5-2": {
-        x: 50,
-        y: 244,
-        width: 165,
+        x: 410,
+        y: 295,
+        width: 140,
         lineGap: 10,
-        max: 65
+        max: 215
       },
       "fecha": {
         x: 440,
@@ -72,19 +72,19 @@ const config = {
       },
       "img": {
         image: true,
-        x: 120,
-        y: 290,
+        x: 95,
+        y: 255,
         config: {
           fit: [400, 200],
           align: 'center'
         },
       },
       "field-7": {
-        x: 50,
-        y: 61,
+        x: 188,
+        y: 774,
         width: 490,
         lineGap: 8,
-        max: 640
+        max: 62
       },
     }
   },
