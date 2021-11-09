@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import Vineta from '../components/shared/Vineta';
-import SVA1S111Template from "../components/templates/SV-A-1S11-1";
+import Form from "../components/shared/Form";
 import '../styles/_cartas.scss';
 
 function SVA1S111() {
@@ -27,7 +27,7 @@ function SVA1S111() {
             <Vineta id={userId}/>
           </div>
           <div className="col-sm-12 mb-5">
-            <SVA1S111Template id={userId} />
+            <Form id={userId} templateId="SV-A-1S11-1" />
           </div>
         </div>
       </div>
