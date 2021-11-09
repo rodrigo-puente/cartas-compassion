@@ -23,62 +23,78 @@ function SVA1S111Template({ id }) {
 
   return (
     <form onSubmit={handleSubmit(id, TEMPLATE_ID, carta, form, route, img, imgs, setDisabled, copy)}>
-      <div className="form-group mb-4">
-        <label htmlFor="field-1" className="mb-2 me-2">1. Los nombres de quienes me cuidan son:</label>
-        <TextArea id="field-1" form={form} setForm={setForm} config={CONFIG} />
-      </div>
-      <div className="row">
-        <div className="col-sm-6 form-group mb-4">
-          <label htmlFor="field-2-1" className="mb-2 me-2">2. Cuántos hermanos tengo</label>
-          <Input id="field-2-1" form={form} setForm={setForm} config={CONFIG} />
-        </div>
-        <div className="col-sm-6 form-group mb-4">
-          <label htmlFor="field-2-2" className="mb-2 me-2">2. Cuántas hermanas tengo</label>
-          <Input id="field-2-2" form={form} setForm={setForm} config={CONFIG} />
-        </div>
-      </div>
-      <div className="form-group mb-4">
-        <label className="mb-2">3. Algunas cosas que puedo hacer son</label> 
-        <div className="table-responsive">
-          <table className="table mb-2">
-            <thead>
-              <tr>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-1" name="field-3-1" />Caminar</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-2" name="field-3-2" />Correr</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-3" name="field-3-3" />Saltar</label></th>
-                <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id="field-3-4" name="field-3-4" />Escalar</label></th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-      <div className="form-group mb-4">
-        <label htmlFor="field-4" className="mb-2 me-2">4. Mi comida favorita es:</label>
-        <TextArea id="field-4" form={form} setForm={setForm} config={CONFIG} />
-      </div>
-      <div className="row">
-        <div className="col-sm-6 form-group mb-4">
-          <label htmlFor="field-5-1" className="mb-2 me-2">5. Mis peticiones de oración son</label>
-          <TextArea id="field-5-1" form={form} setForm={setForm} config={CONFIG} />
-        </div>
-        <div className="col-sm-6 form-group mb-4">
-          <label htmlFor="field-5-2" className="mb-2 me-2">Sigue tu petición</label>
-          <TextArea id="field-5-2" form={form} setForm={setForm} config={CONFIG} />
-        </div>
-      </div>
-      <div className="form-group mb-4">
-        <label htmlFor="field-6" className="mb-2">6. Un mensaje a mi patrocinador</label><br/>
-        <TextArea id="field-6" form={form} setForm={setForm} config={CONFIG} />
-      </div>
-      <div className="row">
-        <div className="col-sm-12 col-md-6 form-group mb-4">
-          <label htmlFor="img" className="mb-2">7. Adjunta un dibujo</label><br/>
-          <ImageSelector img={img} setImg={setImg} />
-        </div>
-        <div className="col-sm-12 col-md-6 form-group mb-4">
-          <label htmlFor="field-7" className="mb-2 me-2">Nombre y parentesco con quien escribe la carta</label>
-          <Input id="field-7" form={form} setForm={setForm} config={CONFIG} />
-        </div>
+      <div class="row">
+        { 
+          Object.keys(CONFIG).forEach((key) => {
+            if (CONFIG[key].input) {
+              <div className="col-sm-12 col-md-6 form-group mb-4">
+                <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
+                <Input id={key} form={form} setForm={setForm} config={CONFIG[key]} />
+              </div>
+            } else if (CONFIG[key].textarea) {
+              <div className="col-sm-12 col-md-6 form-group mb-4">
+                <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
+                <TextArea id={key} form={form} setForm={setForm} config={CONFIG[key]} />
+              </div>
+            } else if (CONFIG[key].radio) {
+              <div className="col-sm-12 form-group mb-4">
+                <label className="mb-2">{CONFIG[key].content}</label> 
+                <div className="table-responsive">
+                  <table className="table mb-2">
+                    <thead>
+                      <tr>
+                        { 
+                          CONFIG[key].options.forEach((v, k) => {
+                            <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{v.content}</label></th>
+                          })
+                        }
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            } else if (CONFIG[key].checkbox) {
+              <div className="col-sm-12 form-group mb-4">
+                <label className="mb-2">{CONFIG[key].content}</label> 
+                <div className="table-responsive">
+                  <table className="table mb-2">
+                    <thead>
+                      <tr>
+                        { 
+                          CONFIG[key].options.forEach((v, k) => {
+                            <th><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} name={k} />{v.content}</label></th>
+                          })
+                        }
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            } else if (CONFIG[key].select) {
+              <div className="col-sm-12 col-md-6 form-group mb-3">
+                <label className="mb-2">{CONFIG[key].content}</label> 
+                <select className="form-control" id={key} name={key} onChange={handleInputChange(form, setForm)}>
+                  { 
+                    CONFIG[key].options.forEach((v, k) => {
+                      <option value={k}>{k}</option>
+                    })
+                  }
+                </select>
+              </div>
+            } else if (CONFIG[key].special_radio) {
+              CONFIG[key].options.forEach((v, k) => {
+                <div className="col-sm-12 form-group mb-4">
+                  <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value={k} name={key} />{value.content}</label>
+                </div>
+              })
+            } else if (CONFIG[key].img) {
+              <div className="col-sm-12 col-md-6 form-group mb-4">
+                <label htmlFor="img" className="mb-2">{CONFIG[key].content}</label><br/>
+                <ImageSelector img={img} setImg={setImg} />
+              </div>
+            }
+          })
+        }
       </div>
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />

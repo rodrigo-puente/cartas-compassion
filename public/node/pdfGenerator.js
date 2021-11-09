@@ -39,7 +39,7 @@ function generateCode(text, type){
 }
 
 function generateHeader(doc, vineta){
-  const config = require('./configs/vineta.config');
+  const config = require('./configs/vineta');
 
   Object.keys(config).forEach((key) => {
     let itemConfig = config[key];
@@ -93,91 +93,97 @@ function fillVineta(user) {
 
 async function pdfGenerator(vineta, user, data, template){
   return new Promise((resolve) => {
-    // Crear el documento en tamaño A4 
-    const doc = new PDFDocument({size: 'A4', autoFirstPage: false, margins: { bottom: 0 }});
+    try {
+      const doc = new PDFDocument({size: 'A4', autoFirstPage: false, margins: { bottom: 0 }});
 
-    const pdfStream = fs.createWriteStream(`${data.route}/${vineta.pdfName}`)
-    pdfStream.on('finish', function() {
-      resolve(true);
-    });
-
-    const vinetaConfig = require(`./configs/${template}.config`);
-    const font = path.join(assetPath, 'roboto-italic.ttf');
-    const checkIMG = doc.openImage(path.join(assetPath, 'check.png'));
-
-    doc.fontSize(10);
-    doc.font(font);
-
-    Object.keys(vinetaConfig).forEach((key, idx) => {
-      const i = vinetaConfig[key]
-      const bg = doc.openImage(path.join(assetPath, user.id_plantilla, i.bg));
-      const content = i.items;
-
-      if (content === {}) return;
-
-      doc.addPage();
-      doc.image(bg, 0, 0, { width: doc.page.width, height: doc.page.height });
-
-      if (idx === 0) {
-        doc.font('Times-Roman');
-        generateHeader(doc, vineta);
-        doc.font(font);
-        doc.fontSize(8);
-      }
-    
-      Object.keys(content).forEach((key) => {
-        let field = content[key]
-        if(field.checkbox){
-          addCheckbox(doc, data[key], field, checkIMG);
-        } else if(field.image) {
-          addImage(doc, data[key], field);
-        } else if (field.select) {
-          addText(doc, data[key], field);
-          addSelect(doc, field["options"][data[key]], checkIMG);
-        } else if (field.radio) {
-          addSelect(doc, field["options"][data[key]], checkIMG);
-        } else {
-          addText(doc, data[key], field);
-        }
+      const pdfStream = fs.createWriteStream(`${data.route}/${vineta.pdfName}`)
+      pdfStream.on('finish', function() {
+        resolve(true);
       });
-    });
 
-    const imgs = data["imgs"].filter((x) => x.img !== "");
+      const vinetaConfig = require(`./configs/${template}`);
+      const font = path.join(assetPath, 'roboto-italic.ttf');
+      const checkIMG = doc.openImage(path.join(assetPath, 'check.png'));
 
-    // Si adjuntó imágenes las ponemos en la tercera página
-    if (imgs.length) {
-      const sizes = {
-        1: 300,
-        2: 250,
-        3: 200,
-        4: 150,
-      }
-      const size = sizes[imgs.length];
+      doc.fontSize(10);
+      doc.font(font);
 
-      doc.addPage();
+      Object.keys(vinetaConfig).forEach((key, idx) => {
+        if (key === "copy") return;
+        
+        const i = vinetaConfig[key]
+        const bg = doc.openImage(path.join(assetPath, user.id_plantilla, i.bg));
+        const content = i.items;
 
-      try {
-        imgs.forEach((i, idx) => {
-          let y = 50 + ((size + 40) * idx);
-          const img = doc.openImage(i.img);
-          doc.image(img, 50, y, {
-            fit: [500, size], 
-            align: 'center',
-            valign: 'center',
-          });
-          
-          y = y + size + 20;
-          doc.text(i.msg, 100, y, {
-            width: 420
-          });
+        if (content === {}) return;
+
+        doc.addPage();
+        doc.image(bg, 0, 0, { width: doc.page.width, height: doc.page.height });
+
+        if (idx === 0) {
+          doc.font('Times-Roman');
+          generateHeader(doc, vineta);
+          doc.font(font);
+          doc.fontSize(8);
+        }
+      
+        Object.keys(content).forEach((key) => {
+          let field = content[key]
+          if(field.checkbox){
+            addCheckbox(doc, data[key], field, checkIMG);
+          } else if(field.image) {
+            addImage(doc, data[key], field);
+          } else if (field.select) {
+            addText(doc, data[key], field);
+            addSelect(doc, field["options"][data[key]], checkIMG);
+          } else if (field.radio) {
+            addSelect(doc, field["options"][data[key]], checkIMG);
+          } else {
+            addText(doc, data[key], field);
+          }
         });
-      } catch(err) { 
-        console.dir(err);
-      }
-    }
+      });
 
-    doc.pipe(pdfStream);
-    doc.end();
+      const imgs = data["imgs"].filter((x) => x.img !== "");
+
+      // Si adjuntó imágenes las ponemos en la tercera página
+      if (imgs.length) {
+        const sizes = {
+          1: 300,
+          2: 250,
+          3: 200,
+          4: 150,
+        }
+        const size = sizes[imgs.length];
+
+        doc.addPage();
+
+        try {
+          imgs.forEach((i, idx) => {
+            let y = 50 + ((size + 40) * idx);
+            const img = doc.openImage(i.img);
+            doc.image(img, 50, y, {
+              fit: [500, size], 
+              align: 'center',
+              valign: 'center',
+            });
+            
+            y = y + size + 20;
+            doc.text(i.msg, 100, y, {
+              width: 420
+            });
+          });
+        } catch(err) { 
+          console.dir(err);
+        }
+      }
+
+      doc.pipe(pdfStream);
+      doc.end();
+    } catch (err) {
+      console.log("ERROR");
+      console.dir(err)
+    }
   });
 }
 
