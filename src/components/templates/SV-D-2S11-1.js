@@ -66,12 +66,12 @@ function SVD2S112Template({ id }) {
         <TextArea id="field-8" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-4">
-        <label htmlFor="img" className="mb-2">9. Dibuja cómo es tu vida saludable</label><br/>
-        <ImageSelector img={img} setImg={setImg} />
+        <label htmlFor="field-9" className="mb-2">9. Compartiendo algo especial o agradecimiento</label><br/>
+        <TextArea id="field-9" form={form} setForm={setForm} config={CONFIG} />
       </div>
       <div className="form-group mb-4">
-        <label htmlFor="field-9" className="mb-2">10. Compartiendo algo especial o agradecimiento</label><br/>
-        <TextArea id="field-9" form={form} setForm={setForm} config={CONFIG} />
+        <label htmlFor="img" className="mb-2">Dibuja cómo es tu vida saludable</label><br/>
+        <ImageSelector img={img} setImg={setImg} />
       </div>
       <div className="form-group mb-4">
         <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value="field-10-1" name="field-10" />Esta carta está escrita en tercera persona ya que el niño no puede escribir</label>
