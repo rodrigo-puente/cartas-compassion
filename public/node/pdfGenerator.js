@@ -60,7 +60,7 @@ function generateHeader(doc, vineta){
   doc.image(qr, 285, 65, {
     fit: [30, 30]
   })
-  doc.text(vineta.qrcode.replaceAll("--", "-"), 260, 100);
+  doc.text(vineta.qrcode, 260, 100);
 
   const barcode = doc.openImage(path.join(assetPath, 'barcode.png'));
   doc.image(barcode, 380, 60, {
@@ -78,9 +78,9 @@ function fillVineta(user) {
   const randomId = generateRandomIntegerInRange(10000, 99999);
 
   return {
-    qrcode: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}`,
-    barcode: `${user.beneficiario_id_global}-${user.supporter_id_global}`,
-    pdfName: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}-${date}-${randomId}.pdf`,
+    qrcode: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}`.replaceAll("--", "-"),
+    barcode: `${user.beneficiario_id_global}-${user.supporter_id_global}`.replaceAll("--", "-"),
+    pdfName: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}-${user.supporter_tipo_relacion === 'Patrocinador' ? 'S' : 'C'}-${date}-${randomId}.pdf`.replaceAll("--", "-"),
     socio: `${user.supporter_id_global || ""} - ${user.supporter_favorito || ''} - ${user.supporter_sexo || ""}`,
     beneficiario: `${user.beneficiario_id} - ${user.beneficiario_preferido} - ${user.beneficiario_sexo || ''} - ${user.beneficiario_edad}`,
     tl: `TL: ${user.target_lang}`,
