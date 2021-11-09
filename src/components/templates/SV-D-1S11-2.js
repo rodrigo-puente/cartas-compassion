@@ -4,10 +4,10 @@ import SharedSelectors from "../shared/SharedSelectors";
 import Input from "../shared/Input";
 import TextArea from "../shared/TextArea";
 import ImageSelector from "../shared/ImageSelector";
-import templateConfig from "../../configs/SV-D-1S11-12.config";
+import templateConfig from "../../configs/SV-D-1S11-2.config";
 
-function SVD1S1112Template({ id }) {
-  const TEMPLATE_ID = "SV-D-1S11-12";
+function SVD1S112Template({ id }) {
+  const TEMPLATE_ID = "SV-D-1S11-2";
   const CONFIG = useMemo(() => { return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }}, []);
   const [route, setRoute] = useState("");
   const [img, setImg] = useState("");
@@ -83,4 +83,4 @@ function SVD1S1112Template({ id }) {
   );
 }
 
-export default SVD1S1112Template;
+export default SVD1S112Template;

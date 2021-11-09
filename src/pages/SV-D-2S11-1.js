@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import Vineta from '../components/shared/Vineta';
-import SVD1S1112Template from "../components/templates/SV-D-1S11-12";
+import SVD2S111Template from "../components/templates/SV-D-2S11-1";
 import '../styles/_cartas.scss';
 
-function SVD1S1112() {
+function SVD2S111() {
   const { userId } = useParams();
   const bgStyles = {
-    backgroundImage: `url(${require(`../assets/SV-D-1S11-12.png`).default})`,
+    backgroundImage: `url(${require(`../assets/SV-D-2S11-1.png`).default})`,
   }
 
   return (
@@ -15,8 +15,8 @@ function SVD1S1112() {
       <div className="text-center header d-flex flex-column" style={bgStyles}>
         <div className="layer d-flex align-items-center justify-content-center">
           <div>
-            <h2 className="text-center">Mi aprendizaje cristiano</h2>
-            <small>Plantilla SV-D-1S11-12</small>
+            <h2 className="text-center">Mi vida saludable</h2>
+            <small>Plantilla SV-D-2S11-1</small>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ function SVD1S1112() {
             <Vineta id={userId}/>
           </div>
           <div className="col-sm-12 mb-5">
-            <SVD1S1112Template id={userId} />
+            <SVD2S111Template id={userId} />
           </div>
         </div>
       </div>
@@ -35,4 +35,4 @@ function SVD1S1112() {
   );
 }
 
-export default SVD1S1112;
+export default SVD2S111;
