@@ -18,6 +18,7 @@ import SVC1S112 from './pages/SV-C-1S11-2';
 import SVC1S113 from './pages/SV-C-1S11-3';
 import SVC1S114 from './pages/SV-C-1S11-4';
 import SVC1S115 from './pages/SV-C-1S11-5';
+import SVC1S116 from './pages/SV-C-1S11-6';
 import SVD1S1112 from './pages/SV-D-1S11-12';
 import SVD1S1116 from './pages/SV-D-1S11-16';
 import SVE4S011 from './pages/SV-E-4S01-1';
@@ -45,6 +46,7 @@ export default function App() {
         <Route exact path="/template/SV-C-1S11-3/:userId" component={SVC1S113} />
         <Route exact path="/template/SV-C-1S11-4/:userId" component={SVC1S114} />
         <Route exact path="/template/SV-C-1S11-5/:userId" component={SVC1S115} />
+        <Route exact path="/template/SV-C-1S11-6/:userId" component={SVC1S116} />
         <Route exact path="/template/SV-D-1S11-12/:userId" component={SVD1S1112} />
         <Route exact path="/template/SV-D-1S11-16/:userId" component={SVD1S1116} />
         <Route exact path="/template/SV-E-4S01-1/:userId" component={SVE4S011} />

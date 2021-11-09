@@ -93,7 +93,6 @@ const config = {
           width: 8,
           height: 8
         },
-        lineGap: 11,
       },
       "field-11": {
         checkbox: true,
@@ -103,7 +102,6 @@ const config = {
           width: 8,
           height: 8
         },
-        lineGap: 11,
       }
     }
   }

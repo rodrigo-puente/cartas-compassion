@@ -9,12 +9,26 @@ const config = {
         lineGap: 4,
         max: 40
       },
+      "field-1-copy": {
+        x: 35,
+        y: 237,
+        width: 188,
+        lineGap: 4,
+        max: 40
+      },
       "field-2": {
         x: 45,
         y: 360,
         width: 258,
         lineGap: 10,
         max: 100
+      },
+      "field-2-copy": {
+        x: 35,
+        y: 237,
+        width: 188,
+        lineGap: 4,
+        max: 40
       },
       "field-3": {
         x: 45,
@@ -23,26 +37,32 @@ const config = {
         lineGap: 10,
         max: 100
       },
-      "field-4": {
-        radio: true,
-        options: {
-          "field-4-1": {
-            checkbox: true,
-            x: 58,
-            y: 695,
-          },
-          "field-4-2": {
-            checkbox: true,
-            x: 58,
-            y: 717,
-          },
-          "field-4-3": {
-            checkbox: true,
-            x: 58,
-            y: 740,
-          }
-        }
-
+      "field-3-copy": {
+        x: 35,
+        y: 237,
+        width: 188,
+        lineGap: 4,
+        max: 40
+      },
+      "field-4-1": {
+        checkbox: true,
+        x: 58,
+        y: 695,
+      },
+      "field-4-2": {
+        checkbox: true,
+        x: 58,
+        y: 717,
+      },
+      "field-4-3": {
+        checkbox: true,
+        x: 58,
+        y: 740,
+      },
+      "field-4-4": {
+        checkbox: true,
+        x: 58,
+        y: 760,
       },
       "field-5": {
         x: 330,

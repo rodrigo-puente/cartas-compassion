@@ -36,7 +36,7 @@ const config = {
             x: 58,
             y: 717,
           },
-          "field-4-3 ": {
+          "field-4-3": {
             checkbox: true,
             x: 58,
             y: 740,
