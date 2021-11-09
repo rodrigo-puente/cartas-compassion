@@ -69,7 +69,7 @@ const config = {
         y: 775,
         width: 490,
         lineGap: 8,
-        max: 70
+        max: 50
       },
     }
   },

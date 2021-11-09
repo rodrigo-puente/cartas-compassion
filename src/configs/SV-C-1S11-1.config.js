@@ -84,7 +84,7 @@ const config = {
         y: 774,
         width: 490,
         lineGap: 8,
-        max: 62
+        max: 50
       },
     }
   },
