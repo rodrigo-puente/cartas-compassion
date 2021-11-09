@@ -3,57 +3,57 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
-        x: 60,
-        y: 255,
-        width: 235,
+        x: 35,
+        y: 237,
+        width: 188,
         lineGap: 4,
-        max: 20
+        max: 40
       },
       "field-2": {
-        x: 60,
-        y: 335,
-        width: 235,
-        lineGap: 4,
-        max: 20
+        x: 45,
+        y: 360,
+        width: 258,
+        lineGap: 10,
+        max: 100
       },
       "field-3": {
-        x: 60,
-        y: 335,
-        width: 235,
-        lineGap: 4,
-        max: 20
+        x: 45,
+        y: 462,
+        width: 258,
+        lineGap: 10,
+        max: 100
       },
       "field-4": {
         radio: true,
         options: {
           "field-4-1": {
             checkbox: true,
-            x: 65,
-            y: 548,
+            x: 58,
+            y: 695,
           },
           "field-4-2": {
             checkbox: true,
-            x: 65,
-            y: 548,
+            x: 58,
+            y: 717,
           },
           "field-4-3 ": {
             checkbox: true,
-            x: 65,
-            y: 548,
+            x: 58,
+            y: 740,
           }
         }
 
       },
       "field-5": {
-        x: 60,
-        y: 335,
-        width: 235,
+        x: 330,
+        y: 272,
+        width: 216,
         lineGap: 4,
-        max: 20
+        max: 46
       }, 
       "fecha": {
-        x: 450,
-        y: 173,
+        x: 455,
+        y: 165,
         width: 220,
         lineGap: 11,
       }
@@ -67,23 +67,23 @@ const config = {
         y: 60,
         width: 490,
         lineGap: 8,
-        max: 640
+        max: 690
       },
       "img": {
         image: true,
-        x: 120,
-        y: 250,
+        x: 100,
+        y: 260,
         config: {
           fit: [400, 200],
           align: 'center'
         },
       },
       "field-7": {
-        x: 215,
-        y: 770,
-        width: 320,
+        x: 175,
+        y: 775,
+        width: 330,
         lineGap: 6,
-        max: 45
+        max: 70
       },
     }
   },
