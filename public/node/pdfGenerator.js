@@ -109,7 +109,7 @@ async function pdfGenerator(vineta, user, data, template){
       doc.font(font);
 
       Object.keys(vinetaConfig).forEach((key, idx) => {
-        if (key === "copy") return;
+        if (key === "extras") return;
         
         const i = vinetaConfig[key]
         const bg = doc.openImage(path.join(assetPath, user.id_plantilla, i.bg));
@@ -136,7 +136,7 @@ async function pdfGenerator(vineta, user, data, template){
           } else if (field.select) {
             addText(doc, data[key], field);
             addSelect(doc, field["options"][data[key]], checkIMG);
-          } else if (field.radio) {
+          } else if (field.radio || field.special_radio) {
             addSelect(doc, field["options"][data[key]], checkIMG);
           } else {
             addText(doc, data[key], field);

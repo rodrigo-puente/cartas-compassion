@@ -24,7 +24,7 @@ function Form({ id, templateId }) {
   }, [id, CONFIG]);
 
   return (
-    <form onSubmit={handleSubmit(id, templateId, carta, form, route, img, imgs, setDisabled, templateConfig.copy)}>
+    <form onSubmit={handleSubmit(id, templateId, carta, form, route, img, imgs, setDisabled, templateConfig.extras.copy)}>
       <div className="row">
         { 
           Object.keys(CONFIG).map((key, index) => {
@@ -51,8 +51,8 @@ function Form({ id, templateId }) {
                       <thead>
                         <tr>
                           { 
-                            Object.keys(CONFIG[key].options).map((k, ) => {
-                              return <th><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></th>
+                            Object.keys(CONFIG[key].options).map((k, i) => {
+                              return <th key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></th>
                             })
                           }
                         </tr>
@@ -93,11 +93,17 @@ function Form({ id, templateId }) {
               )
             } else if (CONFIG[key].special_radio) {
               return (
-                CONFIG[key].options.forEach((k, i) => {
-                  <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={`${index}-${i}`}>
-                  <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value={k} name={key} />{CONFIG[key].options[k].content}</label>
-                  </div>
-                })
+                <div key={index}>
+                  {
+                    Object.keys(CONFIG[key].options).map((k, i) => {
+                      return (
+                        <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={`${index}-${i}`}>
+                          <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value={k} id={k} name={key} />{CONFIG[key].options[k].content}</label>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
               )
             } else if (CONFIG[key].image) {
               return (
@@ -115,7 +121,7 @@ function Form({ id, templateId }) {
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />
       <div className="form-group mb-4 text-center">
-        <button name="submit" type="submit" onSubmit={handleSubmit(id, templateId, carta, form, route, img, imgs, setDisabled, templateConfig.copy)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
+        <button name="submit" type="submit" onSubmit={handleSubmit(id, templateId, carta, form, route, img, imgs, setDisabled, templateConfig.extras.copy)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
       </div>
     </form>
   );

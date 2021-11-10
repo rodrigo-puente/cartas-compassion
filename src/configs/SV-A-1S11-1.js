@@ -32,14 +32,14 @@ const config = {
         max: 2
       },
       "field-2-1-copy": {
-        x: 87,
+        x: 85,
         y: 348,
         width: 200,
         lineGap: 10,
         max: 2
       },
       "field-2-2-copy": {
-        x: 149,
+        x: 146,
         y: 348,
         width: 200,
         lineGap: 10,
@@ -147,7 +147,10 @@ const config = {
       },
     }
   },
-  copy: ['field-2-1', 'field-2-2']
+  extras: {
+    copy: ['field-2-1', 'field-2-2'],
+    title: "Mi primera carta",
+  }
 }
 
 module.exports = config;
