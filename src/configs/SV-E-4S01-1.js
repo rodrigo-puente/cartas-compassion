@@ -3,6 +3,8 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
+        textarea: true,
+        content: "1. Escribe algo especial o agradecimiento",
         x: 45,
         y: 212,
         width: 500,
@@ -22,6 +24,7 @@ const config = {
     items: {
       "img": {
         image: true,
+        content: "2. Adjunta un dibujo",
         x: 100,
         y: 460,
         config: {
@@ -31,6 +34,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "Compartiendo algo especial o agradecimiento",
+    copy: [],
+  }
 }
 
 module.exports = config;

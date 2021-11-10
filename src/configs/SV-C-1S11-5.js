@@ -3,6 +3,8 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
+        input: true,
+        content: "1. Ahora el clima es",
         x: 35,
         y: 237,
         width: 188,
@@ -10,6 +12,8 @@ const config = {
         max: 40
       },
       "field-2": {
+        input: true,
+        content: "2. Cuando el tiempo está soleado me gusta",
         x: 45,
         y: 360,
         width: 258,
@@ -17,6 +21,8 @@ const config = {
         max: 100
       },
       "field-3": {
+        input: true,
+        content: "3. Cuando el tiempo está lluvioso me gusta",
         x: 45,
         y: 462,
         width: 258,
@@ -24,19 +30,23 @@ const config = {
         max: 100
       },
       "field-4": {
+        content: "Mi clima favorito es",
         radio: true,
         options: {
           "field-4-1": {
+            content: "Lluvioso",
             checkbox: true,
             x: 58,
             y: 695,
           },
           "field-4-2": {
+            content: "Soleado",
             checkbox: true,
             x: 58,
             y: 717,
           },
           "field-4-3": {
+            content: "Con vientos",
             checkbox: true,
             x: 58,
             y: 740,
@@ -45,6 +55,8 @@ const config = {
 
       },
       "field-5": {
+        input: true,
+        content: "5. En mi comunidad el clima es bastante (cálido, caliente, helado, ...)",
         x: 330,
         y: 272,
         width: 216,
@@ -63,6 +75,8 @@ const config = {
     bg: "2.jpg",
     items: {
       "field-6": {
+        textarea: true,
+        content: "6. Un mensaje a mi patrocinador",
         x: 50,
         y: 60,
         width: 490,
@@ -70,6 +84,7 @@ const config = {
         max: 690
       },
       "img": {
+        content: "7. Adjunta un dibujo",
         image: true,
         x: 100,
         y: 260,
@@ -79,6 +94,8 @@ const config = {
         },
       },
       "field-7": {
+        input: true,
+        content: "Nombre y parentesco con quien escribe la carta",
         x: 175,
         y: 775,
         width: 330,
@@ -87,6 +104,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "El clima",
+    copy: [],
+  }
 }
 
 module.exports = config;

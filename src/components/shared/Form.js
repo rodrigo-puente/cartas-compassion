@@ -86,7 +86,7 @@ function Form({ id, templateId }) {
                   <label className="mb-2">{CONFIG[key].content}</label> 
                   <select className="form-control" id={key} name={key} onChange={handleInputChange(form, setForm)}>
                     { 
-                      Object.keys(CONFIG[key].options).map((k) => <option value={k}>{CONFIG[key].options[k].content}</option>)
+                      Object.keys(CONFIG[key].options).map((k, i) => <option key={`${index}-${i}`} value={k}>{k}</option>)
                     }
                   </select>
                 </div>
@@ -110,6 +110,37 @@ function Form({ id, templateId }) {
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
                   <label htmlFor="img" className="mb-2">{CONFIG[key].content}</label><br/>
                   <ImageSelector img={img} setImg={setImg} />
+                </div>
+              )
+            } else if (CONFIG[key].repeater) {
+              return (
+                <div className="form-group mb-3" key={index}>
+                  <div className="row">
+                    <label className="mb-2">{CONFIG[key].content}</label> 
+                    {
+                      Array(CONFIG[key].times).fill(0).map((item, idx) => {
+                        idx = idx + 1
+                        return (
+                          <div className="col-sm-3 col-md-6 mb-4" key={`${index}-${idx}`}>
+                            <div style={ {padding: '10px', backgroundColor: '#005DAA', borderRadius: '5px'} }>
+                              <div className="form-group mb-3">
+                                {
+                                  CONFIG[key].fields.map((item, i) => {
+                                    return(
+                                      <div key={`${index}-${idx}-${i}`}>
+                                        <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2">{item.content}</label><br/>
+                                        <input type="text" onChange={handleInputChange(form, setForm)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} />
+                                      </div>
+                                    )
+                                  })
+                                }
+                              </div>
+                            </div>
+                          </div>
+                        )
+                      })
+                    } 
+                  </div>      
                 </div>
               )
             }

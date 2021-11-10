@@ -3,19 +3,23 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
+        content: "1. La zona en la que vivo es",
         radio: true,
           options: {
             "field-1-1": {
+              content: "En una ciudad",
               checkbox: true,
               x: 72,
               y: 427,
             },
             "field-1-2": {
+              content: "En la costa",
               checkbox: true,
               x: 146,
               y: 427,
             },
             "field-1-3": {
+              content: "En las tierras altas",
               checkbox: true,
               x: 230,
               y: 427,
@@ -24,6 +28,8 @@ const config = {
       },
       "field-2": {
         select: true,
+        content: "2. Vivo aquí",
+        cols: "col-sm-12 col-md-6",
         x: 350,
         y: 460,
         width: 490,
@@ -88,6 +94,9 @@ const config = {
         }
       },
       "field-3": {
+        input: true,
+        content: "3. ¿Cuántas personas viven en mi casa?",
+        cols: "col-sm-12 col-md-6",
         x: 82,
         y: 516,
         width: 490,
@@ -100,6 +109,24 @@ const config = {
         width: 490,
         lineGap: 11,
         max: 2
+      },
+      "field-3-1": {
+        repeater: true,
+        content: "¿Quiénes son esas personas y qué relación tienen contigo?",
+        times: 7,
+        prefix: "field-3-",
+        fields: [
+          { 
+            content: "Nombre",
+            max: 20,
+            sufix: "-A"
+          },
+          {
+            content: "Relación",
+            max: 12,
+            sufix: "-B"
+          }
+        ]
       },
       "field-3-1-A": {
         x: 60,
@@ -200,6 +227,8 @@ const config = {
         max: 15
       },
       "field-6": {
+        input: true,
+        content: "Escritura individual, sino el niño",
         x: 370,
         y: 505,
         width: 220,
@@ -212,6 +241,9 @@ const config = {
     bg: "2.jpg",
     items: {
       "field-4": {
+        textarea: true,
+        content: "4. ¿Cuando crezca, quiero ser?",
+        cols: "col-sm-12 col-md-6",
         x: 60,
         y: 65,
         width: 210,
@@ -219,6 +251,9 @@ const config = {
         max: 250
       },
       "field-5": {
+        textarea: true,
+        content: "5. Una pregunta que tengo para ti",
+        cols: "col-sm-12 col-md-6",
         x: 335,
         y: 65,
         width: 210,
@@ -226,6 +261,7 @@ const config = {
         max: 250
       },
       "img": {
+        content: "6. Este es un dibujo que hice para ti",
         image: true,
         x: 85,
         y: 300,
@@ -236,6 +272,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "Mi primera carta a mi patrocinador",
+    copy:  ["field-3"]
+  }
 }
 
 module.exports = config;

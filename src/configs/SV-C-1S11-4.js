@@ -3,6 +3,9 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
+        input: true,
+        content: "1. Mi estatura es",
+        cols: "col-sm-12 col-md-6",
         x: 60,
         y: 255,
         width: 235,
@@ -10,11 +13,41 @@ const config = {
         max: 20
       },
       "field-2": {
+        input: true,
+        content: "2. Mi peso es",
+        cols: "col-sm-12 col-md-6",
         x: 60,
         y: 335,
         width: 235,
         lineGap: 4,
         max: 20
+      },
+      "field-3": {
+        is_checkbox: true,
+        content: "3. Aquí hay más cosas de las que puedo hacer ahora",
+        options: {
+          "field-3-1": {
+            content: "Caminar"
+          },
+          "field-3-2": {
+            content: "Correr"
+          },
+          "field-3-3": {
+            content: "Saltar"
+          },
+          "field-3-4": {
+            content: "Tirar una pelota"
+          },
+          "field-3-5": {
+            content: "Dibujar"
+          },
+          "field-3-6": {
+            content: "Decir unas palabras"
+          },
+          "field-3-7": {
+            content: "Cantar"
+          },
+        }
       },
       "field-3-1": {
         checkbox: true,
@@ -52,6 +85,9 @@ const config = {
         y: 638,
       },
       "field-4": {
+        input: true,
+        cols: "col-sm-12 col-md-6",
+        content: "4. En la iglesia me gusta (escuchar historias bíblicas, jugar con amigos, jugar juegos)",
         x: 377,
         y: 340,
         width: 175,
@@ -59,6 +95,9 @@ const config = {
         max: 65
       },
       "field-5": {
+        input: true,
+        cols: "col-sm-12 col-md-6",
+        content: "5. Mi mejor amigo/amiga se llama",
         x: 320,
         y: 484,
         width: 200,
@@ -77,6 +116,8 @@ const config = {
     bg: "2.jpg",
     items: {
       "field-6": {
+        textarea: true,
+        content: "6. Un mensaje a mi patrocinador",
         x: 50,
         y: 60,
         width: 490,
@@ -84,6 +125,7 @@ const config = {
         max: 640
       },
       "img": {
+        content: "7. Adjunta un dibujo",
         image: true,
         x: 120,
         y: 250,
@@ -93,6 +135,8 @@ const config = {
         },
       },
       "field-7": {
+        input: true,
+        content: "Nombre y parentesco con quien escribe la carta",
         x: 215,
         y: 770,
         width: 320,
@@ -101,6 +145,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "Estoy creciendo",
+    copy: [],
+  }
 }
 
 module.exports = config;

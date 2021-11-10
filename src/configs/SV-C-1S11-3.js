@@ -3,6 +3,9 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
+        input: true,
+        content: "1. Mi comida favorita es",
+        cols: "col-sm-12 col-md-6",
         x: 60,
         y: 240,
         width: 200,
@@ -10,6 +13,9 @@ const config = {
         max: 70
       },
       "field-2": {
+        input: true,
+        content: "2. Mi color favorito es",
+        cols: "col-sm-12 col-md-6",
         x: 60,
         y: 456,
         width: 200,
@@ -17,6 +23,9 @@ const config = {
         max: 70
       },
       "field-3": {
+        input: true,
+        content: "3. Mi amigo favorito es",
+        cols: "col-sm-12 col-md-6",
         x: 110,
         y: 602,
         width: 160,
@@ -24,6 +33,9 @@ const config = {
         max: 60
       },
       "field-4": {
+        input: true,
+        content: "4. Mi animal favorito es",
+        cols: "col-sm-12 col-md-6",
         x: 310,
         y: 260,
         width: 115,
@@ -31,6 +43,8 @@ const config = {
         max: 40
       },
       "field-5": {
+        input: true,
+        content: "5. Mi cuento favorito es",
         x: 400,
         y: 395,
         width: 110,
@@ -49,6 +63,8 @@ const config = {
     bg: "2.jpg",
     items: {
       "field-6": {
+        textarea: true,
+        content: "6. Un mensaje a mi patrocinador",
         x: 50,
         y: 60,
         width: 490,
@@ -56,6 +72,7 @@ const config = {
         max: 640
       },
       "img": {
+        content: "7. Adjunta un dibujo",
         image: true,
         x: 120,
         y: 250,
@@ -65,6 +82,8 @@ const config = {
         },
       },
       "field-7": {
+        content: "Nombre y parentesco con quien escribe la carta",
+        input: true,
         x: 230,
         y: 770,
         width: 320,
@@ -73,6 +92,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "Mis favoritos",
+    copy: [],
+  }
 }
 
 module.exports = config;
