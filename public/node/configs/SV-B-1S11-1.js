@@ -190,7 +190,6 @@ const config = {
     }
   },
   extras: {
-    copy: ['field-2-1', 'field-2-2'],
     title: "Todo sobre mí"
   }
 }

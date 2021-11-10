@@ -169,7 +169,7 @@ const config = {
   },
   extras: {
     title: "Mi primera carta a mi patrocinador",
-    copy:  ["field-3"]
+    copy:  ["field-2"]
   }
 }
 
