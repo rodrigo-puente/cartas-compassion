@@ -115,7 +115,7 @@ const config = {
         y: 60,
         width: 490,
         lineGap: 8,
-        max: 640
+        max: 695
       },
       "img": {
         content: "7. Adjunta un dibujo",
