@@ -30,8 +30,8 @@ const config = {
         max: 100
       },
       "field-4": {
-        content: "Mi clima favorito es",
         radio: true,
+        content: "4. Mi clima favorito es",
         options: {
           "field-4-1": {
             content: "Lluvioso",

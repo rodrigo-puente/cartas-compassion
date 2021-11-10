@@ -3,26 +3,26 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
-        content: "1. La zona en la que vivo es",
         radio: true,
-          options: {
-            "field-1-1": {
-              content: "En una ciudad",
-              checkbox: true,
-              x: 72,
-              y: 427,
-            },
-            "field-1-2": {
-              content: "En la costa",
-              checkbox: true,
-              x: 146,
-              y: 427,
-            },
-            "field-1-3": {
-              content: "En las tierras altas",
-              checkbox: true,
-              x: 230,
-              y: 427,
+        content: "1. La zona en la que vivo es",
+        options: {
+          "field-1-1": {
+            content: "En una ciudad",
+            checkbox: true,
+            x: 72,
+            y: 427,
+          },
+          "field-1-2": {
+            content: "En la costa",
+            checkbox: true,
+            x: 146,
+            y: 427,
+          },
+          "field-1-3": {
+            content: "En las tierras altas",
+            checkbox: true,
+            x: 230,
+            y: 427,
           }
         }
       },

@@ -4,7 +4,7 @@ const config = {
     items: {
       "field-1": {
         textarea: true,
-        content: "Mis padres o encargados son",
+        content: "1. Mis padres o encargados son",
         cols: "col-sm-12 col-md-6",
         x: 50,
         y: 244,
@@ -14,7 +14,7 @@ const config = {
       },
       "field-2": {
         textarea: true,
-        content: "Mi juego favorito",
+        content: "2. Mi juego favorito",
         cols: "col-sm-12 col-md-6",
         x: 50,
         y: 332,
@@ -24,6 +24,7 @@ const config = {
       },
       "field-3": {
         radio: true, 
+        content: "3. El color de mi cabello es",
         options: {
           "field-3-1": {
             content: "Rubio",
@@ -107,6 +108,7 @@ const config = {
       },
       "field-7": {
         radio: true,
+        content: "7. Mi hogar se encuentra cerca del",
         options: {
           "field-7-1": {
             checkbox: true,
