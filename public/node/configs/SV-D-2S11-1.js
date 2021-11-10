@@ -59,7 +59,7 @@ const config = {
       "field-7": {
         is_checkbox: true,
         content: "7. Para estar sano yo",
-        content: {
+        options: {
           "field-7-1": {
             content: "Hago mucho ejercicio"
           },
