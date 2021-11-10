@@ -3,6 +3,8 @@ const config = {
     bg: "1.jpg",
     items: {
       "field-1": {
+        textarea: true,
+        content: "1. Mis hermanos de mayor a menor edad son",
         x: 53,
         y: 230,
         width: 210,
@@ -11,13 +13,16 @@ const config = {
       },
       "field-2": {
         radio: true,
+        content: "2. Mi familia vive en el área",
         options: {
           "field-2-1": {
+            content: "Rural",
             checkbox: true,
             x: 83,
             y: 438
           },
           "field-2-2": {
+            content: "Urbana",
             checkbox: true,
             x: 140,
             y: 438,
@@ -25,6 +30,9 @@ const config = {
         }
       },
       "field-3": {
+        input: true,
+        cols: "col-sm-12 col-md-6",
+        content: "3. Nosotros obtenemos agua de",
         x: 160,
         y: 550,
         width: 150,
@@ -32,6 +40,9 @@ const config = {
         max: 45
       },
       "field-4": {
+        input: true,
+        cols: "col-sm-12 col-md-6",
+        content: "4. Lo que más me gusta hacer con mi familia es:",
         x: 60,
         y: 681,
         width: 230,
@@ -39,6 +50,8 @@ const config = {
         max: 45
       },
       "field-5-1": {
+        textarea: true,
+        content: "5. Mis peticiones de oración para mi familia son",
         x: 319,
         y: 230,
         width: 250,
@@ -46,6 +59,8 @@ const config = {
         max: 140
       },
       "field-5-2": {
+        textarea: true,
+        content: "Sigue tu petición",
         x: 410,
         y: 295,
         width: 140,
@@ -64,6 +79,8 @@ const config = {
     bg: "2.jpg",
     items: {
       "field-6": {
+        textarea: true,
+        content: "6. Un mensaje a mi patrocinador",
         x: 50,
         y: 61,
         width: 490,
@@ -71,6 +88,7 @@ const config = {
         max: 640
       },
       "img": {
+        content: "7. Adjunta un dibujo",
         image: true,
         x: 95,
         y: 255,
@@ -80,6 +98,8 @@ const config = {
         },
       },
       "field-7": {
+        input: true,
+        content: "Nombre y parentesco con quien escribe la carta",
         x: 188,
         y: 774,
         width: 490,
@@ -88,6 +108,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "Mi familia",
+    copy: [],
+  }
 }
 
 module.exports = config;

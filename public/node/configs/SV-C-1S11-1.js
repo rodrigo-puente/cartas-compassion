@@ -68,8 +68,8 @@ const config = {
         max: 215
       },
       "fecha": {
-        x: 440,
-        y: 155,
+        x: 460,
+        y: 160,
         width: 220,
         lineGap: 11,
       }
@@ -108,6 +108,10 @@ const config = {
       },
     }
   },
+  extras: {
+    title: "Mi familia",
+    copy: [],
+  }
 }
 
 module.exports = config;
