@@ -1,13 +1,14 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import Vineta from '../components/shared/Vineta';
-import SVB1S111Template from "../components/templates/SV-B-1S11-1";
+import Form from "../components/shared/Form";
 import '../styles/_cartas.scss';
 
-function SVB1S111() {
-  const { userId } = useParams();
+function Template() {
+  const { userId, templateId } = useParams();
+  const templateConfig = require(`../configs/${templateId}`);
   const bgStyles = {
-    backgroundImage: `url(${require(`../assets/SV-B-1S11-1.png`).default})`,
+    backgroundImage: `url(${require(`../assets/${templateId}.png`).default})`,
   }
 
   return (
@@ -15,8 +16,8 @@ function SVB1S111() {
       <div className="text-center header d-flex flex-column" style={bgStyles}>
         <div className="layer d-flex align-items-center justify-content-center">
           <div>
-            <h2 className="text-center">Todo sobre mí</h2>
-            <small>Plantilla SV-B-1S11-1</small>
+            <h2 className="text-center">{templateConfig.extras.title}</h2>
+            <small>Plantilla {templateId}</small>
           </div>
         </div>
       </div>
@@ -27,7 +28,7 @@ function SVB1S111() {
             <Vineta id={userId}/>
           </div>
           <div className="col-sm-12 mb-5">
-            <SVB1S111Template id={userId} />
+            <Form id={userId} templateId={templateId} />
           </div>
         </div>
       </div>
@@ -35,4 +36,4 @@ function SVB1S111() {
   );
 }
 
-export default SVB1S111;
+export default Template;

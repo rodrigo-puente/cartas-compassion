@@ -11,21 +11,7 @@ import CartasPorRealizar from './pages/CartasPorRealizar';
 import CartasRealizadas from './pages/CartasRealizadas';
 import ImportarCartas from './pages/ImportarCartas';
 import CartasRevision from './pages/CartasRevision';
-import SVA1S111 from './pages/SV-A-1S11-1';
-import SVB1S111 from './pages/SV-B-1S11-1';
-import SVC1S111 from './pages/SV-C-1S11-1';
-import SVC1S112 from './pages/SV-C-1S11-2';
-import SVC1S113 from './pages/SV-C-1S11-3';
-import SVC1S114 from './pages/SV-C-1S11-4';
-import SVC1S115 from './pages/SV-C-1S11-5';
-import SVC1S116 from './pages/SV-C-1S11-6';
-import SVD1S112 from './pages/SV-D-1S11-2';
-import SVD1S1116 from './pages/SV-D-1S11-16';
-import SVD2S111 from './pages/SV-D-2S11-1';
-import SVE4S011 from './pages/SV-E-4S01-1';
-import SVF4S011 from './pages/SV-F-4S01-1';
-import SVJ1S111 from './pages/SV-J-1S11-1';
-import SVK3S111 from './pages/SV-K-3S11-1';
+import Template from './pages/Template';
 import MissingTemplate from './pages/MissingTemplate';
 
 // Importar Bootstrap
@@ -40,24 +26,7 @@ export default function App() {
         <Route exact path="/realizadas" component={CartasRealizadas} />
         <Route exact path="/importar" component={ImportarCartas} />
         <Route exact path="/revision" component={CartasRevision} />
-        <Route exact path="/template/SV-A-1S11-1/:userId" component={SVA1S111} />
-        <Route exact path="/template/SV-B-1S11-1/:userId" component={SVB1S111} />
-        <Route exact path="/template/SV-C-1S11-1/:userId" component={SVC1S111} />
-        <Route exact path="/template/SV-C-1S11-2/:userId" component={SVC1S112} />
-        <Route exact path="/template/SV-C-1S11-3/:userId" component={SVC1S113} />
-        <Route exact path="/template/SV-C-1S11-4/:userId" component={SVC1S114} />
-        <Route exact path="/template/SV-C-1S11-5/:userId" component={SVC1S115} />
-        <Route exact path="/template/SV-C-1S11-6/:userId" component={SVC1S116} />
-        <Route exact path="/template/SV-D-2S11-1/:userId" component={SVD2S111} />
-        <Route exact path="/template/SV-D-1S11-2/:userId" component={SVD1S112} />
-        <Route exact path="/template/SV-D-1S11-16/:userId" component={SVD1S1116} />
-        <Route exact path="/template/SV-E-4S01-1/:userId" component={SVE4S011} />
-        <Route exact path="/template/SV-F-4S01-1/:userId" component={SVF4S011} />
-        <Route exact path="/template/SV-J-1S11-1/:userId" component={SVJ1S111} />
-        <Route exact path="/template/SV-K-3S11-1/:userId" component={SVK3S111} />
-        <Route exact path="/template/SV-K-3S11-1/:userId" component={SVK3S111} />
-
-        
+        <Route exact path="/template/:templateId/:userId" component={Template} />
         <Route component={MissingTemplate} />
       </Switch>
     </Router>

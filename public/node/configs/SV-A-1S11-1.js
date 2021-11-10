@@ -147,7 +147,10 @@ const config = {
       },
     }
   },
-  copy: ['field-2-1', 'field-2-2']
+  extras: {
+    copy: ['field-2-1', 'field-2-2'],
+    title: "Mi primera carta",
+  }
 }
 
 module.exports = config;
