@@ -146,7 +146,7 @@ function Form({ id, templateId }) {
             } else if (CONFIG[key].label) {
               return (
                 <div className="col-sm-12 form-group mb-3" key={index}>
-                  <p>{CONFIG[key].content}</p>
+                  <p className="text-white">{CONFIG[key].content}</p>
                 </div>
               )
             }
