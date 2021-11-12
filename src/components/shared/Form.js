@@ -54,13 +54,15 @@ function Form({ id, templateId }) {
                   <label className="mb-2">{CONFIG[key].content}</label> 
                   <div className="table-responsive">
                     <table className="table mb-2">
-                      <tr>
-                        { 
-                          Object.keys(CONFIG[key].options).map((k, i) => {
-                            return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></td>
-                          })
-                        }
-                      </tr>
+                      <tbody>
+                        <tr>
+                          { 
+                            Object.keys(CONFIG[key].options).map((k, i) => {
+                              return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></td>
+                            })
+                          }
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -71,13 +73,15 @@ function Form({ id, templateId }) {
                   <label className="mb-2">{CONFIG[key].content}</label> 
                   <div className="table-responsive">
                     <table className="table mb-2">
-                      <tr>
-                        { 
-                          Object.keys(CONFIG[key].options).map((k, i) => {
-                            return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
-                          })
-                        }
-                      </tr>
+                      <tbody>
+                        <tr>
+                          { 
+                            Object.keys(CONFIG[key].options).map((k, i) => {
+                              return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
+                            })
+                          }
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </div>
