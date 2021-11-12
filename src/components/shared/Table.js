@@ -8,13 +8,20 @@ function Table({ state }) {
 
   useEffect(() => {
     async function getData() {
-      console.log(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
       const data = await sendAsync(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
       setCartas(data);
     }
     
     getData();
   }, [state]);
+
+  const deleteRow = async (id) => {
+    if(window.confirm("¿Estás seguro que quieres borrar este registro?")) {
+      await sendAsync(`DELETE FROM cartas WHERE id = "${id}"`);
+      setCartas(cartas.filter(item => item.id !== id));
+      alert("Registro borrado con éxito");
+    }
+  }
 
   return (
     <div className="mb-3">
@@ -33,6 +40,7 @@ function Table({ state }) {
               <th className="text-center" scope="col">Socio nombre preferido</th>
               <th className="text-center" scope="col">Sexo</th>
               <th className="text-center" scope="col">País</th>
+              <th className="text-center" scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +58,7 @@ function Table({ state }) {
                   <td>{x.supporter_favorito}</td>
                   <td>{x.supporter_sexo}</td>
                   <td>{x.supporter_country}</td>
+                  <td><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
               )
             }

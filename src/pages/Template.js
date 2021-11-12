@@ -16,8 +16,8 @@ function Template() {
       <div className="text-center header d-flex flex-column" style={bgStyles}>
         <div className="layer d-flex align-items-center justify-content-center">
           <div>
-            <h2 className="text-center">{templateConfig.extras.title}</h2>
-            <small>Plantilla {templateId}</small>
+            <h2 className="text-center title">{templateConfig.extras.title}</h2>
+            <small className="subtitle">Plantilla {templateId}</small>
           </div>
         </div>
       </div>

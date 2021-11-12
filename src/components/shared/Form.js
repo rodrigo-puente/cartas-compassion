@@ -15,6 +15,12 @@ function Form({ id, templateId }) {
   const [disabled, setDisabled] = useState(false);
   const [form, setForm] = useState({});
 
+  //max excluded
+  const colors = (min, max) => {
+    const number = Math.floor(Math.random() * (max - min)) + min;
+    return `color-${number}`;
+  }
+
   const CONFIG = useMemo(() => { 
     return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }
   }, [templateConfig?.page1.items, templateConfig?.page2.items]);
@@ -32,14 +38,14 @@ function Form({ id, templateId }) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
                   <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
-                  <Input id={key} form={form} setForm={setForm} config={CONFIG[key]} />
+                  <Input id={key} form={form} setForm={setForm} config={CONFIG[key]} color={colors(1,6)} />
                 </div>
               )
             } else if (CONFIG[key].textarea) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
                   <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
-                  <TextArea id={key} form={form} setForm={setForm} config={CONFIG[key]} />
+                  <TextArea id={key} form={form} setForm={setForm} config={CONFIG[key]} color={colors(1,6)} />
                 </div>
               )
             } else if (CONFIG[key].radio) {
@@ -48,15 +54,13 @@ function Form({ id, templateId }) {
                   <label className="mb-2">{CONFIG[key].content}</label> 
                   <div className="table-responsive">
                     <table className="table mb-2">
-                      <thead>
-                        <tr>
-                          { 
-                            Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <th key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></th>
-                            })
-                          }
-                        </tr>
-                      </thead>
+                      <tr>
+                        { 
+                          Object.keys(CONFIG[key].options).map((k, i) => {
+                            return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></td>
+                          })
+                        }
+                      </tr>
                     </table>
                   </div>
                 </div>
@@ -67,15 +71,13 @@ function Form({ id, templateId }) {
                   <label className="mb-2">{CONFIG[key].content}</label> 
                   <div className="table-responsive">
                     <table className="table mb-2">
-                      <thead>
-                        <tr>
-                          { 
-                            Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <th key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} name={k} />{CONFIG[key].options[k].content}</label></th>
-                            })
-                          }
-                        </tr>
-                      </thead>
+                      <tr>
+                        { 
+                          Object.keys(CONFIG[key].options).map((k, i) => {
+                            return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
+                          })
+                        }
+                      </tr>
                     </table>
                   </div>
                 </div>
@@ -146,7 +148,7 @@ function Form({ id, templateId }) {
             } else if (CONFIG[key].is_label) {
               return (
                 <div className="col-sm-12 form-group mb-3" key={index}>
-                  <p className="text-white">{CONFIG[key].content}</p>
+                  <p>{CONFIG[key].content}</p>
                 </div>
               )
             }

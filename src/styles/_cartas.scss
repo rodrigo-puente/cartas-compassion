@@ -1,9 +1,29 @@
-#cartas {
-  padding: 0;
-  background-color: #003266;
+@font-face {
+  font-family: 'kidsboysregular';
+  src: url('../assets/fonts/kidsboys-webfont.woff2') format('woff2'),
+       url('../assets/fonts/kidsboys-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
-  h3, label {
-    color: white;
+#cartas {
+  background: white;
+  padding: 0;
+
+  label, p, small, h1, h2, h3, h4, h5, h6, input, textarea {
+    font-family: 'kidsboysregular';
+  }
+
+  label, p, input, textarea {
+    font-size: 24px;
+  }
+
+  label {
+    color: #282828;
+  }
+
+  small {
+    font-size: 20px;
   }
 
   .header {
@@ -13,23 +33,49 @@
     min-height: 150px;
 
     .layer {
-      background-color: rgba(0, 0, 0, 0.3); /* Fallback color */
-      background-color: rgba(0, 0, 0, 0.3); /* Black w/opacity/see-through */
+      background-color: rgba(0, 0, 0, 0.5); /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.5); /* Black w/opacity/see-through */
       flex: 1;
     }
   }
 
-  h2 {
+  .title {
     color: white;
-    text-shadow: black 0px 0px 10px;
+    text-shadow: 2px 2px 2px black;
+    font-size: 60px;
   }
 
-  small {
+  .subtitle {
     color: white;
-    text-shadow: black 0px 0px 10px;
+    text-shadow: 2px 2px 2px black;
+    font-size: 40px;
   }
 
   .btn-primary {
     background-color: #005DAA;
+  }
+
+  .color-1 {
+    background: #88FAA2;
+  }
+
+  .color-2 {
+    background: #FFFFBA;
+  }
+
+  .color-3 {
+    background: #BAFFC9;
+  }
+
+  .color-4 {
+    background: #BAE1FF;
+  }
+  
+  .color-5 {
+    background: #98EFAB
+  }
+
+  .color-6 {
+    background: #F2C76E;
   }
 }
