@@ -1,13 +1,15 @@
-import { handleInputChange } from '../../lib/fileInteractions';
+import { calculateLength } from '../../lib/misc';
 
-function TextArea({ id, form, setForm, config, color }) {
-    return (
-      <div>
-        <textarea onChange={handleInputChange(form, setForm)} id={id} name={id} cols="30" rows="3" className={`form-control ${color}`} maxLength={config.max} required={config.required !== undefined ? config.required : true}></textarea>
-        <small>Máximo de caracteres {form[id]?.length || 0}/{config.max || "???"}</small>
-      </div>
-    );
-  }
+function TextArea({ id, register, config, color }) {
+  let required = config.required !== undefined ? config.required : true;
   
-  export default TextArea;
+  return (
+      <div>
+      <textarea {...register(id)} onChange={calculateLength} id={id} name={id} cols="30" rows="3" className={`form-control ${color}`} maxLength={config.max} required={config.required !== undefined ? config.required : true} ></textarea>
+      <small>Máximo de caracteres <span id={`${id}-max`}></span>/{config.max || "???"}</small>
+    </div>
+  );
+}
+  
+export default TextArea;
   

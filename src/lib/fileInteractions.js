@@ -44,26 +44,28 @@ export const cleanImg = (setImg) => async (e) => {
   setImg("");
 }
 
-export const getData = async (id, config, setCarta, setForm) => {
+export const getData = async (id, config, setCarta, setValue) => {
   const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
   setCarta(result[0]);
 
   if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
-    const newform = JSON.parse(result[0].formulario);
-    setForm(newform);
+    const form = JSON.parse(result[0].formulario);
 
     const skipKeys = ["fecha", "imgs", "img", "route"];
-    Object.keys(newform).forEach((key) => {
+    Object.keys(form).forEach((key) => {
       if (skipKeys.includes(key)) return;
       try {
-        const val = newform[key];
+        const val = form[key];
         if(config[key].checkbox) {
           document.getElementById(key).checked = val;
         } else if (config[key].radio || config[key].special_radio) {
           document.getElementById(val).checked = true;
         } else {
           document.getElementById(key).value = val;
+          document.getElementById(`${key}-max`).innerHTML = val.length || 0;
         }
+
+        setValue(key, val);
       } catch(err) {
         console.log("Propiedad no existe: ", key);
       }
@@ -71,8 +73,7 @@ export const getData = async (id, config, setCarta, setForm) => {
   }
 }
 
-export const handleSubmit = (id, templateID, carta, form, route, img, imgs, setDisabled, copyFields = []) => (e) => {
-  e.preventDefault();
+export const submitForm = (id, templateID, carta, form, route, img, imgs, setDisabled, copyFields = []) => {
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
     return;
