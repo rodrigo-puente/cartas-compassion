@@ -11,7 +11,7 @@ const config = {
         content: "Me levanto",
         cols: "col-sm-12 col-md-3",
         x: 51,
-        y: 290,
+        y: 288,
         width: 165,
         lineGap: 10,
         max: 2
@@ -21,7 +21,7 @@ const config = {
         content: "Me baño",
         cols: "col-sm-12 col-md-3",
         x: 173,
-        y: 279,
+        y: 277,
         width: 165,
         lineGap: 10,
         max: 2
@@ -31,7 +31,7 @@ const config = {
         content: "Me cepillo los dientes",
         cols: "col-sm-12 col-md-3",
         x: 293,
-        y: 259,
+        y: 258,
         width: 165,
         lineGap: 10,
         max: 2
@@ -41,7 +41,7 @@ const config = {
         content: "Voy a la escuela",
         cols: "col-sm-12 col-md-3",
         x: 418,
-        y: 263,
+        y: 261,
         width: 165,
         lineGap: 10,
         max: 2
@@ -51,7 +51,7 @@ const config = {
         content: "Desayuno",
         cols: "col-sm-12 col-md-3",
         x: 51,
-        y: 367,
+        y: 364,
         width: 165,
         lineGap: 10,
         max: 2
@@ -61,7 +61,7 @@ const config = {
         content: "Oro y leo la biblia",
         cols: "col-sm-12 col-md-3",
         x: 256,
-        y: 342,
+        y: 340,
         width: 165,
         lineGap: 10,
         max: 2
@@ -70,8 +70,8 @@ const config = {
         input: true,
         content: "Almuerzo",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 457,
+        y: 346,
         width: 165,
         lineGap: 10,
         max: 2
@@ -91,7 +91,7 @@ const config = {
         content: "Ceno",
         cols: "col-sm-12 col-md-3",
         x: 65,
-        y: 244,
+        y: 444,
         width: 165,
         lineGap: 10,
         max: 2
@@ -101,7 +101,7 @@ const config = {
         content: "Me duermo",
         cols: "col-sm-12 col-md-3",
         x: 250,
-        y: 446,
+        y: 443,
         width: 165,
         lineGap: 10,
         max: 2
@@ -111,7 +111,7 @@ const config = {
         content: "Juego",
         cols: "col-sm-12 col-md-3",
         x: 365,
-        y: 382,
+        y: 381,
         width: 165,
         lineGap: 10,
         max: 2
@@ -121,7 +121,7 @@ const config = {
         content: "Hago las tareas",
         cols: "col-sm-12 col-md-3",
         x: 415,
-        y: 435,
+        y: 433,
         width: 165,
         lineGap: 10,
         max: 2
@@ -139,37 +139,37 @@ const config = {
           "field-13-2": {
             content: "Martes",
             checkbox: true,
-            x: 93,
+            x: 94,
             y: 530,
           },
           "field-13-3": {
             content: "Miércoles",
             checkbox: true,
-            x: 128,
-            y: 530,
+            x: 130,
+            y: 520,
           },
           "field-13-4": {
             content: "Jueves",
             checkbox: true,
-            x: 164,
+            x: 166,
             y: 530,
           },
           "field-13-5": {
             content: "Viernes",
             checkbox: true,
-            x: 200,
+            x: 202,
             y: 530,
           },
           "field-13-6": {
             content: "Sábado",
             checkbox: true,
-            x: 236,
+            x: 238,
             y: 530,
           },
           "field-13-7": {
             content: "Domingo",
             checkbox: true,
-            x: 270,
+            x: 273,
             y: 530,
           },
         },
@@ -216,33 +216,33 @@ const config = {
       },
       "field-14-3": {
         checkbox: true,
-        x: 298,
+        x: 294,
         y: 652,
       },
       "field-14-4": {
         checkbox: true,
-        x: 270,
-        y: 670,
+        x: 273,
+        y: 668,
       },
       "field-14-5": {
         checkbox: true,
-        x: 275,
-        y: 675,
+        x: 267,
+        y: 684,
       },
       "field-14-6": {
         checkbox: true,
-        x: 280,
-        y: 700,
+        x: 279,
+        y: 699,
       },
       "field-14-7": {
         checkbox: true,
-        x: 280,
-        y: 718,
+        x: 279,
+        y: 717,
       },
       "field-14-8": {
         checkbox: true,
-        x: 297,
-        y: 774,
+        x: 300,
+        y: 733,
       },
       "fecha": {
         x: 445,
@@ -267,7 +267,7 @@ const config = {
       "img": {
         content: "5. Mi dibujo",
         image: true,
-        x: 120,
+        x: 100,
         y: 255,
         config: {
           fit: [400, 200],
@@ -279,12 +279,12 @@ const config = {
         options: {
           "field-16-1": {
             content: "Esta carta está escrita en tercera persona ya que el niño no puede escribir",
-            x: 40,
-            y: 760,
+            x: 38,
+            y: 762,
           },
           "field-16-2": {
             content: "Esta carta está escrita por el niño",
-            x: 40,
+            x: 38,
             y: 775,
           },
         }

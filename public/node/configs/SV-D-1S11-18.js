@@ -26,19 +26,23 @@ const config = {
       "field-1-1": {
         checkbox: true,
         x: 72,
-        y: 295,      },
+        y: 295,     
+      },
       "field-1-2": {
         checkbox: true,
         x: 165,
-        y: 332,      },
+        y: 332,      
+      },
       "field-1-3": {
         checkbox: true,
         x: 255,
-        y: 303,      },
+        y: 303,      
+      },
       "field-1-4": {
         checkbox: true,
         x: 75,
-        y: 400,      },
+        y: 400,      
+      },
       "field-1-5": {
         checkbox: true,
         x: 260,
