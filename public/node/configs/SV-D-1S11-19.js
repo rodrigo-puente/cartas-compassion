@@ -6,31 +6,31 @@ const config = {
         input: true,
         content: "El nombre de mi proyecto es",
         cols: "col-sm-12 col-md-6",
-        x: 160,
-        y: 336,
-        width: 200,
+        x: 56,
+        y: 245,
+        width: 220,
         lineGap: 10,
-        max: 2
+        max: 46
       },
       "field-1-2": {
         input: true,
         content: "El número de niños en mi proyecto son",
         cols: "col-sm-12 col-md-6",
-        x: 160,
-        y: 336,
-        width: 200,
+        x: 56,
+        y: 299,
+        width: 220,
         lineGap: 10,
-        max: 2
+        max: 46
       },
       "field-1-3": {
         input: true,
         content: "El nombre de mi tutor es",
         cols: "col-sm-12 col-md-6",
-        x: 160,
-        y: 336,
-        width: 200,
+        x: 56,
+        y: 352,
+        width: 220,
         lineGap: 10,
-        max: 2
+        max: 46
       },
       "field-2": {
         is_checkbox: true,
@@ -58,29 +58,29 @@ const config = {
       },
       "field-2-1": {
         checkbox: true,
-        x: 69,
-        y: 427,      },
+        x: 105,
+        y: 475,      },
       "field-2-2": {
         checkbox: true,
-        x: 69,
-        y: 427,      },
+        x: 212,
+        y: 493,      },
       "field-2-3": {
         checkbox: true,
-        x: 69,
-        y: 427,      },
+        x: 140,
+        y: 590,      },
       "field-2-4": {
         checkbox: true,
-        x: 69,
-        y: 427,      },
+        x: 52,
+        y: 624,      },
       "field-2-5": {
         checkbox: true,
-        x: 69,
-        y: 427,     
+        x: 140,
+        y: 700,     
       },
       "field-2-6": {
         checkbox: true,
-        x: 69,
-        y: 427,     
+        x: 55,
+        y: 730,     
       },
       "field-3": {
         is_checkbox: true,
@@ -105,28 +105,28 @@ const config = {
       },
       "field-3-1": {
         checkbox: true,
-        x: 69,
-        y: 427,      
+        x: 346,
+        y: 196,      
       },
       "field-3-2": {
         checkbox: true,
-        x: 69,
-        y: 427,      
+        x: 430,
+        y: 228,      
       },
       "field-3-3": {
         checkbox: true,
-        x: 69,
-        y: 427,      
+        x: 484,
+        y: 277,      
       },
       "field-3-4": {
         checkbox: true,
-        x: 69,
-        y: 427,      
+        x: 305,
+        y: 337,      
       },
       "field-3-5": {
         checkbox: true,
-        x: 69,
-        y: 427,      
+        x: 380,
+        y: 360,      
       },
       "field-4": {
         is_checkbox: true,
@@ -146,10 +146,30 @@ const config = {
           }
         }
       },
+      "field-4-1": {
+        checkbox: true,
+        x: 338,
+        y: 448,      
+      },
+      "field-4-2": {
+        checkbox: true,
+        x: 338,
+        y: 461,      
+      },
+      "field-4-3": {
+        checkbox: true,
+        x: 338,
+        y: 474,      
+      },
+      "field-4-4": {
+        checkbox: true,
+        x: 338,
+        y: 487,      
+      },
       "fecha": {
-        x: 460,
-        y: 160,
-        width: 220,
+        x: 218,
+        y: 180,
+        width: 190,
         lineGap: 11,
       },
     }
@@ -164,13 +184,13 @@ const config = {
         y: 61,
         width: 490,
         lineGap: 8,
-        max: 640
+        max: 670
       },
       "img": {
         content: "Mi dibujo",
         image: true,
-        x: 120,
-        y: 290,
+        x: 110,
+        y: 255,
         config: {
           fit: [400, 200],
           align: 'center'
@@ -181,13 +201,13 @@ const config = {
         options: {
           "field-6-1": {
             content: "Esta carta está escrita en tercera persona ya que el niño no puede escribir",
-            x: 50,
-            y: 203,
+            x: 38,
+            y: 763,
           },
           "field-6-2": {
             content: "Esta carta está escrita por el niño",
-            x: 50,
-            y: 215,
+            x: 38,
+            y: 775,
           },
         }
       }
