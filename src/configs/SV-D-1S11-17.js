@@ -2,16 +2,16 @@ const config = {
   page1: {
     bg: "1.jpg",
     items: {
-      "label-1": {
-        label: true,
+      "label": {
+        is_label: true,
         content: "1. Mi rutina diaria es (enumera el orden de las actividades que realizas durante el día):"
       },
       "field-1": {
         input: true,
         content: "Me levanto",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 51,
+        y: 290,
         width: 165,
         lineGap: 10,
         max: 2
@@ -20,8 +20,8 @@ const config = {
         input: true,
         content: "Me baño",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 173,
+        y: 279,
         width: 165,
         lineGap: 10,
         max: 2
@@ -30,8 +30,8 @@ const config = {
         input: true,
         content: "Me cepillo los dientes",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 293,
+        y: 259,
         width: 165,
         lineGap: 10,
         max: 2
@@ -40,8 +40,8 @@ const config = {
         input: true,
         content: "Voy a la escuela",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 418,
+        y: 263,
         width: 165,
         lineGap: 10,
         max: 2
@@ -50,8 +50,8 @@ const config = {
         input: true,
         content: "Desayuno",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 51,
+        y: 367,
         width: 165,
         lineGap: 10,
         max: 2
@@ -60,8 +60,8 @@ const config = {
         input: true,
         content: "Oro y leo la biblia",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 256,
+        y: 342,
         width: 165,
         lineGap: 10,
         max: 2
@@ -80,8 +80,8 @@ const config = {
         input: true,
         content: "Me visto",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 165,
+        y: 398,
         width: 165,
         lineGap: 10,
         max: 2
@@ -90,7 +90,7 @@ const config = {
         input: true,
         content: "Ceno",
         cols: "col-sm-12 col-md-3",
-        x: 50,
+        x: 65,
         y: 244,
         width: 165,
         lineGap: 10,
@@ -100,8 +100,8 @@ const config = {
         input: true,
         content: "Me duermo",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 250,
+        y: 446,
         width: 165,
         lineGap: 10,
         max: 2
@@ -110,8 +110,8 @@ const config = {
         input: true,
         content: "Juego",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 365,
+        y: 382,
         width: 165,
         lineGap: 10,
         max: 2
@@ -120,8 +120,8 @@ const config = {
         input: true,
         content: "Hago las tareas",
         cols: "col-sm-12 col-md-3",
-        x: 50,
-        y: 244,
+        x: 415,
+        y: 435,
         width: 165,
         lineGap: 10,
         max: 2
@@ -133,44 +133,44 @@ const config = {
           "field-13-1": {
             content: "Lunes",
             checkbox: true,
-            x: 95,
-            y: 457,
+            x: 58,
+            y: 530,
           },
           "field-13-2": {
             content: "Martes",
             checkbox: true,
-            x: 125,
-            y: 457,
+            x: 93,
+            y: 530,
           },
           "field-13-3": {
             content: "Miércoles",
             checkbox: true,
-            x: 155,
-            y: 457,
+            x: 128,
+            y: 530,
           },
           "field-13-4": {
             content: "Jueves",
             checkbox: true,
-            x: 185,
-            y: 457,
+            x: 164,
+            y: 530,
           },
           "field-13-5": {
             content: "Viernes",
             checkbox: true,
-            x: 215,
-            y: 457,
+            x: 200,
+            y: 530,
           },
           "field-13-6": {
             content: "Sábado",
             checkbox: true,
-            x: 215,
-            y: 457,
+            x: 236,
+            y: 530,
           },
           "field-13-7": {
             content: "Domingo",
             checkbox: true,
-            x: 215,
-            y: 457,
+            x: 270,
+            y: 530,
           },
         },
       },
@@ -206,47 +206,47 @@ const config = {
       },
       "field-14-1": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 268,
+        y: 618,
       },
       "field-14-2": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 272,
+        y: 635,
       },
       "field-14-3": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 298,
+        y: 652,
       },
       "field-14-4": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 270,
+        y: 670,
       },
       "field-14-5": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 275,
+        y: 675,
       },
       "field-14-6": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 280,
+        y: 700,
       },
       "field-14-7": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 280,
+        y: 718,
       },
       "field-14-8": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 297,
+        y: 774,
       },
       "fecha": {
-        x: 460,
-        y: 160,
+        x: 445,
+        y: 148,
         width: 220,
         lineGap: 11,
       },
@@ -268,7 +268,7 @@ const config = {
         content: "5. Mi dibujo",
         image: true,
         x: 120,
-        y: 290,
+        y: 255,
         config: {
           fit: [400, 200],
           align: 'center'
@@ -277,15 +277,15 @@ const config = {
       "field-16": {
         special_radio: true,
         options: {
-          "field-11-1": {
+          "field-16-1": {
             content: "Esta carta está escrita en tercera persona ya que el niño no puede escribir",
-            x: 50,
-            y: 203,
+            x: 40,
+            y: 760,
           },
-          "field-11-2": {
+          "field-16-2": {
             content: "Esta carta está escrita por el niño",
-            x: 50,
-            y: 215,
+            x: 40,
+            y: 775,
           },
         }
       }

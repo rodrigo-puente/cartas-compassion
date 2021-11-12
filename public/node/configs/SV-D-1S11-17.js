@@ -3,6 +3,7 @@ const config = {
     bg: "1.jpg",
     items: {
       "label": {
+        is_label: true,
         content: "1. Mi rutina diaria es (enumera el orden de las actividades que realizas durante el día):"
       },
       "field-1": {
