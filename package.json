@@ -1,6 +1,6 @@
 {
   "name": "cartas_compassion",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Aplicación para generación de cartas dentro de Compassion",
   "private": true,
   "main": "public/electron.js",
