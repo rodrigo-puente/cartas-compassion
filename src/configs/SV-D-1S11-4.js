@@ -37,9 +37,6 @@ const config = {
           "field-3-4": {
             content: "Es divertido"
           },
-          "field-3-5": {
-            content: "Otro"
-          },
         }
       },
       "field-3-1": {
@@ -63,11 +60,6 @@ const config = {
         y: 463,
       },
       "field-3-5": {
-        checkbox: true,
-        x: 51,
-        y: 479,
-      },
-      "field-3-6": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
@@ -78,7 +70,7 @@ const config = {
         max: 125,
       },
       "field-4": {
-        textarea: true,
+        input: true,
         content: "4. Conocí a mi mejor amigo en",
         x: 47,
         y: 600,
@@ -185,7 +177,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 680
+        max: 640
       },
       "img": {
         content: "7. Adjunta un dibujo",

@@ -128,18 +128,23 @@ async function pdfGenerator(vineta, user, data, template){
         }
       
         Object.keys(content).forEach((key) => {
-          let field = content[key]
-          if(field.checkbox){
-            addCheckbox(doc, data[key], field, checkIMG);
-          } else if(field.image) {
-            addImage(doc, data[key], field);
-          } else if (field.select) {
-            addText(doc, data[key], field);
-            addSelect(doc, field["options"][data[key]], checkIMG);
-          } else if (field.radio || field.special_radio) {
-            addSelect(doc, field["options"][data[key]], checkIMG);
-          } else {
-            addText(doc, data[key], field);
+          try {
+            let field = content[key]
+            if(field.checkbox){
+              addCheckbox(doc, data[key], field, checkIMG);
+            } else if(field.image) {
+              addImage(doc, data[key], field);
+            } else if (field.select) {
+              addText(doc, data[key], field);
+              addSelect(doc, field["options"][data[key]], checkIMG);
+            } else if (field.radio || field.special_radio) {
+              addSelect(doc, field["options"][data[key]], checkIMG);
+            } else {
+              addText(doc, data[key], field);
+            }
+          } catch (err) {
+            console.log("ERR GENERATING cONTENT");
+            console.dir(err);
           }
         });
       });

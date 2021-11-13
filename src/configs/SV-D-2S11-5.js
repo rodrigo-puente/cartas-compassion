@@ -8,9 +8,9 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 42,
         y: 257,
-        width: 150,
+        width: 140,
         lineGap: 11,
-        max: 29
+        max: 25
       },
       "field-2": {
         input: true,
@@ -18,9 +18,9 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 42,
         y: 311,
-        width: 150,
+        width: 140,
         lineGap: 11,
-        max: 29
+        max: 25
       },
       "field-3": {
         textarea: true,
@@ -28,7 +28,7 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 42,
         y: 375,
-        width: 150,
+        width: 140,
         lineGap: 7,
         max: 130
       },
@@ -38,7 +38,7 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 42,
         y: 505,
-        width: 150,
+        width: 140,
         lineGap: 7,
         max: 104
       },
@@ -48,7 +48,7 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 42,
         y: 621,
-        width: 150,
+        width: 140,
         lineGap: 7,
         max: 84
       },
@@ -58,7 +58,7 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 42,
         y: 718,
-        width: 145,
+        width: 140,
         lineGap: 7,
         max: 80
       },
@@ -68,7 +68,7 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 205,
         y: 323,
-        width: 150,
+        width: 140,
         lineGap: 7,
         max: 244
       },
@@ -78,9 +78,9 @@ const config = {
         cols: "col-sm-12 col-md-6",
         x: 203,
         y: 527,
-        width: 148,
+        width: 140,
         lineGap: 6.5,
-        max: 300
+        max: 280
       },
       "fecha": {
         x: 250,
@@ -115,7 +115,7 @@ const config = {
         y: 459,
         width: 240,
         lineGap: 12,
-        max: 704
+        max: 640
       },
       "img": {
         content: "Mi dibujo",

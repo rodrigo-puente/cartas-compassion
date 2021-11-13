@@ -150,38 +150,17 @@ const config = {
         max: 30,
       },
       "field-8": {
-        radio: true, 
+        input: true,
         content: "8. El uniforme de mi escuela es de color / El color que me gustaría tener de uniforme es",
-        options: {
-          "field-8-1": {
-            content: "Blanco",
-            checkbox: true,
-            x: 494,
-            y: 355,
-          },
-          "field-8-2": {
-            content: "Verde",
-            checkbox: true,
-            x: 494,
-            y: 355,
-          },
-          "field-8-3": {
-            content: "Azul",
-            checkbox: true,
-            x: 494,
-            y: 355,
-          },
-          "field-8-4": {
-            content: "Amarillo",
-            checkbox: true,
-            x: 494,
-            y: 355,
-          },
-        },
+        x: 494,
+        y: 355,
+        width: 200,
+        lineGap: 8,
+        max: 10,
       },
       "fecha": {
-        x: 370,
-        y: 140,
+        x: 100,
+        y: 183,
         width: 220,
         lineGap: 11,
       }
@@ -197,7 +176,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 690
+        max: 640
       },
       "img": {
         content: "7. Adjunta un dibujo",

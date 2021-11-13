@@ -104,9 +104,6 @@ const config = {
           "field-3-5": {
             content: "Gato",
           },
-          "field-3-6": {
-            content: "Ninguno",
-          },
         }
       },
       "field-3-1": {
@@ -135,9 +132,14 @@ const config = {
         y: 460,
       },
       "field-3-6": {
-        checkbox: true,
-        x: 70,
-        y: 583,
+        input: true,
+        content: "Otro",
+        cols: "col-sm-12 col-md-4",
+        x: 118,
+        y: 655,
+        width: 214,
+        lineGap: 11,
+        max: 15,
       },
       "field-4": {
         input: true,
@@ -166,7 +168,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 690
+        max: 640
       },
       "img": {
         content: "Adjunta un dibujo",
