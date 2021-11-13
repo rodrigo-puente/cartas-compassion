@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { handleInputChange, getData, handleSubmit } from '../../lib/fileInteractions';
+import { useForm } from "react-hook-form";
+
+import { getData, submitForm } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
 import Input from "../shared/Input";
 import TextArea from "../shared/TextArea";
@@ -7,13 +9,13 @@ import ImageSelector from "../shared/ImageSelector";
 
 function Form({ id, templateId }) {
   const templateConfig = require(`../../configs/${templateId}`);
+  const { register, handleSubmit, setValue } = useForm();
 
   const [route, setRoute] = useState("");
   const [img, setImg] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
   const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
-  const [form, setForm] = useState({});
 
   //max excluded
   const colors = (min, max) => {
@@ -21,16 +23,20 @@ function Form({ id, templateId }) {
     return `color-${number}`;
   }
 
+  const onSubmit = (data) => {
+    submitForm(id, templateId, carta, data, route, img, imgs, setDisabled, templateConfig.extras.copy);
+  };
+
   const CONFIG = useMemo(() => { 
     return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }
   }, [templateConfig?.page1.items, templateConfig?.page2.items]);
 
   useEffect(() => {
-    getData(id, CONFIG, setCarta, setForm);
-  }, [id, CONFIG]);
+    getData(id, CONFIG, setCarta, setValue);
+  }, [id, CONFIG, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(id, templateId, carta, form, route, img, imgs, setDisabled, templateConfig.extras.copy)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         { 
           Object.keys(CONFIG).map((key, index) => {
@@ -38,14 +44,14 @@ function Form({ id, templateId }) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
                   <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
-                  <Input id={key} form={form} setForm={setForm} config={CONFIG[key]} color={colors(1,6)} />
+                  <Input id={key} register={register} carta={carta} config={CONFIG[key]} color={colors(1,6)} />
                 </div>
               )
             } else if (CONFIG[key].textarea) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
                   <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
-                  <TextArea id={key} form={form} setForm={setForm} config={CONFIG[key]} color={colors(1,6)} />
+                  <TextArea id={key} register={register} carta={carta} config={CONFIG[key]} color={colors(1,6)} />
                 </div>
               )
             } else if (CONFIG[key].radio) {
@@ -58,7 +64,7 @@ function Form({ id, templateId }) {
                         <tr>
                           { 
                             Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></td>
+                              return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" {...register(key)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></td>
                             })
                           }
                         </tr>
@@ -77,7 +83,7 @@ function Form({ id, templateId }) {
                         <tr>
                           { 
                             Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
+                              return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
                             })
                           }
                         </tr>
@@ -90,7 +96,7 @@ function Form({ id, templateId }) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
                   <label className="mb-2">{CONFIG[key].content}</label> 
-                  <select className="form-control" id={key} name={key} onChange={handleInputChange(form, setForm)}>
+                  <select className="form-control" {...register(key)} id={key} name={key}>
                     { 
                       Object.keys(CONFIG[key].options).map((k, i) => <option key={`${index}-${i}`} value={k}>{k}</option>)
                     }
@@ -104,7 +110,7 @@ function Form({ id, templateId }) {
                     Object.keys(CONFIG[key].options).map((k, i) => {
                       return (
                         <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={`${index}-${i}`}>
-                          <label><input type="radio" className="form-check-input me-2" onChange={handleInputChange(form, setForm)} value={k} id={k} name={key} />{CONFIG[key].options[k].content}</label>
+                          <label><input type="radio" className="form-check-input me-2" {...register(key)} value={k} id={k} name={key} />{CONFIG[key].options[k].content}</label>
                         </div>
                       )
                     })
@@ -135,7 +141,7 @@ function Form({ id, templateId }) {
                                     return(
                                       <div key={`${index}-${idx}-${i}`}>
                                         <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2">{item.content}</label><br/>
-                                        <input type="text" onChange={handleInputChange(form, setForm)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} />
+                                        <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} />
                                       </div>
                                     )
                                   })
@@ -164,7 +170,7 @@ function Form({ id, templateId }) {
       <br/>
       <SharedSelectors imgs={imgs} setImgs={setImgs} route={route} setRoute={setRoute} />
       <div className="form-group mb-4 text-center">
-        <button name="submit" type="submit" onSubmit={handleSubmit(id, templateId, carta, form, route, img, imgs, setDisabled, templateConfig.extras.copy)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
+        <button name="submit" type="submit" onSubmit={handleSubmit(onSubmit)} className="btn btn-primary" disabled={disabled}>Guardar cambios y generar PDF</button>
       </div>
     </form>
   );

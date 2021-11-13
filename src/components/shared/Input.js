@@ -1,10 +1,12 @@
-import { handleInputChange } from '../../lib/fileInteractions';
+import { calculateLength } from '../../lib/misc';
 
-function Input({ id, form, setForm, config, color }) {
+function Input({ id, register, config, color }) {
+  let required = config.required !== undefined ? config.required : true;
+
   return (
     <div>
-      <input type="text" onChange={handleInputChange(form, setForm)} id={id} name={id} className={`form-control ${color}`} maxLength={config.max} required={config.required !== undefined ? config.required : true}/>
-      <small>Máximo de caracteres {form[id]?.length || 0}/{config.max || "???"}</small>
+      <input type="text" {...register(id)} onChange={calculateLength} id={id} name={id} className={`form-control ${color}`} maxLength={config.max} required={config.required !== undefined ? config.required : true} />
+      <small>Máximo de caracteres <span id={`${id}-max`}></span>/{config.max || "???"}</small>
     </div>
   );
 }
