@@ -5,20 +5,20 @@ const config = {
       "field-1": {
         input: true,
         content: "1. Algunos de mis mejores amigos son",
-        x: 50,
-        y: 245,
-        width: 220,
+        x: 46,
+        y: 236,
+        width: 230,
         lineGap: 11,
-        max: 45
+        max: 130
       },
       "field-2": {
         input: true,
         content: "2. Mi mejor amigo es",
-        x: 50,
-        y: 313,
-        width: 220,
+        x: 46,
+        y: 341,
+        width: 230,
         lineGap: 11,
-        max: 90
+        max: 46
       },
       "field-3": {
         is_checkbox: true,
@@ -37,51 +37,54 @@ const config = {
           "field-3-4": {
             content: "Es divertido"
           },
+          "field-3-5": {
+            content: "Otro"
+          },
         }
       },
       "field-3-1": {
         checkbox: true,
-        x: 317,
-        y: 208,
+        x: 51,
+        y: 406,
       },
       "field-3-2": {
         checkbox: true,
-        x: 420,
-        y: 209,
+        x: 51,
+        y: 432,
       },
       "field-3-3": {
         checkbox: true,
-        x: 502,
-        y: 223,
+        x: 51,
+        y: 447,
       },
       "field-3-4": {
         checkbox: true,
-        x: 81,
-        y: 252,
+        x: 51,
+        y: 463,
       },
       "field-3-5": {
         checkbox: true,
-        x: 198,
-        y: 252,
+        x: 51,
+        y: 479,
       },
       "field-3-6": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 445,
-        y: 260,
-        width: 500,
-        lineGap: 8,
-        max: 20,
+        x: 65,
+        y: 500,
+        width: 214,
+        lineGap: 11,
+        max: 125,
       },
       "field-4": {
         textarea: true,
         content: "4. Conocí a mi mejor amigo en",
-        x: 50,
-        y: 403,
-        width: 220,
+        x: 47,
+        y: 600,
+        width: 230,
         lineGap: 11,
-        max: 80
+        max: 135
       },
       "field-5": {
         is_checkbox: true,
@@ -111,62 +114,62 @@ const config = {
           },
           "field-5-8": {
             content: "Jugando al futbol"
-          },
+          }
         }
       },
       "field-5-1": {
         checkbox: true,
-        x: 317,
-        y: 208,
+        x: 335,
+        y: 349,
       },
       "field-5-2": {
         checkbox: true,
-        x: 420,
-        y: 209,
+        x: 335,
+        y: 365,
       },
       "field-5-3": {
         checkbox: true,
-        x: 502,
-        y: 223,
+        x: 335,
+        y: 380,
       },
       "field-5-4": {
         checkbox: true,
-        x: 81,
-        y: 252,
+        x: 335,
+        y: 398,
       },
       "field-5-5": {
         checkbox: true,
-        x: 198,
-        y: 252,
+        x: 335,
+        y: 412,
       },
       "field-5-6": {
         checkbox: true,
-        x: 198,
-        y: 252,
+        x: 335,
+        y: 430,
       },
       "field-5-7": {
         checkbox: true,
-        x: 198,
-        y: 252,
+        x: 335,
+        y: 446,
       },
       "field-5-8": {
         checkbox: true,
-        x: 198,
-        y: 252,
+        x: 335,
+        y: 461,
       },
       "field-5-9": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 445,
-        y: 260,
-        width: 500,
+        x: 350,
+        y: 498,
+        width: 230,
         lineGap: 8,
-        max: 20,
+        max: 42,
       },
       "fecha": {
-        x: 370,
-        y: 140,
+        x: 345,
+        y: 154,
         width: 220,
         lineGap: 11,
       }
@@ -182,13 +185,13 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 640
+        max: 680
       },
       "img": {
         content: "7. Adjunta un dibujo",
         image: true,
-        x: 120,
-        y: 280,
+        x: 60,
+        y: 275,
         config: {
           fit: [400, 200],
           align: 'center'
@@ -199,13 +202,13 @@ const config = {
         options: {
           "field-7-1": {
             content: "Esta carta está escrita en tercera persona ya que el niño no puede escribir",
-            x: 40,
-            y: 765,
+            x: 44,
+            y: 201,
           },
           "field-7-2": {
             content: "Esta carta está escrita por el niño",
-            x: 40,
-            y: 778,
+            x: 44,
+            y: 214,
           },
         }
       }

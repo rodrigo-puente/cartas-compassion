@@ -9,39 +9,39 @@ const config = {
       "field-1": {
         input: true,
         content: "1. En qué grado estoy",
-        x: 50,
-        y: 245,
-        width: 220,
+        x: 125,
+        y: 253,
+        width: 50,
         lineGap: 11,
-        max: 45,
+        max:10,
         required: false
       },
       "field-2": {
         input: true,
         content: "2. El nombre de mi maestro en la escuela es",
-        x: 50,
-        y: 313,
-        width: 220,
+        x: 84,
+        y: 321,
+        width: 230,
         lineGap: 11,
-        max: 90,
+        max: 41,
         required: false
       },
       "field-3": {
         input: true,
         content: "3. Mi escuela está a cuántos minutos de mi casa",
-        x: 50,
-        y: 313,
+        x: 137,
+        y: 366,
         width: 220,
         lineGap: 11,
-        max: 90,
+        max: 6,
         required: false
       },
       "field-3-copy": {
-        x: 85,
-        y: 348,
+        x: 110,
+        y: 382,
         width: 200,
         lineGap: 10,
-        max: 2
+        max: 14
       },
       "label-2": {
         is_label: true,
@@ -54,35 +54,35 @@ const config = {
           "field-4-1": {
             content: "3 años",
             checkbox: true,
-            x: 95,
-            y: 457,
+            x: 255,
+            y: 470,
           },
           "field-4-2": {
             content: "4 años",
             checkbox: true,
-            x: 125,
-            y: 457,
+            x: 282,
+            y: 493,
           },
           "field-4-3": {
             content: "5 años",
             checkbox: true,
-            x: 155,
-            y: 457,
+            x: 273,
+            y: 535,
           },
           "field-4-4": {
             content: "6 años",
             checkbox: true,
-            x: 185,
-            y: 457,
+            x: 235,
+            y: 553,
           },
         },
       },
       "field-5": {
         input: true,
         content: "5. Quiero ir a la escuela porque",
-        x: 50,
-        y: 313,
-        width: 220,
+        x: 47,
+        y: 616,
+        width: 240,
         lineGap: 11,
         max: 90,
         required: false
@@ -90,11 +90,11 @@ const config = {
       "field-6": {
         input: true,
         content: "6. En la escuela quisiera aprender acerca de",
-        x: 50,
-        y: 313,
+        x: 47,
+        y: 687,
         width: 220,
         lineGap: 11,
-        max: 90,
+        max: 106,
         required: false
       },
       "label-3": {
@@ -121,33 +121,33 @@ const config = {
       },
       "field-7-1": {
         checkbox: true,
-        x: 69,
-        y: 427,
+        x: 373,
+        y: 214,
       },
       "field-7-2": {
         checkbox: true,
-        x: 69,
-        y: 448,
+        x: 443,
+        y: 219,
       },
       "field-7-3": {
         checkbox: true,
-        x: 69,
-        y: 469,
+        x: 333,
+        y: 258,
       },
       "field-7-4": {
         checkbox: true,
-        x: 69,
-        y: 490,
+        x: 502,
+        y: 253,
       },
       "field-7-5": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 445,
-        y: 260,
+        x: 395,
+        y: 296,
         width: 500,
         lineGap: 8,
-        max: 20,
+        max: 30,
       },
       "field-8": {
         radio: true, 
@@ -156,26 +156,26 @@ const config = {
           "field-8-1": {
             content: "Blanco",
             checkbox: true,
-            x: 95,
-            y: 457,
+            x: 494,
+            y: 355,
           },
           "field-8-2": {
             content: "Verde",
             checkbox: true,
-            x: 125,
-            y: 457,
+            x: 494,
+            y: 355,
           },
           "field-8-3": {
             content: "Azul",
             checkbox: true,
-            x: 155,
-            y: 457,
+            x: 494,
+            y: 355,
           },
           "field-8-4": {
             content: "Amarillo",
             checkbox: true,
-            x: 185,
-            y: 457,
+            x: 494,
+            y: 355,
           },
         },
       },
@@ -197,12 +197,12 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 640
+        max: 690
       },
       "img": {
         content: "7. Adjunta un dibujo",
         image: true,
-        x: 120,
+        x: 100,
         y: 280,
         config: {
           fit: [400, 200],
@@ -214,13 +214,13 @@ const config = {
         options: {
           "field-10-1": {
             content: "Esta carta está escrita en tercera persona ya que el niño no puede escribir",
-            x: 40,
-            y: 765,
+            x: 37,
+            y: 763,
           },
           "field-10-2": {
             content: "Esta carta está escrita por el niño",
-            x: 40,
-            y: 778,
+            x: 37,
+            y: 775,
           },
         }
       }
