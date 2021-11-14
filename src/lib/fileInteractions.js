@@ -98,3 +98,26 @@ export const submitForm = (id, templateID, carta, form, route, img, imgs, setDis
     setDisabled(false);
   });
 }
+
+export const submitFormEspecial = (templateID, form, route, img, imgs, setDisabled, copyFields = []) => {
+  if (!route.length) {
+    alert("Debes elegir dónde quieres guardar el archivo");
+    return;
+  }
+
+  const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
+
+  let fieldsToCopy = {};
+  copyFields.forEach((i, idx) => {
+    fieldsToCopy[`${i}-copy`] = data[i];
+  });
+
+  generatePDF({ id_plantilla: templateID, skip_header: true }, { ...data, ...fieldsToCopy }, templateID).then((response) => {
+    console.log("GENERATE PDF RESPONSE: ", response);
+    response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
+    setDisabled(false);
+  }).catch((err) => {
+    console.dir("HANDLE SUBMIT ERROR: ", err);
+    setDisabled(false);
+  });
+}

@@ -5,6 +5,8 @@ import '../../styles/_navbar.scss';
 import Letter from  '../../assets/envelope-regular.svg';
 import OpenLetter from '../../assets/envelope-open-regular.svg';
 import NewFile from '../../assets/file-excel-regular.svg';
+import Star from '../../assets/star-of-life-solid.svg';
+
 
 function Navbar() {
   const [version, setVersion] = useState("");
@@ -45,6 +47,12 @@ function Navbar() {
           <Link to="/importar">
             <img src={NewFile} alt="Nuevo archivo" /> <br/>
             Importar nuevo archivo
+          </Link>
+        </div>
+        <div className="col text-center">
+          <Link to="/especiales">
+            <img src={Star} alt="Nuevo archivo" /> <br/>
+            Cartas especiales
           </Link>
         </div>
       </div>

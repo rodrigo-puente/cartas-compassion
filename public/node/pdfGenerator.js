@@ -4,6 +4,7 @@ const { promisify } = require('util');
 const bwipjs = require('bwip-js');
 const moment = require("moment");
 const path = require("path");
+const { generateRandomIntegerInRange } = require('./misc');
 const assetPath = path.join(__dirname, '..', 'node', 'assets');
 
 function addText(doc, text, content){
@@ -69,10 +70,6 @@ function generateHeader(doc, vineta){
   doc.text(vineta.barcode, 400, 105);
 }
 
-function generateRandomIntegerInRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 function fillVineta(user) {
   const date = moment().format('YYYYMMDD');
   const randomId = generateRandomIntegerInRange(10000, 99999);
@@ -120,7 +117,7 @@ async function pdfGenerator(vineta, user, data, template){
         doc.addPage();
         doc.image(bg, 0, 0, { width: doc.page.width, height: doc.page.height });
 
-        if (idx === 0) {
+        if (idx === 0 && !user.skip_header) {
           doc.font('Times-Roman');
           generateHeader(doc, vineta);
           doc.font(font);

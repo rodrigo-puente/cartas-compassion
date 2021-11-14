@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const sqlite3 = require('sqlite3');
 const isDev = require('electron-is-dev');
+const moment = require("moment");
+const { generateRandomIntegerInRange } = require('./misc');
 const { fillVineta, generateCodeImage, pdfGenerator } = require('./pdfGenerator');
 const { generateSQL } = require('./xlsxImporter');
 
@@ -60,14 +62,24 @@ ipcMain.on('async-insert', (event, sql, data) => {
 });
 
 ipcMain.on('generate-pdf', (event, user, data, template) => {
-  const vineta = fillVineta(user);
-  generateCodeImage('qrcode.png', vineta.qrcode, 'datamatrix').then( x => {
-    return generateCodeImage('barcode.png', vineta.barcode, 'code128');
-  }).then( x => {
-    return pdfGenerator(vineta, user, data, template);
-  }).then( x => {
-    event.reply('pdf-result', x);
-  });
+  if (user.skip_header) { //SPECIAL FORM
+    const date = moment().format('YYYYMMDD');
+    const randomId = generateRandomIntegerInRange(10000, 99999);
+
+    pdfGenerator({pdfName: `${date}-${randomId}.pdf`}, user, data, template).then( x => {
+      event.reply('pdf-result', x);
+    });
+  } else { // NORMAL FORM
+    const vineta = fillVineta(user);
+    
+    generateCodeImage('qrcode.png', vineta.qrcode, 'datamatrix').then( x => {
+      return generateCodeImage('barcode.png', vineta.barcode, 'code128');
+    }).then( x => {
+      return pdfGenerator(vineta, user, data, template);
+    }).then( x => {
+      event.reply('pdf-result', x);
+    });
+  }
 });
 
 ipcMain.on('select-dir', async (event) => {
