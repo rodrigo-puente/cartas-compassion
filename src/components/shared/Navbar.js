@@ -29,25 +29,25 @@ function Navbar() {
       <div className="row">
         <div className="col text-center">
           <Link to="/">
-            <img src="/images/envelope-regular.svg" alt="Cartas por realizar" /> <br/>
+            <img src={process.env.PUBLIC_URL + "/images/envelope-regular.svg"} alt="Cartas por realizar" /> <br/>
             Ver cartas por realizar
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/realizadas">
-            <img src="/images/envelope-open-regular.svg" alt="Cartas realizadas" /> <br/>
+            <img src={process.env.PUBLIC_URL + "/images/envelope-open-regular.svg"} alt="Cartas realizadas" /> <br/>
             Ver cartas realizadas
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/importar">
-            <img src="/images/file-excel-regular.svg" alt="Nuevo archivo" /> <br/>
+            <img src={process.env.PUBLIC_URL + "/images/file-excel-regular.svg"} alt="Nuevo archivo" /> <br/>
             Importar nuevo archivo
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/especiales">
-            <img src="/images/star-of-life-solid.svg" alt="Nuevo archivo" /> <br/>
+            <img src={process.env.PUBLIC_URL + "/images/star-of-life-solid.svg"} alt="Nuevo archivo" /> <br/>
             Cartas especiales
           </Link>
         </div>
