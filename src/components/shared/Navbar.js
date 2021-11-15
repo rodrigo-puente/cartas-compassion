@@ -2,10 +2,6 @@ import React, {useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { getVersion, notifyUpdate, restartAndUpdate } from "../../message-control/renderer";
 import '../../styles/_navbar.scss';
-import Letter from  '../../assets/envelope-regular.svg';
-import OpenLetter from '../../assets/envelope-open-regular.svg';
-import NewFile from '../../assets/file-excel-regular.svg';
-import Star from '../../assets/star-of-life-solid.svg';
 
 
 function Navbar() {
@@ -33,25 +29,25 @@ function Navbar() {
       <div className="row">
         <div className="col text-center">
           <Link to="/">
-            <img src={Letter} alt="Cartas por realizar" /> <br/>
+            <img src="/images/envelope-regular.svg" alt="Cartas por realizar" /> <br/>
             Ver cartas por realizar
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/realizadas">
-            <img src={OpenLetter} alt="Cartas realizadas" /> <br/>
+            <img src="/images/envelope-open-regular.svg" alt="Cartas realizadas" /> <br/>
             Ver cartas realizadas
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/importar">
-            <img src={NewFile} alt="Nuevo archivo" /> <br/>
+            <img src="/images/file-excel-regular.svg" alt="Nuevo archivo" /> <br/>
             Importar nuevo archivo
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/especiales">
-            <img src={Star} alt="Nuevo archivo" /> <br/>
+            <img src="/images/star-of-life-solid.svg" alt="Nuevo archivo" /> <br/>
             Cartas especiales
           </Link>
         </div>
