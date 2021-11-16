@@ -115,3 +115,7 @@ ipcMain.on('app-version', (event) => {
 ipcMain.on('restart-app', () => {
   autoUpdater.quitAndInstall();
 });
+
+ipcMain.on('app-url', (event) => {
+  event.reply('url-result', [isDev, app.getAppPath()]);
+})

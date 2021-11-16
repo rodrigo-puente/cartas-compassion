@@ -22,7 +22,7 @@ function Navbar() {
 
     getData();
     checkUpdate();
-  });
+  }, []);
 
   return (
     <div className="container-fluid" id="navbar">

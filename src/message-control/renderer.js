@@ -76,3 +76,12 @@ export function getVersion() {
     ipcRenderer.send('app-version')
   })
 }
+
+export function assetURL() {
+  return new Promise((resolve) => {
+    ipcRenderer.once('url-result', (_, arg) => {
+      resolve(arg);
+    });
+    ipcRenderer.send('app-url')
+  })
+}
