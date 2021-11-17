@@ -56,7 +56,7 @@ const config = {
         lineGap: 7,
         max: 46
       },
-      "field-7 ": {
+      "field-7": {
         textarea : true,
         content: "7. La forma en la cual me gusta ayudar a mi familia es",
         x: 202,

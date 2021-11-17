@@ -9,10 +9,9 @@ import ImageSelector from "../shared/ImageSelector";
 
 function Form({ templateId }) {
   const templateConfig = require(`../../configs/${templateId}`);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const [route, setRoute] = useState("");
-  const [img, setImg] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
   const [disabled, setDisabled] = useState(false);
 
@@ -23,7 +22,7 @@ function Form({ templateId }) {
   }
 
   const onSubmit = (data) => {
-    submitFormEspecial(templateId, data, route, img, imgs, setDisabled, templateConfig.extras.copy);
+    submitFormEspecial(templateId, data, route, imgs, setDisabled, templateConfig.extras.copy);
   };
 
   const CONFIG = useMemo(() => { 
@@ -115,8 +114,8 @@ function Form({ templateId }) {
             } else if (CONFIG[key].image) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
-                  <label htmlFor="img" className="mb-2">{CONFIG[key].content}</label><br/>
-                  <ImageSelector img={img} setImg={setImg} />
+                  <label htmlFor={key} className="mb-2">{CONFIG[key].content}</label><br/>
+                  <ImageSelector id={key} setValue={setValue} register={register} />
                 </div>
               )
             } else if (CONFIG[key].repeater) {

@@ -12,7 +12,6 @@ function Form({ id, templateId }) {
   const { register, handleSubmit, setValue } = useForm();
 
   const [route, setRoute] = useState("");
-  const [img, setImg] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
   const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
@@ -24,7 +23,7 @@ function Form({ id, templateId }) {
   }
 
   const onSubmit = (data) => {
-    submitForm(id, templateId, carta, data, route, img, imgs, setDisabled, templateConfig.extras.copy);
+    submitForm(id, templateId, carta, data, route, imgs, setDisabled, templateConfig.extras.copy);
   };
 
   const CONFIG = useMemo(() => { 
@@ -120,8 +119,8 @@ function Form({ id, templateId }) {
             } else if (CONFIG[key].image) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
-                  <label htmlFor="img" className="mb-2">{CONFIG[key].content}</label><br/>
-                  <ImageSelector img={img} setImg={setImg} />
+                  <label htmlFor={key} className="mb-2">{CONFIG[key].content}</label><br/>
+                  <ImageSelector id={key} setValue={setValue} register={register} />
                 </div>
               )
             } else if (CONFIG[key].repeater) {

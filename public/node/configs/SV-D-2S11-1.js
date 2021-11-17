@@ -94,7 +94,7 @@ const config = {
         x: 69,
         y: 427
       },
-      "field-8 ": {
+      "field-8": {
         textarea: true,
         content: "8. Lo que más me gusta hacer para mantenerme sano es",
         x: 125,

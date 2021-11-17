@@ -68,7 +68,7 @@ const config = {
           },
         }
       },
-      "field-2-4 ": {
+      "field-2-4": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
@@ -120,17 +120,17 @@ const config = {
         max: 125,
         required: false
       },
-      // "field-3-6": {
-      //   content: "Si quieres adjunta un dibujo coloreado",
-      //   cols: "col-sm-12 col-md-8",
-      //   image: true,
-      //   x: 100,
-      //   y: 280,
-      //   config: {
-      //     fit: [100, 100],
-      //     align: 'center'
-      //   },
-      // },
+      "field-3-6": {
+        content: "Si quieres adjunta un dibujo coloreado",
+        cols: "col-sm-12 col-md-8",
+        image: true,
+        x: 100,
+        y: 280,
+        config: {
+          fit: [100, 100],
+          align: 'center'
+        },
+      },
       "field-4": {
         textarea: true,
         content: "4. Algún día me gustaríua conocer a mi patrocinador porque",

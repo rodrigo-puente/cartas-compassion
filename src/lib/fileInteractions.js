@@ -35,13 +35,13 @@ export const handleDir = (setRoute) => async (e) => {
   if (!result.canceled && result.filePaths.length) setRoute(result.filePaths[0]);
 }
 
-export const handleImg = (setImg) => async (e) => {
+export const handleImg = (setValue, id) => async (e) => {
   const result = await selectFile();
-  if (!result.canceled && result.filePaths.length) setImg(result.filePaths[0]);
+  if (!result.canceled && result.filePaths.length) setValue(id, result.filePaths[0]);
 }
 
-export const cleanImg = (setImg) => async (e) => {
-  setImg("");
+export const cleanImg = (setValue, id) => async (e) => {
+  setValue(id, "");
 }
 
 export const getData = async (id, config, setCarta, setValue) => {
@@ -51,7 +51,7 @@ export const getData = async (id, config, setCarta, setValue) => {
   if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
     const form = JSON.parse(result[0].formulario);
 
-    const skipKeys = ["fecha", "imgs", "img", "route"];
+    const skipKeys = ["fecha", "imgs", "route"];
     Object.keys(form).forEach((key) => {
       if (skipKeys.includes(key)) return;
       try {
@@ -60,6 +60,8 @@ export const getData = async (id, config, setCarta, setValue) => {
           document.getElementById(key).checked = val;
         } else if (config[key].radio || config[key].special_radio) {
           document.getElementById(val).checked = true;
+        } else if (config[key].image) {
+          return;
         } else {
           document.getElementById(key).value = val;
           document.getElementById(`${key}-max`).innerHTML = val.length || 0;
@@ -73,13 +75,13 @@ export const getData = async (id, config, setCarta, setValue) => {
   }
 }
 
-export const submitForm = (id, templateID, carta, form, route, img, imgs, setDisabled, copyFields = []) => {
+export const submitForm = (id, templateID, carta, form, route, imgs, setDisabled, copyFields = []) => {
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
     return;
   }
 
-  const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
+  const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
   let fieldsToCopy = {};
   copyFields.forEach((i, idx) => {
@@ -99,13 +101,13 @@ export const submitForm = (id, templateID, carta, form, route, img, imgs, setDis
   });
 }
 
-export const submitFormEspecial = (templateID, form, route, img, imgs, setDisabled, copyFields = []) => {
+export const submitFormEspecial = (templateID, form, route, imgs, setDisabled, copyFields = []) => {
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
     return;
   }
 
-  const data = { ...form, route, img, imgs, fecha: moment().format('DD-MMM-YYYY') };
+  const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
   let fieldsToCopy = {};
   copyFields.forEach((i, idx) => {
