@@ -66,6 +66,7 @@ const config = {
         width: 500,
         lineGap: 8,
         max: 20,
+        required: false
       },
       "field-2": {
         is_checkbox: true,
@@ -122,6 +123,7 @@ const config = {
         width: 500,
         lineGap: 8,
         max: 20,
+        required: false
       },
       "field-3-1": {
         textarea: true,
@@ -195,7 +197,9 @@ const config = {
         y: 483,
         width: 200,
         lineGap: 8,
-        max: 20
+        max: 20,
+        required: false
+
       },
       "fecha": {
         x: 445,

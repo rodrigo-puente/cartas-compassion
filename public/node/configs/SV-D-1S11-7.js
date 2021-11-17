@@ -148,6 +148,7 @@ const config = {
         width: 500,
         lineGap: 8,
         max: 30,
+        required: false
       },
       "field-8": {
         input: true,

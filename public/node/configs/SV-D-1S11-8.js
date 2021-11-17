@@ -140,6 +140,7 @@ const config = {
         width: 214,
         lineGap: 11,
         max: 15,
+        required: false
       },
       "field-4": {
         input: true,

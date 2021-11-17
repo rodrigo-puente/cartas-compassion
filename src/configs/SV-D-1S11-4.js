@@ -68,6 +68,7 @@ const config = {
         width: 214,
         lineGap: 11,
         max: 125,
+        required: false
       },
       "field-4": {
         input: true,
@@ -158,6 +159,7 @@ const config = {
         width: 230,
         lineGap: 8,
         max: 42,
+        required: false
       },
       "fecha": {
         x: 345,
