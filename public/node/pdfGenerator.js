@@ -74,12 +74,17 @@ function fillVineta(user) {
   const date = moment().format('YYYYMMDD');
   const randomId = generateRandomIntegerInRange(10000, 99999);
 
+  const beneficiario_id_global = user?.beneficiario_id_global ? `${user.beneficiario_id_global}` : "";
+  const supporter_id_global = user?.supporter_id_global ? `-${user.supporter_id_global}` : "";
+  const comunicacion_id_global = user?.comunicacion_id_global ? `-${user.comunicacion_id_global}` : "";
+  const tipo_relacion = user?.supporter_tipo_relacion ? (user.supporter_tipo_relacion === 'Patrocinador' ? '-S' : '-C') : "";
+
   return {
-    qrcode: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}${user?.supporter_tipo_relacion ? (user.supporter_tipo_relacion === 'Patrocinador' ? '-S' : '-C') : ''}`.replaceAll("--", "-"),
-    barcode: `${user.beneficiario_id_global}-${user.supporter_id_global}`.replaceAll("--", "-"),
-    pdfName: `${user.beneficiario_id_global}-${user.supporter_id_global}-${user.comunicacion_id_global}${user?.supporter_tipo_relacion ? (user.supporter_tipo_relacion === 'Patrocinador' ? '-S' : '-C') : ''}-${date}-${randomId}.pdf`.replaceAll("--", "-"),
-    socio: `${user.supporter_id_global || ""} - ${user.supporter_favorito || ''} - ${user.supporter_sexo || ""}`,
-    beneficiario: `${user.beneficiario_id} - ${user.beneficiario_preferido} - ${user.beneficiario_sexo || ''} - ${user.beneficiario_edad}`,
+    qrcode: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}`.replaceAll("--", "-"),
+    barcode: `${beneficiario_id_global}${supporter_id_global}`.replaceAll("--", "-"),
+    pdfName: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}-${date}-${randomId}.pdf`.replaceAll("--", "-"),
+    socio: `${supporter_id_global || ""} - ${user.supporter_favorito || ""} - ${user.supporter_sexo || ""}`,
+    beneficiario: `${user.beneficiario_id} - ${user.beneficiario_preferido} - ${user.beneficiario_sexo || ""} - ${user.beneficiario_edad}`,
     tl: `TL: ${user.target_lang}`,
     gp: `GP: ${user.supporter_country}`,
     types: `Types:`,
