@@ -9,38 +9,38 @@ const config = {
       "field-1-1": {
         input: true,
         content: "En mi proyecto, sobre al área socio-emocional yo aprendo",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 205,
+        y: 219,
+        width: 400,
         lineGap: 11,
-        max: 265
+        max: 74
       },
       "field-1-2": {
         input: true,
         content: "En mi proyecto, sobre al área espiritual yo aprendo",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 166,
+        y: 235,
+        width: 400,
         lineGap: 11,
-        max: 265
+        max: 80
       },
       "field-1-3": {
         input: true,
         content: "En mi proyecto, sobre al área cognitiva yo aprendo",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 170,
+        y: 250,
+        width: 400,
         lineGap: 11,
-        max: 265
+        max: 80
       },
       "field-1-4": {
         input: true,
         content: "En mi proyecto, sobre al área física yo aprendo",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 148,
+        y: 265,
+        width: 400,
         lineGap: 11,
-        max: 265
+        max: 84
       },
       "field-2": {
         is_checkbox: true,
@@ -65,37 +65,37 @@ const config = {
       },
       "field-2-1": {
         checkbox: true,
-        x: 340,
-        y: 282,
+        x: 270,
+        y: 319,
       },
       "field-2-2": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 270,
+        y: 346,          
       },
       "field-2-3": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 270,
+        y: 372,          
       },
       "field-2-4": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 270,
+        y: 392,          
       },
       "field-2-5": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 270,
+        y: 411,          
       },
       "field-3": {
         textarea: true,
         content: "3. Lo que más me gusta aprender en mi proyecto es",
-        x: 53,
-        y: 230,
-        width: 210,
-        lineGap: 11,
-        max: 265
+        x: 288,
+        y: 439,
+        width: 190,
+        lineGap: 0.8,
+        max: 142
       },
       "field-4": {
         is_checkbox: true,
@@ -108,10 +108,10 @@ const config = {
             content: "Debo bañarme todos los días",
           },
           "field-4-3": {
-            content: "PUedo pasar muchos días sin lavarme el cabello",
+            content: "Puedo pasar muchos días sin lavarme el cabello",
           },
           "field-4-4": {
-            content: "Devo limpiar mis oídos",
+            content: "Debo limpiar mis oídos",
           },
           "field-4-5": {
             content: "Lavarme los dientes",
@@ -120,28 +120,28 @@ const config = {
       },
       "field-4-1": {
         checkbox: true,
-        x: 340,
-        y: 282,
+        x: 46,
+        y: 538,
       },
       "field-4-2": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 125,
+        y: 568,          
       },
       "field-4-3": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 46,
+        y: 598,          
       },
       "field-4-4": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 166,
+        y: 629,          
       },
       "field-4-5": {
         checkbox: true,
-        x: 340,
-        y: 282,          
+        x: 46,
+        y: 651,          
       },
       "label-2": {
         is_label: true,
@@ -150,33 +150,33 @@ const config = {
       "field-5-1": {
         input: true,
         content: "Jesús",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 91,
+        y: 712,
+        width: 250,
         lineGap: 11,
-        max: 265
+        max: 38
       },
       "field-5-2": {
         input: true,
         content: "La iglesia",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 100,
+        y: 729,
+        width: 250,
         lineGap: 11,
-        max: 265
+        max: 38
       },
       "field-5-3": {
         input: true,
         content: "La familia",
-        x: 53,
-        y: 230,
-        width: 210,
+        x: 100,
+        y: 745,
+        width: 250,
         lineGap: 11,
-        max: 265
+        max: 38
       },
       "fecha": {
-        x: 455,
-        y: 140,
+        x: 350,
+        y: 163,
         width: 220,
         lineGap: 11,
       }
@@ -192,7 +192,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 640
+        max: 670
       },
       "img": {
         content: "Adjunta un dibujo",

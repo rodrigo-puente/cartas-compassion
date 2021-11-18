@@ -27,7 +27,7 @@ function Importer() {
 			/* Convert array of arrays */
 			const data = XLSX.utils.sheet_to_json(ws, {skipHeader: true});
 			/* Update state */
-      if (Object.keys(data[0]).length !== 16) {
+      if (Object.keys(data[0]).length !== 15) {
         alert("El archivo no tiene todas las columnas necesarias...");
         setLoading(false);
         return;

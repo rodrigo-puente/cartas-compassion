@@ -9,26 +9,26 @@ const config = {
           "field-1-1": {
             content: "Catre",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 86,
+            y: 286
           },
           "field-1-2": {
             content: "Cama",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 198,
+            y: 293,
           },
           "field-1-3": {
             content: "Hamaca",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 59,
+            y: 381,
           },
           "field-1-4": {
             content: "Camarote",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 173,
+            y: 381,
           }
         }
       },
@@ -36,11 +36,11 @@ const config = {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
+        x: 114,
+        y: 403,
         width: 214,
         lineGap: 11,
-        max: 125,
+        max: 28,
         required: false
       },
       "field-2": {
@@ -50,52 +50,52 @@ const config = {
           "field-2-1": {
             content: "Ladrillo",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 53,
+            y: 522
           },
           "field-2-2": {
             content: "Concreto",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 127,
+            y: 522,
           },
           "field-2-3": {
             content: "Bambú",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 214,
+            y: 477,
           },
           "field-2-4": {
             content: "Madera",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 53,
+            y: 591,
           },
           "field-2-5": {
             content: "Lámina",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 132,
+            y: 591,
           },
           "field-2-6": {
             content: "Adobe",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 226,
+            y: 591,
           }
         }
       },
-      "field-2-7": {
-        input: true,
-        content: "Otro",
-        cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
-        width: 214,
-        lineGap: 11,
-        max: 125,
-        required: false
-      },
+      // "field-2-7": {
+      //   input: true,
+      //   content: "Otro",
+      //   cols: "col-sm-12 col-md-4",
+      //   x: 65,
+      //   y: 500,
+      //   width: 214,
+      //   lineGap: 11,
+      //   max: 28,
+      //   required: false
+      // },
       "field-3": {
         radio: true,
         content: "3. Nosotros obtenemos la luz por medio de",
@@ -103,20 +103,20 @@ const config = {
           "field-3-1": {
             content: "Candil",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 57,
+            y: 731
           },
           "field-3-2": {
             content: "Candela",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 149,
+            y: 731,
           },
           "field-3-3": {
             content: "Foco",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 235,
+            y: 731,
           },
         }
       },
@@ -124,11 +124,11 @@ const config = {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
+        x: 106,
+        y: 752,
         width: 214,
         lineGap: 11,
-        max: 125,
+        max: 28,
         required: false
       },
       "field-4": {
@@ -138,32 +138,32 @@ const config = {
           "field-4-1": {
             content: "Chorro de la casa",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 376,
+            y: 230
           },
           "field-4-2": {
             content: "Pozo",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 477,
+            y: 263,
           },
           "field-4-3": {
             content: "Río",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 416,
+            y: 311,
           },
           "field-4-4": {
             content: "Chorro de la comunidad",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 337,
+            y: 338,
           },
           "field-4-5": {
             content: "La lluvia",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 466,
+            y: 344,
           }
         }
       },
@@ -171,11 +171,11 @@ const config = {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
+        x: 389,
+        y: 370,
         width: 214,
         lineGap: 11,
-        max: 125,
+        max: 28,
         required: false
       },
       "field-5": {
@@ -185,37 +185,37 @@ const config = {
           "field-5-1": {
             content: "Cocina eléctrica",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 374,
+            y: 436
           },
           "field-5-2": {
             content: "Cocina de gas",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 462,
+            y: 414,
           },
           "field-5-3": {
-            content: "Con lena",
+            content: "Con leña",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 398,
+            y: 487,
           },
         }
       },
-      "field-5-4": {
-        input: true,
-        content: "Otro",
-        cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
-        width: 214,
-        lineGap: 11,
-        max: 125,
-        required: false
-      },
+      // "field-5-4": {
+      //   input: true,
+      //   content: "Otro",
+      //   cols: "col-sm-12 col-md-4",
+      //   x: 65,
+      //   y: 500,
+      //   width: 214,
+      //   lineGap: 11,
+      //   max: 125,
+      //   required: false
+      // },
       "fecha": {
         x: 455,
-        y: 140,
+        y: 156,
         width: 220,
         lineGap: 11,
       }
@@ -231,7 +231,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 640
+        max: 660
       },
       "img": {
         content: "Mi dibujo",

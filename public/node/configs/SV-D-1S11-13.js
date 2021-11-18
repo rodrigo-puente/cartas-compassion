@@ -9,38 +9,38 @@ const config = {
           "field-1-1": {
             content: "Maestro",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 84,
+            y: 230
           },
           "field-1-2": {
             content: "Doctora",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 221,
+            y: 205,
           },
           "field-1-3": {
             content: "Cocinero",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 84,
+            y: 274,
           },
           "field-1-4": {
             content: "Ingeniero",
             checkbox: true,
             x: 140,
-            y: 438,
+            y: 270,
           },
           "field-1-5": {
             content: "Presidente",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 199,
+            y: 272,
           },
           "field-1-6": {
             content: "Bombero ",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 254,
+            y: 256,
           }
         }
       }, 
@@ -51,20 +51,20 @@ const config = {
           "field-2-1": {
             content: "Nieve",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 94,
+            y: 389
           },
           "field-2-2": {
             content: "Edificio más alto del mundo",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 278,
+            y: 338,
           },
           "field-2-3": {
             content: "Pirámides de Egipto",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 46,
+            y: 469,
           },
         }
       },
@@ -72,11 +72,11 @@ const config = {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
-        width: 214,
+        x: 100,
+        y: 494,
+        width: 230,
         lineGap: 11,
-        max: 125,
+        max: 28,
         required: false
       },
       "field-3": {
@@ -86,26 +86,26 @@ const config = {
           "field-3-1": {
             content: "Escalar una montaña",
             checkbox: true,
-            x: 83,
-            y: 438
+            x: 49,
+            y: 557
           },
           "field-3-2": {
             content: "Viajar en avión",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 229,
+            y: 596,
           },
           "field-3-3": {
             content: "Navegar en un barco",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 220,
+            y: 624,
           },
           "field-3-4": {
             content: "Bucear",
             checkbox: true,
-            x: 140,
-            y: 438,
+            x: 111,
+            y: 717,
           },
         }
       },
@@ -113,11 +113,11 @@ const config = {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
+        x: 57,
+        y: 752,
         width: 214,
         lineGap: 11, 
-        max: 125,
+        max: 24,
         required: false
       },
       "field-3-6": {
@@ -134,11 +134,11 @@ const config = {
       "field-4": {
         textarea: true,
         content: "4. Algún día me gustaríua conocer a mi patrocinador porque",
-        x: 40,
-        y: 60,
-        width: 520,
-        lineGap: 8,
-        max: 640
+        x: 330,
+        y: 271,
+        width: 206,
+        lineGap: 6.6,
+        max: 124
       },
       "field-5": {
         is_checkbox: true,
@@ -157,33 +157,33 @@ const config = {
       },
       "field-5-1": {
         checkbox: true,
-        x: 63,
-        y: 489,      
+        x: 481,
+        y: 380,      
       },
       "field-5-2": {
         checkbox: true,
-        x: 63,
-        y: 489,      
+        x: 377,
+        y: 453,      
       },
       "field-5-3": {
         checkbox: true,
-        x: 63,
-        y: 489,      
+        x: 465,
+        y: 460,      
       },
       "field-5-4": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 65,
-        y: 500,
+        x: 385,
+        y: 481,
         width: 214,
         lineGap: 11,
-        max: 125,
+        max: 28,
         required: false
       },
       "fecha": {
         x: 455,
-        y: 140,
+        y: 145,
         width: 220,
         lineGap: 11,
       }
@@ -199,7 +199,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 640
+        max: 650
       },
       "img": {
         content: "Mi dibujo",

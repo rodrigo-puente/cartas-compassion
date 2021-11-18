@@ -16,39 +16,39 @@ const config = {
             content: "Saltar cuerda",
           },
           "field-1-4": {
-            content: "Verano",
+            content: "Jugar baloncesto",
           },
         }
       }, 
       "field-1-1": {
         checkbox: true,
-        x: 170,
-        y: 282,
+        x: 62,
+        y: 339,
       },
       "field-1-2": {
         checkbox: true,
-        x: 245,
-        y: 282,
+        x: 195,
+        y: 326,
       },
       "field-1-3": {
         checkbox: true,
-        x: 340,
-        y: 282,
+        x: 158,
+        y: 368,
       },
       "field-1-4": {
         checkbox: true,
-        x: 430,
-        y: 282,
+        x: 225,
+        y: 365,
       }, 
       "field-1-5": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 350,
-        y: 498,
+        x: 112,
+        y: 393,
         width: 230,
         lineGap: 8,
-        max: 42,
+        max: 38,
         required: false
       },
       "field-2": {
@@ -58,37 +58,37 @@ const config = {
           "field-2-1": {
             content: "Amigos",
             checkbox: true,
-            x: 340,
-            y: 282,
+            x: 204,
+            y: 500,
           },
           "field-2-2": {
             content: "Hermanos",
             checkbox: true,
-            x: 340,
-            y: 282,          
+            x: 213,
+            y: 534,          
           },
           "field-2-3": {
             content: "Parientes",
             checkbox: true,
-            x: 340,
-            y: 282,          
+            x: 130,
+            y: 553,          
           },
           "field-2-4": {
             content: "Abuelos ",
             checkbox: true,
-            x: 340,
-            y: 282,          
+            x: 45,
+            y: 553,          
           }
         }
       },
       "field-3": {
         input: true,
         content: "3. ¿Hay algún evento divertido en tu comunidad que quisieras compartir con tu patrocinador?",
-         x: 88,
-        y: 336,
-        width: 200,
+        x: 52,
+        y: 743,
+        width: 260,
         lineGap: 10,
-        max: 2
+        max: 52
       },
       "field-4": {
         is_checkbox: true,
@@ -116,57 +116,57 @@ const config = {
       }, 
       "field-4-1": {
         checkbox: true,
-        x: 170,
-        y: 282,
+        x: 385,
+        y: 250,
       },
       "field-4-2": {
         checkbox: true,
-        x: 245,
-        y: 282,
+        x: 467,
+        y: 240,
       },
       "field-4-3": {
         checkbox: true,
-        x: 340,
-        y: 282,
+        x: 510,
+        y: 240,
       },
       "field-4-4": {
         checkbox: true,
-        x: 430,
-        y: 282,
+        x: 374,
+        y: 345,
       }, 
       "field-4-5": {
         checkbox: true,
-        x: 430,
-        y: 282,
+        x: 470,
+        y: 345,
       }, 
       "field-4-6": {
         checkbox: true,
-        x: 430,
-        y: 282,
+        x: 530,
+        y: 345,
       }, 
       "field-4-7": {
         input: true,
         content: "Otro",
         cols: "col-sm-12 col-md-4",
-        x: 350,
-        y: 498,
+        x: 388,
+        y: 420,
         width: 230,
         lineGap: 8,
-        max: 42,
+        max: 36,
         required: false
       },
       "field-5": {
         input: true,
         content: "5. Cuando estoy aburrido me gusta",
-         x: 88,
-        y: 336,
-        width: 200,
+        x: 334,
+        y: 488,
+        width: 240,
         lineGap: 10,
-        max: 2
+        max: 48
       },
       "fecha": {
         x: 455,
-        y: 140,
+        y: 156,
         width: 220,
         lineGap: 11,
       }
@@ -182,7 +182,7 @@ const config = {
         y: 60,
         width: 520,
         lineGap: 8,
-        max: 640
+        max: 680
       },
       "img": {
         content: "Adjunta un dibujo",
