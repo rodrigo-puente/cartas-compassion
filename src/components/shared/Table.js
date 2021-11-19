@@ -3,22 +3,25 @@ import { Link } from 'react-router-dom';
 import { sendAsync } from '../../message-control/renderer';
 import { CARD_STATES } from '../../lib/constants';
 
-function Table({ state }) {
+function Table({ state, setNumCartas }) {
   const [cartas, setCartas] = useState([]);
 
   useEffect(() => {
     async function getData() {
       const data = await sendAsync(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
       setCartas(data);
+      setNumCartas(`(${data.length})`)
     }
     
     getData();
-  }, [state]);
+  }, [state, setNumCartas]);
 
   const deleteRow = async (id) => {
     if(window.confirm("¿Estás seguro que quieres borrar este registro?")) {
       await sendAsync(`DELETE FROM cartas WHERE id = "${id}"`);
-      setCartas(cartas.filter(item => item.id !== id));
+      let filteredCartas = cartas.filter(item => item.id !== id);
+      setCartas(filteredCartas);
+      setNumCartas(`(${filteredCartas.length})`)
       alert("Registro borrado con éxito");
     }
   }

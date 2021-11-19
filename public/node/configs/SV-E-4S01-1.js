@@ -6,7 +6,7 @@ const config = {
         textarea: true,
         content: "1. Escribe algo especial o agradecimiento",
         x: 45,
-        y: 212,
+        y: 209,
         width: 500,
         lineGap: 11,
         max: 2500

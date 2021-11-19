@@ -79,11 +79,23 @@ function fillVineta(user) {
   const comunicacion_id_global = user?.comunicacion_id_global ? `-${user.comunicacion_id_global}` : "";
   const tipo_relacion = user?.supporter_tipo_relacion ? (user.supporter_tipo_relacion === 'Patrocinador' ? '-S' : '-C') : "";
 
+  let data = {
+    qrcode: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}`.replaceAll("--", "-").trim(),
+    barcode: `${beneficiario_id_global}${supporter_id_global}`.replaceAll("--", "-").trim(),
+    socio: `${supporter_id_global || ""} - ${user.supporter_favorito || ""} - ${user.supporter_sexo || ""}`.replaceAll("--", "-").trim(),
+    pdfname: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}-${date}-${randomId}.pdf`.replaceAll("--", "-").trim(),
+  };
+
+  Object.keys(data).forEach((i) => {
+    if (data[i].startsWith("-")) data[i] = data[i].slice(1);
+    if (data[i].endsWith("-")) data[i] = data[i].slice(0, -1);
+  });
+
   return {
-    qrcode: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}`.replaceAll("--", "-"),
-    barcode: `${beneficiario_id_global}${supporter_id_global}`.replaceAll("--", "-"),
-    pdfName: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}-${date}-${randomId}.pdf`.replaceAll("--", "-"),
-    socio: `${supporter_id_global || ""} - ${user.supporter_favorito || ""} - ${user.supporter_sexo || ""}`,
+    qrcode: data.qrcode,
+    barcode: data.barcode,
+    pdfName: data.pdfname,
+    socio: data.socio,
     beneficiario: `${user.beneficiario_id} - ${user.beneficiario_preferido} - ${user.beneficiario_sexo || ""} - ${user.beneficiario_edad}`,
     tl: `TL: ${user.target_lang}`,
     gp: `GP: ${user.supporter_country}`,
@@ -145,8 +157,7 @@ async function pdfGenerator(vineta, user, data, template){
               addText(doc, data[key], field);
             }
           } catch (err) {
-            console.log("ERR GENERATING cONTENT");
-            console.dir(err);
+            console.log("ERR GENERATING CONTENT: ", err);
           }
         });
       });
@@ -188,8 +199,7 @@ async function pdfGenerator(vineta, user, data, template){
       doc.pipe(pdfStream);
       doc.end();
     } catch (err) {
-      console.log("ERROR");
-      console.dir(err)
+      console.log("ERROR: ", err);
     }
   });
 }
