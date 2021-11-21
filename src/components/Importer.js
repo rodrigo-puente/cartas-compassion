@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import XLSX from "xlsx";
-import { importXLSX } from "../../message-control/renderer";
+import { importXLSX } from "../message-control/renderer";
 
 function Importer() {
   const [loading, setLoading] = useState(false)

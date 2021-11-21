@@ -5,9 +5,8 @@ const path = require('path');
 const sqlite3 = require('sqlite3');
 const isDev = require('electron-is-dev');
 const moment = require("moment");
-const { generateRandomIntegerInRange } = require('./misc');
+const { generateRandomIntegerInRange, generateSQL, exportXLSX } = require('./misc');
 const { fillVineta, generateCodeImage, pdfGenerator } = require('./pdfGenerator');
-const { generateSQL } = require('./xlsxImporter');
 
 let dbURL;
 
@@ -118,4 +117,10 @@ ipcMain.on('restart-app', () => {
 
 ipcMain.on('app-url', (event) => {
   event.reply('url-result', [isDev, app.getAppPath()]);
+});
+
+ipcMain.on('generate-xlsx', (event, data, route) => {
+  const response = exportXLSX(data, route);
+  event.reply('xlxs-result', response);
 })
+

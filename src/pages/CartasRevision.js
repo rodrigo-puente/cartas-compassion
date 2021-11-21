@@ -1,5 +1,5 @@
 import React from "react";
-import Importer from "../components/importar-cartas/Importer";
+import Importer from "../components/Importer";
 import '../styles/_cartasPorRealizar.scss';
 
 function CartasRevision() {
