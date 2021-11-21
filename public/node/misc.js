@@ -1,5 +1,6 @@
 const reader = require('xlsx');
 const moment = require("moment");
+const path = require("path");
 
 const xlsxHeaders = {
   "beneficiario_iglesia": "ID de la Iglesia Socia del Beneficiario",
@@ -36,14 +37,14 @@ function exportXLSX(data, route) {
     Object.keys(xlsxHeaders).forEach((x) => keyMapping.push(x));
     keyMapping.push("formulario");
 
-    const date = moment().format('YYYY-MM-DD-h:mm:ss');
-    let workBook = reader.utils.book_new();
+    const date = moment().format('YYYY-MM-DD-h-mm-ss');
 
+    let workBook = reader.utils.book_new();
     let workSheet = reader.utils.aoa_to_sheet([headers]);
     reader.utils.sheet_add_json(workSheet, data, { header: keyMapping, skipHeader: true, origin: 'A2' });
-
     reader.utils.book_append_sheet(workBook, workSheet, "realizadas");
-    let exportFileName = `${route}/reporte-${date}.xlsx`;
+
+    let exportFileName = path.join(route, `reporte-${date}.xlsx`);
     reader.writeFile(workBook, exportFileName);
     return true;
   } catch (err) {
