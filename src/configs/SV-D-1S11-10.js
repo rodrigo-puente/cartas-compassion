@@ -52,34 +52,42 @@ const config = {
         required: false
       },
       "field-2": {
-        radio: true,
+        is_checkbox: true,
         content: "2. Normalmente juego con",
         options: {
           "field-2-1": {
             content: "Amigos",
-            checkbox: true,
-            x: 204,
-            y: 500,
           },
           "field-2-2": {
             content: "Hermanos",
-            checkbox: true,
-            x: 213,
-            y: 534,          
           },
           "field-2-3": {
             content: "Parientes",
-            checkbox: true,
-            x: 130,
-            y: 553,          
           },
           "field-2-4": {
             content: "Abuelos ",
-            checkbox: true,
-            x: 45,
-            y: 553,          
           }
         }
+      },
+      "field-2-1": {
+        checkbox: true,
+        x: 204,
+        y: 500,
+      },
+      "field-2-2": {
+        checkbox: true,
+        x: 213,
+        y: 534,          
+      },
+      "field-2-3": {
+        checkbox: true,
+        x: 130,
+        y: 553,          
+      },
+      "field-2-4": {
+        checkbox: true,
+        x: 45,
+        y: 553,          
       },
       "field-3": {
         input: true,

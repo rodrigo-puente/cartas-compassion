@@ -23,7 +23,7 @@ const config = {
             checkbox: true,
             x: 84,
             y: 274,
-          },
+          }, 
           "field-1-4": {
             content: "Ingeniero",
             checkbox: true,
@@ -43,7 +43,7 @@ const config = {
             y: 256,
           }
         }
-      }, 
+      },  
       "field-2": {
         radio: true,
         content: "2. Me gustaría conocer el/la",
@@ -133,16 +133,20 @@ const config = {
       },
       "field-4": {
         textarea: true,
-        content: "4. Algún día me gustaríua conocer a mi patrocinador porque",
+        content: "4. Algún día me gustaría conocer a mi patrocinador porque",
         x: 330,
         y: 271,
         width: 206,
         lineGap: 6.6,
         max: 124
       },
+      "label": {
+        is_label: true,
+        content: "Marca con una X tus 2 respuestas favorita"
+      },
       "field-5": {
         is_checkbox: true,
-        content: "5. Marca con una X tus dos respuestas favoritas",
+        content: "5. Algún día me gustaría conocer a",
         options: {
           "field-5-1": {
             content: "Al Presidente de mi país",

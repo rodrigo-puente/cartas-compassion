@@ -8,14 +8,11 @@ function CartasPorRealizar() {
 
   useEffect(() => {
     async function getUrl() {
-      console.log("HERREEEE");
       const [isDev, electronUrl] = await assetURL();
       if (isDev) {
         setUrl('.');
-        console.log('.')
       } else {
         setUrl(`${electronUrl}/build`)
-        console.log(`${electronUrl}/build`)
       }
     }
 

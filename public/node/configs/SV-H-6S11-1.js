@@ -2,6 +2,16 @@ const config = {
   page1: {
     bg: "1.jpg",
     items: {
+      "code": {
+        input: true,
+        content: "Código del beneficiario (11 dígitos)",
+        x: 40,
+        y: 85,
+        width: 490,
+        lineGap: 8,
+        characterSpacing: 8,
+        max: 11,
+      },
       "field-1": {
         input: true,
         content: "Persona que escribe (si no fue el niño/niña)",

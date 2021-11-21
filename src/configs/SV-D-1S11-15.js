@@ -10,7 +10,7 @@ const config = {
         width: 240,
         lineGap: 11,
         max: 48,
-        required: false
+        required: true
       },
       "field-2": {
         input: true,
@@ -20,7 +20,7 @@ const config = {
         width: 260,
         lineGap: 11,
         max: 32,
-        required: false
+        required: true
       },
       "field-3": {
         is_checkbox: true,
@@ -127,13 +127,13 @@ const config = {
       },
       "field-5": {
         input: true,
-        content: "Lo que más me gusta de mi comunidad es",
+        content: "5. Lo que más me gusta de mi comunidad es",
         x: 309,
         y: 224,
         width: 240,
         lineGap: 10,
         max: 98,
-        required: false
+        required: true
       },
       "fecha": {
         x: 390,

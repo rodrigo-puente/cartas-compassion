@@ -104,7 +104,7 @@ function Form({ templateId }) {
                     Object.keys(CONFIG[key].options).map((k, i) => {
                       return (
                         <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={`${index}-${i}`}>
-                          <label><input type="radio" className="form-check-input me-2" {...register(key)} value={k} id={k} name={key} />{CONFIG[key].options[k].content}</label>
+                          <label><input type="radio" className="form-check-input me-2" {...register(key)} value={k} id={k} name={key} required />{CONFIG[key].options[k].content}</label>
                         </div>
                       )
                     })

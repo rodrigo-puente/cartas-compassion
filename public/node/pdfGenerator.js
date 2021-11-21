@@ -11,7 +11,8 @@ function addText(doc, text, content){
   if (text === undefined) return;
   doc.text(text.replaceAll(/\r?\n|\r/g, " "), content.x, content.y, {
     width: content.width || null,
-    lineGap: content.lineGap || 8  
+    lineGap: content.lineGap || 8,
+    characterSpacing: content.characterSpacing || 0,
   });
 }
 
