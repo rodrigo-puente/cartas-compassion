@@ -15,7 +15,8 @@ import CartasEspeciales from './pages/CartasEspeciales';
 import TemplateEspecial from './pages/TemplateEspecial';
 import Template from './pages/Template';
 import MissingTemplate from './pages/MissingTemplate';
-import DataExporter from './pages/DataExporter';
+import DataExporterRealizadas from './pages/RealizadasDataExporter';
+import DataExporterPorRealizar from './pages/PorRealizarDataExporter';
 
 // Importar Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
@@ -32,7 +33,8 @@ export default function App() {
         <Route exact path="/template/:templateId/:userId" component={Template} />
         <Route exact path="/especiales" component={CartasEspeciales} />
         <Route exact path="/especiales/:templateId" component={TemplateEspecial} />
-        <Route exact path="/data-exporter" component={DataExporter} />
+        <Route exact path="/data-exporter-realizadas" component={DataExporterRealizadas} />
+        <Route exact path="/data-exporter-por-realizar" component={DataExporterPorRealizar} />
         <Route component={MissingTemplate} />
       </Switch>
     </Router>

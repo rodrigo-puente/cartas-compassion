@@ -24,10 +24,10 @@ function Exporter({ state }) {
     }
 
     setDisabled(true);
-    const response = await generateXLSX(cartas, route);
-    if (response) {
-      alert("Archivo creado con éxito");
-    }
+    const response = await generateXLSX(cartas, route, CARD_STATES[state]);
+    if (response) alert("Archivo creado con éxito");
+    setDisabled(false);
+    e.preventDefault();
   };
 
   return (

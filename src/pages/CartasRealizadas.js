@@ -12,7 +12,7 @@ function CartasRealizadas() {
       <div className="">
         <h2 className="text-center mb-3">Cartas realizadas {numCartas}</h2>
         <p className="text-center">
-          <Link to="/data-exporter">Generar reporte</Link>
+          <Link to="/data-exporter-realizadas">Generar reporte</Link>
         </p>
         <Table state={CARDS_ENVIADAS} setNumCartas={setNumCartas} />
       </div>

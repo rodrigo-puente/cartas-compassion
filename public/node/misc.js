@@ -25,17 +25,20 @@ function generateRandomIntegerInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function exportXLSX(data, route) {
+function exportXLSX(data, route, kind) {
   try {
     let headers = [];
     headers.push("id");
     Object.values(xlsxHeaders).forEach((x) => headers.push(x));
     headers.push("formulario");
+    headers.push("estado");
+
 
     let keyMapping = []
     keyMapping.push("id");
     Object.keys(xlsxHeaders).forEach((x) => keyMapping.push(x));
     keyMapping.push("formulario");
+    keyMapping.push("estado");
 
     const date = moment().format('YYYY-MM-DD-h-mm-ss');
 
@@ -43,8 +46,7 @@ function exportXLSX(data, route) {
     let workSheet = reader.utils.aoa_to_sheet([headers]);
     reader.utils.sheet_add_json(workSheet, data, { header: keyMapping, skipHeader: true, origin: 'A2' });
     reader.utils.book_append_sheet(workBook, workSheet, "realizadas");
-
-    let exportFileName = path.join(route, `reporte-${date}.xlsx`);
+    let exportFileName = `${route}/reporte-${kind.toLowerCase().replaceAll(" ", "-")}-${date}.xlsx`;
     reader.writeFile(workBook, exportFileName);
     return true;
   } catch (err) {
@@ -65,7 +67,6 @@ function generateSQL(data) {
   let fields = Object.keys(xlsxHeaders).map((x) => x).join(", ");
   return `INSERT INTO cartas(${fields}, "estado") VALUES ${insertValues.join(", ")};`;
 }
-
 
 module.exports = {
   generateRandomIntegerInRange,

@@ -3,7 +3,7 @@ import Exporter from "../components/Exporter";
 import { CARDS_ENVIADAS } from "../lib/constants";
 import '../styles/_cartasPorRealizar.scss';
 
-function ExportarCartas() {
+function ExportarCartasRealizadas() {
 
   return (
     <div className="container-fluid page">
@@ -16,4 +16,4 @@ function ExportarCartas() {
   );
 }
 
-export default ExportarCartas;
+export default ExportarCartasRealizadas;

@@ -41,12 +41,12 @@ export function generatePDF(user, datos, template) {
   });
 }
 
-export function generateXLSX(datos, route) {
+export function generateXLSX(datos, route, kind) {
   return new Promise((resolve) => {
     ipcRenderer.once('xlsx-result', (_, arg) => {
       resolve(arg);
     });
-    ipcRenderer.send('generate-xlsx', datos, route);
+    ipcRenderer.send('generate-xlsx', datos, route, kind);
   });
 }
 

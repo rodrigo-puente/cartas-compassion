@@ -2,14 +2,16 @@
   padding: 10px 10px;
 
   strong, td {
-    color: #005DAA;
+    color: white;
   }
 
   th {
-    color: black;
+    color: #FFC500;
   }
 
   .table, td, th, thead, tbody {
+    background: #005DAA;
     border: 1px solid black;
+    font-size: 18px;
   }
 }

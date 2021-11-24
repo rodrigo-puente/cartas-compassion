@@ -19,7 +19,7 @@ const config = {
         y: 229,
         width: 490,
         lineGap: 8,
-        max: 1390
+        max: 1370
       },
       "field-2": {
         textarea: true,

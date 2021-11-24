@@ -65,7 +65,7 @@ ipcMain.on('generate-pdf', (event, user, data, template) => {
     const date = moment().format('YYYYMMDD');
     const randomId = generateRandomIntegerInRange(10000, 99999);
 
-    pdfGenerator({pdfName: `${date}-${randomId}.pdf`}, user, data, template).then( x => {
+    pdfGenerator({pdfName: `${data.code}-${user.id_plantilla}-${date}-${randomId}.pdf`}, user, data, template).then( x => {
       event.reply('pdf-result', x);
     });
   } else { // NORMAL FORM
@@ -119,8 +119,8 @@ ipcMain.on('app-url', (event) => {
   event.reply('url-result', [isDev, app.getAppPath()]);
 });
 
-ipcMain.on('generate-xlsx', (event, data, route) => {
-  const response = exportXLSX(data, route);
+ipcMain.on('generate-xlsx', (event, data, route, kind) => {
+  const response = exportXLSX(data, route, kind);
   event.reply('xlxs-result', response);
 })
 
