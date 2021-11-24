@@ -171,7 +171,7 @@ async function pdfGenerator(vineta, user, data, template){
           1: 300,
           2: 250,
           3: 200,
-          4: 150,
+          4: 120,
         }
         const size = sizes[imgs.length];
 
@@ -179,7 +179,8 @@ async function pdfGenerator(vineta, user, data, template){
 
         try {
           imgs.forEach((i, idx) => {
-            let y = 50 + ((size + 40) * idx);
+
+            let y = 50 + ((size + 50) * idx);
             const img = doc.openImage(i.img);
             doc.image(img, 50, y, {
               fit: [500, size], 
@@ -187,7 +188,7 @@ async function pdfGenerator(vineta, user, data, template){
               valign: 'center',
             });
             
-            y = y + size + 20;
+            y = y + size + 10;
             doc.text(i.msg, 100, y, {
               width: 420
             });

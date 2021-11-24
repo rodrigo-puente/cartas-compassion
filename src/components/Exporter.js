@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { handleDir } from '../lib/fileInteractions';
 import { sendAsync, generateXLSX } from "../message-control/renderer";
 import { CARD_STATES } from '../lib/constants';
 
 function Exporter({ state }) {
+  const { handleSubmit } = useForm();
   const [disabled, setDisabled] = useState(false);
   const [route, setRoute] = useState("");
   const [cartas, setCartas] = useState([]);
@@ -17,30 +19,33 @@ function Exporter({ state }) {
     getData();
   }, [state]);
 
-  const handleSubmit = async(e) => {
+  const onSubmit = () => {
     if (!route.length) {
       alert("Debes elegir dónde quieres guardar el archivo");
       return;
     }
 
     setDisabled(true);
-    const response = await generateXLSX(cartas, route, CARD_STATES[state]);
-    if (response) alert("Archivo creado con éxito");
-    setDisabled(false);
-    e.preventDefault();
+    generateXLSX(cartas, route, CARD_STATES[state]).then((response) => {
+      response ? alert("Reporte guardado con éxito") : alert("Hubo un error guardando el reporte...");
+      setDisabled(false);
+    }).catch((err) => {
+      console.dir("HANDLE SUBMIT ERROR: ", err);
+      setDisabled(false);
+    });
   };
 
   return (
     <div className="container">
       <div className="row">
         <div className='offset-md-3 col-md-6'>
-          <form className="text-center" onSubmit={handleSubmit}>
+          <form className="text-center" onSubmit={handleSubmit(onSubmit) }>
             <div className="form-group mb-5">
               <label htmlFor="route" className="mb-2 text-white">Dónde quieres guardar el archivo XLSX</label><br/>
               <input type="text" onClick={handleDir(setRoute)} value={route} id="route" name="route"  className="form-control" readOnly required />
             </div>
             <div className="form-group mb-4 text-center">
-              <button name="submit" type="submit" onSubmit={handleSubmit} className="btn btn-primary" disabled={disabled}>Generar archivo</button>
+              <button name="submit" type="submit" onSubmit={handleSubmit(onSubmit)} className="btn btn-primary" disabled={disabled}>Generar archivo</button>
             </div>
           </form>
         </div>

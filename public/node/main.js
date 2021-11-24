@@ -121,6 +121,6 @@ ipcMain.on('app-url', (event) => {
 
 ipcMain.on('generate-xlsx', (event, data, route, kind) => {
   const response = exportXLSX(data, route, kind);
-  event.reply('xlxs-result', response);
+  event.reply('xlsx-export-result', response);
 })
 
