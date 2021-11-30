@@ -3,7 +3,7 @@ const config = {
 		"bg": "1.jpg",
 		"items": {
 			"field-1": {
-				"textarea": true,
+				"input": true,
 				"content": "1. Indica en qué ciudad o pueblo vives y en qué región del país. ¿Cómo es esta área?",
 				"x": 55,
 				"y": 361,
@@ -15,14 +15,14 @@ const config = {
 				"input": true,
 				"content": "2. ¿Cuántas personas viven en tu en tu casa?",
 				"x": 75,
-				"y": 447,
+				"y": 446,
 				"width": 220,
 				"lineGap": 7,
-				"max": 1
+				"max": 2
 			},
 			"field-2-copy": {
 				"x": 95,
-				"y": 470,
+				"y": 469,
 				"width": 220,
 				"lineGap": 11,
 				"max": 2
@@ -35,7 +35,7 @@ const config = {
 				"fields": [
 					{
 						"content": "Nombre",
-						"max": 20,
+						"max": 18,
 						"sufix": "-A"
 					},
 					{
@@ -116,7 +116,7 @@ const config = {
 				"max": 15
 			},
 			"field-3": {
-				"textarea": true,
+				"input": true,
 				"content": "3. Una cosa que realmente disfruto haciendo es",
 				"x": 55,
 				"y": 647,

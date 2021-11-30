@@ -100,7 +100,7 @@ const config = {
 				"y": 225,
 				"width": 230,
 				"lineGap": 6,
-				"max": 169
+				"max": 180
 			},
 			"field-5-2": {
 				"textarea": true,

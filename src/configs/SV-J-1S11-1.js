@@ -97,14 +97,14 @@ const config = {
 				"input": true,
 				"content": "3. ¿Cuántas personas viven en mi casa?",
 				"cols": "col-sm-12 col-md-6",
-				"x": 82,
+				"x": 80,
 				"y": 513,
 				"width": 490,
 				"lineGap": 7,
-				"max": 1
+				"max": 2
 			},
 			"field-3-copy": {
-				"x": 103,
+				"x": 102,
 				"y": 526,
 				"width": 490,
 				"lineGap": 11,
@@ -118,7 +118,7 @@ const config = {
 				"fields": [
 					{
 						"content": "Nombre",
-						"max": 20,
+						"max": 18,
 						"sufix": "-A"
 					},
 					{

@@ -10,7 +10,7 @@ const config = {
 				"width": 490,
 				"lineGap": 4,
 				"characterSpacing": 8,
-				"max": 7
+				"max": 11
 			},
 			"field-1": {
 				"textarea": true,

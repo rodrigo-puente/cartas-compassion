@@ -139,7 +139,7 @@ function Form({ id, templateId }) {
                                   CONFIG[key].fields.map((item, i) => {
                                     return(
                                       <div key={`${index}-${idx}-${i}`}>
-                                        <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2">{item.content}</label><br/>
+                                        <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2 text-white">{item.content}</label><br/>
                                         <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} />
                                       </div>
                                     )

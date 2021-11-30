@@ -66,7 +66,7 @@ const config = {
 				"y": 543,
 				"width": 230,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-4-2": {
 				"input": true,
@@ -76,7 +76,7 @@ const config = {
 				"y": 543,
 				"width": 230,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-4-3": {
 				"input": true,
@@ -86,7 +86,7 @@ const config = {
 				"y": 543,
 				"width": 230,
 				"lineGap": 6,
-				"max": 2
+				"max": 4
 			},
 			"field-5": {
 				"textarea": true,
@@ -114,19 +114,19 @@ const config = {
 						"checkbox": true,
 						"content": "Cerca del mar",
 						"x": 358,
-						"y": 343
+						"y": 310
 					},
 					"field-7-2": {
 						"checkbox": true,
 						"content": "Campo",
 						"x": 443,
-						"y": 343
+						"y": 310
 					},
 					"field-7-3": {
 						"checkbox": true,
 						"content": "Ciudad",
 						"x": 534,
-						"y": 343
+						"y": 310
 					}
 				}
 			},
