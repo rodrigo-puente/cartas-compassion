@@ -25,14 +25,9 @@ function Importer() {
 			const wsname = wb.SheetNames[0];
 			const ws = wb.Sheets[wsname];
 			/* Convert array of arrays */
-			const data = XLSX.utils.sheet_to_json(ws, {skipHeader: true});
+			const rows = XLSX.utils.sheet_to_json(ws, { skipHeaders: false });
 			/* Update state */
-      if (Object.keys(data[0]).length < 15 || Object.keys(data[0]).length > 16) {
-        alert("El archivo no tiene todas las columnas necesarias...");
-        setLoading(false);
-        return;
-      }
-			setData(data);
+			setData(rows);
       setLoading(false);
 		}
 
@@ -53,7 +48,7 @@ function Importer() {
       }
     } catch (err) {
       alert("Hubo un error.");
-      console.dir(err);
+      console.log(err);
     }
   }
 

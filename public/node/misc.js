@@ -1,6 +1,5 @@
 const reader = require('xlsx');
 const moment = require("moment");
-const path = require("path");
 
 const xlsxHeaders = {
   "beneficiario_iglesia": "ID de la Iglesia Socia del Beneficiario",
@@ -33,7 +32,6 @@ function exportXLSX(data, route, kind) {
     headers.push("formulario");
     headers.push("estado");
 
-
     let keyMapping = []
     keyMapping.push("id");
     Object.keys(xlsxHeaders).forEach((x) => keyMapping.push(x));
@@ -58,7 +56,7 @@ function exportXLSX(data, route, kind) {
 function generateSQL(data) { 
   let insertValues = [];
 
-  for (let i = 1; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     let dataRow = data[i];
     let stringRow = Object.keys(xlsxHeaders).map((x) => `"${dataRow[xlsxHeaders[x]] || ''}"`).join(", ");
     insertValues.push(`(${stringRow}, "Sin comenzar")`);

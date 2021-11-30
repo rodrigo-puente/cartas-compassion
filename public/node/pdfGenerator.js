@@ -9,7 +9,7 @@ const assetPath = path.join(__dirname, '..', 'node', 'assets');
 
 function addText(doc, text, content){
   if (text === undefined) return;
-  doc.text(text.replaceAll(/\r?\n|\r/g, " "), content.x, content.y, {
+  doc.text(text.replace(/\r?\n|\r/g, " "), content.x, content.y, {
     width: content.width || null,
     lineGap: content.lineGap || 8,
     characterSpacing: content.characterSpacing || 0,
@@ -26,7 +26,7 @@ function addSelect(doc, content, img) {
 }
 
 function addImage(doc, value, content) {
-  if (value === "") return;
+  if (value === "" || value === undefined) return;
   const img = doc.openImage(value);
   doc.image(img, content.x, content.y, content.config);
 }
@@ -81,10 +81,10 @@ function fillVineta(user) {
   const tipo_relacion = user?.supporter_tipo_relacion ? (user.supporter_tipo_relacion === 'Patrocinador' ? '-S' : '-C') : "";
 
   let data = {
-    qrcode: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}`.replaceAll("--", "-").trim(),
-    barcode: `${beneficiario_id_global}${supporter_id_global}`.replaceAll("--", "-").trim(),
-    socio: `${supporter_id_global || ""} - ${user.supporter_favorito || ""} - ${user.supporter_sexo || ""}`.replaceAll("--", "-").trim(),
-    pdfname: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}-${date}-${randomId}.pdf`.replaceAll("--", "-").trim(),
+    qrcode: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}`.replace(/--/g, "-").trim(),
+    barcode: `${beneficiario_id_global}${supporter_id_global}`.replace(/--/g, "-").trim(),
+    socio: `${supporter_id_global || ""} - ${user.supporter_favorito || ""} - ${user.supporter_sexo || ""}`.replace(/--/g, "-").trim(),
+    pdfname: `${beneficiario_id_global}${supporter_id_global}${comunicacion_id_global}${tipo_relacion}-${date}-${randomId}.pdf`.replace(/--/g, "-").trim(),
   };
 
   Object.keys(data).forEach((i) => {
@@ -139,11 +139,13 @@ async function pdfGenerator(vineta, user, data, template){
           doc.font('Times-Roman');
           generateHeader(doc, vineta);
           doc.font(font);
-          doc.fontSize(8);
+          doc.fontSize(11);
         }
       
         Object.keys(content).forEach((key) => {
           try {
+            if (data[key] === undefined) return;
+
             let field = content[key]
             if(field.checkbox){
               addCheckbox(doc, data[key], field, checkIMG);
@@ -158,7 +160,7 @@ async function pdfGenerator(vineta, user, data, template){
               addText(doc, data[key], field);
             }
           } catch (err) {
-            console.log("ERR GENERATING CONTENT: ", err);
+            console.log("ERR GENERATING CONTENT: ", template, key, err);
           }
         });
       });
@@ -176,6 +178,7 @@ async function pdfGenerator(vineta, user, data, template){
         const size = sizes[imgs.length];
 
         doc.addPage();
+        doc.fontSize(8);
 
         try {
           imgs.forEach((i, idx) => {

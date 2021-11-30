@@ -29,5 +29,6 @@ barcode.png
 qrcode.png
 prueba.xlsx
 
-*.sqlite
+cartas.sqlite
 /dist
+/public/test/pdfs/*.pdf
