@@ -106,7 +106,7 @@ const config = {
 			},
 			"fecha": {
 				"x": 450,
-				"y": 173,
+				"y": 170,
 				"width": 220,
 				"lineGap": 11
 			}

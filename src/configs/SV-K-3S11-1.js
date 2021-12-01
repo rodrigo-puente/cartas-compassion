@@ -14,7 +14,7 @@ const config = {
 			"field-2": {
 				"input": true,
 				"content": "2. ¿Cuántas personas viven en tu en tu casa?",
-				"x": 75,
+				"x": 74,
 				"y": 446,
 				"width": 220,
 				"lineGap": 7,
@@ -22,7 +22,7 @@ const config = {
 			},
 			"field-2-copy": {
 				"x": 95,
-				"y": 469,
+				"y": 468,
 				"width": 220,
 				"lineGap": 11,
 				"max": 2

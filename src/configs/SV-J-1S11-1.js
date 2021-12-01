@@ -97,15 +97,15 @@ const config = {
 				"input": true,
 				"content": "3. ¿Cuántas personas viven en mi casa?",
 				"cols": "col-sm-12 col-md-6",
-				"x": 80,
+				"x": 79,
 				"y": 513,
 				"width": 490,
 				"lineGap": 7,
 				"max": 2
 			},
 			"field-3-copy": {
-				"x": 102,
-				"y": 526,
+				"x": 101,
+				"y": 524,
 				"width": 490,
 				"lineGap": 11,
 				"max": 2

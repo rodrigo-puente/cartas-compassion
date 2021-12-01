@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Vineta from '../components/shared/Vineta';
 import Form from "../components/shared/Form";
@@ -11,12 +11,17 @@ function Template() {
     backgroundImage: `url(${require(`../assets/${templateId}.png`).default})`,
   }
 
+  useEffect(() => {
+    document.getElementById('title-focus').focus();
+  }, []);
+
+
   return (
     <div className="container-fluid" id="cartas"> 
       <div className="text-center header d-flex flex-column" style={bgStyles}>
         <div className="layer d-flex align-items-center justify-content-center">
           <div>
-            <h2 className="text-center title">{templateConfig.extras.title}</h2>
+            <h2 className="text-center title" id="title-focus">{templateConfig.extras.title}</h2>
             <small className="subtitle">Plantilla {templateId}</small>
           </div>
         </div>

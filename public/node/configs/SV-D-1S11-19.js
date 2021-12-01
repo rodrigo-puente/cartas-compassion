@@ -172,7 +172,7 @@ const config = {
 			},
 			"fecha": {
 				"x": 218,
-				"y": 180,
+				"y": 177,
 				"width": 190,
 				"lineGap": 11
 			}
