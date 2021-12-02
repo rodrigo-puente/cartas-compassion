@@ -4,7 +4,7 @@ import FormEspecial from "../components/shared/FormEspecial";
 import '../styles/_cartas.scss';
 
 function Template() {
-  const { templateId } = useParams();
+  const { templateId, id } = useParams();
   const templateConfig = require(`../configs/${templateId}`);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Template() {
       <div className="container">
         <div className="row pt-4">
           <div className="col-sm-12 mb-5">
-            <FormEspecial templateId={templateId} />
+            <FormEspecial templateId={templateId} id={id} />
           </div>
         </div>
       </div>

@@ -55,15 +55,16 @@ function exportXLSX(data, route, kind) {
 
 function generateSQL(data) { 
   let insertValues = [];
+  let createdAt = Math.round(+new Date()/1000);
 
   for (let i = 0; i < data.length; i++) {
     let dataRow = data[i];
     let stringRow = Object.keys(xlsxHeaders).map((x) => `"${dataRow[xlsxHeaders[x]] || ''}"`).join(", ");
-    insertValues.push(`(${stringRow}, "Sin comenzar")`);
+    insertValues.push(`(${stringRow}, "Sin comenzar", ${createdAt})`);
   }
 
   let fields = Object.keys(xlsxHeaders).map((x) => x).join(", ");
-  return `INSERT INTO cartas(${fields}, "estado") VALUES ${insertValues.join(", ")};`;
+  return `INSERT INTO cartas(${fields}, "estado", "fecha") VALUES ${insertValues.join(", ")};`;
 }
 
 module.exports = {

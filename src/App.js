@@ -32,7 +32,7 @@ export default function App() {
         <Route exact path="/revision" component={CartasRevision} />
         <Route exact path="/template/:templateId/:userId" component={Template} />
         <Route exact path="/especiales" component={CartasEspeciales} />
-        <Route exact path="/especiales/:templateId" component={TemplateEspecial} />
+        <Route exact path="/especiales/:templateId/:id?" component={TemplateEspecial} />
         <Route exact path="/data-exporter-realizadas" component={DataExporterRealizadas} />
         <Route exact path="/data-exporter-por-realizar" component={DataExporterPorRealizar} />
         <Route component={MissingTemplate} />

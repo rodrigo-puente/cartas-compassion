@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { assetURL } from "../message-control/renderer";
+import TableEspecial from "../components/shared/TableEspecial";
 import '../styles/_cartasPorRealizar.scss';
 
 function CartasPorRealizar() {
   const [url, setUrl] = useState("");
+  const [numCartas, setNumCartas] = useState("");
 
   useEffect(() => {
     async function getUrl() {
@@ -33,6 +35,9 @@ function CartasPorRealizar() {
             <Link className="h5 w-100" to="/especiales/SV-H-6S11-1">Carta final</Link>
           </div>
         </div>
+
+        <h2 className="text-center mb-3">Cartas creadas {numCartas}</h2>
+        <TableEspecial setNumCartas={setNumCartas} />
       </div>
     </div>
   );

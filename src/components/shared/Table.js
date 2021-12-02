@@ -32,7 +32,7 @@ function Table({ state, setNumCartas }) {
         <table className="table">
           <thead>
             <tr>
-              <th>Acciones</th>
+              <th className="text-center">Plantilla</th>
               <th className="text-center" scope="col">Tipo de comunicación</th>
               <th className="text-center" scope="col">Proyecto</th>
               <th className="text-center" scope="col">Código</th>
@@ -51,17 +51,17 @@ function Table({ state, setNumCartas }) {
               cartas.map((x) => 
                 <tr key={x.id}>
                   <td><Link to={`/template/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
-                  <td>{x.comunicacion_tipo}</td>
-                  <td>{x.beneficiario_iglesia}</td>
-                  <td>{x.beneficiario_id}</td>
-                  <td>{x.beneficiario_preferido}</td>
-                  <td>{x.beneficiario_sexo}</td>
-                  <td>{x.beneficiario_edad}</td>
-                  <td>{x.comunicacion_id_global}</td>
-                  <td>{x.supporter_favorito}</td>
-                  <td>{x.supporter_sexo}</td>
-                  <td>{x.supporter_country}</td>
-                  <td><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
+                  <td className="text-center">{x.comunicacion_tipo}</td>
+                  <td className="text-center">{x.beneficiario_iglesia}</td>
+                  <td className="text-center">{x.beneficiario_id}</td>
+                  <td className="text-center">{x.beneficiario_preferido}</td>
+                  <td className="text-center">{x.beneficiario_sexo}</td>
+                  <td className="text-center">{x.beneficiario_edad}</td>
+                  <td className="text-center">{x.comunicacion_id_global}</td>
+                  <td className="text-center">{x.supporter_favorito}</td>
+                  <td className="text-center">{x.supporter_sexo}</td>
+                  <td className="text-center">{x.supporter_country}</td>
+                  <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
               )
             }

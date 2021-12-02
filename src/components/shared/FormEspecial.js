@@ -1,18 +1,19 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
-import { submitFormEspecial } from '../../lib/fileInteractions';
+import { getDataEspecial, submitFormEspecial } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
 import Input from "../shared/Input";
 import TextArea from "../shared/TextArea";
 import ImageSelector from "../shared/ImageSelector";
 
-function Form({ templateId }) {
+function FormEspecial({ id, templateId }) {
   const templateConfig = require(`../../configs/${templateId}`);
   const { register, handleSubmit, setValue } = useForm();
 
   const [route, setRoute] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
+  const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
 
   //max excluded
@@ -22,12 +23,19 @@ function Form({ templateId }) {
   }
 
   const onSubmit = (data) => {
-    submitFormEspecial(templateId, data, route, imgs, setDisabled, templateConfig.extras.copy);
+    submitFormEspecial(id, templateId, data, route, imgs, setDisabled, templateConfig.extras.copy);
   };
 
   const CONFIG = useMemo(() => { 
     return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }
   }, [templateConfig?.page1.items, templateConfig?.page2.items]);
+
+  useEffect(() => {
+    console.log(id);
+    if (id !== undefined) {
+      getDataEspecial(id, CONFIG, setCarta, setValue);
+    }
+  }, [id, CONFIG, setValue]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -170,4 +178,4 @@ function Form({ templateId }) {
   );
 }
 
-export default Form;
+export default FormEspecial;

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { selectFile, selectDir, sendAsync, sendInsert, generatePDF } from '../message-control/renderer';
+import { selectFile, selectDir, sendAsync, sendInsert, sendCreateOrUpdate, generatePDF } from '../message-control/renderer';
 import { CARD_STATES, CARDS_SIN_COMENZAR } from '../../src/lib/constants';
 
 export const handleInputChange = (form, setForm) => (event) => {
@@ -71,11 +71,11 @@ export const getData = async (id, config, setCarta, setValue) => {
       } catch(err) {
         console.log("Propiedad no existe: ", key);
       }
-    })
+    });
   }
 }
 
-export const submitForm = (id, templateID, carta, form, route, imgs, setDisabled, copyFields = []) => {
+export const submitForm = (id, templateId, carta, form, route, imgs, setDisabled, copyFields = []) => {
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
     return;
@@ -90,7 +90,7 @@ export const submitForm = (id, templateID, carta, form, route, imgs, setDisabled
 
   sendInsert([JSON.stringify(data), id]).then((response) => {
     console.log("SEND INSERT RESPONSE: ", response);
-    return generatePDF(carta, { ...data, ...fieldsToCopy }, templateID);
+    return generatePDF(carta, { ...data, ...fieldsToCopy }, templateId);
   }).then((response) => {
     console.log("GENERATE PDF RESPONSE: ", response);
     response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
@@ -101,7 +101,37 @@ export const submitForm = (id, templateID, carta, form, route, imgs, setDisabled
   });
 }
 
-export const submitFormEspecial = (templateID, form, route, imgs, setDisabled, copyFields = []) => {
+
+export const getDataEspecial = async (id, config, setCarta, setValue) => {
+  const result = await sendAsync(`SELECT * FROM cartas_especiales WHERE id = ${id}`);
+  setCarta(result[0]);
+
+  const form = JSON.parse(result[0].formulario);
+
+  const skipKeys = ["fecha", "imgs", "route"];
+  Object.keys(form).forEach((key) => {
+    if (skipKeys.includes(key)) return;
+    try {
+      const val = form[key];
+      if(config[key].checkbox) {
+        document.getElementById(key).checked = val;
+      } else if (config[key].radio || config[key].special_radio) {
+        document.getElementById(val).checked = true;
+      } else if (config[key].image) {
+        return;
+      } else {
+        document.getElementById(key).value = val;
+        document.getElementById(`${key}-max`).innerHTML = val.length || 0;
+      }
+
+      setValue(key, val);
+    } catch(err) {
+      console.log("Propiedad no existe: ", key);
+    }
+  });
+}
+
+export const submitFormEspecial = (id, templateId, form, route, imgs, setDisabled, copyFields = []) => {
   if (!route.length) {
     alert("Debes elegir dónde quieres guardar el archivo");
     return;
@@ -114,10 +144,13 @@ export const submitFormEspecial = (templateID, form, route, imgs, setDisabled, c
     fieldsToCopy[`${i}-copy`] = data[i];
   });
 
-  generatePDF({ id_plantilla: templateID, skip_header: true }, { ...data, ...fieldsToCopy }, templateID).then((response) => {
-    console.log("GENERATE PDF RESPONSE: ", response);
-    response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-    setDisabled(false);
+  sendCreateOrUpdate(id, templateId, data).then((response) => {
+    console.log("SEND OR CREATE RESPONSE: ", response);
+    generatePDF({ id_plantilla: templateId, skip_header: true }, { ...data, ...fieldsToCopy }, templateId).then((response) => {
+      console.log("GENERATE PDF RESPONSE: ", response);
+      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
+      setDisabled(false);
+    })
   }).catch((err) => {
     console.dir("HANDLE SUBMIT ERROR: ", err);
     setDisabled(false);

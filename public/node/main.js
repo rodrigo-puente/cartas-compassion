@@ -16,37 +16,42 @@ if (isDev) {
   dbURL = path.join(app.getPath('userData'), "cartas.sqlite");
 }
 
-if(!fs.existsSync(dbURL)){
-  console.log("Base no existe...");
-  let db = new sqlite3.Database(dbURL);
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS "cartas" (
-      "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-      "beneficiario_iglesia" TEXT,
-      "beneficiario_id" TEXT, 
-      "beneficiario_preferido" TEXT, 
-      "beneficiario_id_global" TEXT, 
-      "beneficiario_sexo" TEXT,
-      "beneficiario_edad" TEXT, 
-      "estado" TEXT, 
-      "preguntas" TEXT, 
-      "comunicacion_tipo" TEXT, 
-      "comunicacion_id_global" TEXT, 
-      "supporter_favorito" TEXT, 
-      "supporter_tipo_relacion" TEXT,
-      "supporter_sexo" TEXT,
-      "supporter_id_global" TEXT, 
-      "supporter_country" TEXT,
-      "target_lang" TEXT, 
-      "id_plantilla" TEXT,
-      "formulario" TEXT
-    );
-  `)
-}
-
 const database = new sqlite3.Database(dbURL, (err) => {
   if (err) console.error('Database opening error: ', err);
 });
+
+database.exec(`
+  CREATE TABLE IF NOT EXISTS "cartas" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "beneficiario_iglesia" TEXT,
+    "beneficiario_id" TEXT, 
+    "beneficiario_preferido" TEXT, 
+    "beneficiario_id_global" TEXT, 
+    "beneficiario_sexo" TEXT,
+    "beneficiario_edad" TEXT, 
+    "estado" TEXT, 
+    "preguntas" TEXT, 
+    "comunicacion_tipo" TEXT, 
+    "comunicacion_id_global" TEXT, 
+    "supporter_favorito" TEXT, 
+    "supporter_tipo_relacion" TEXT,
+    "supporter_sexo" TEXT,
+    "supporter_id_global" TEXT, 
+    "supporter_country" TEXT,
+    "target_lang" TEXT, 
+    "id_plantilla" TEXT,
+    "formulario" TEXT,
+    "fecha" INTEGER
+  );
+
+  CREATE TABLE IF NOT EXISTS "cartas_especiales" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "beneficiario" TEXT,
+    "id_plantilla" TEXT,
+    "formulario" TEXT,
+    "fecha" INTEGER   
+  );
+`);
 
 ipcMain.on('async-query', (event, sql) => {
   database.all(sql, (err, rows) => {
@@ -54,9 +59,9 @@ ipcMain.on('async-query', (event, sql) => {
   });
 });
 
-ipcMain.on('async-insert', (event, sql, data) => {
+ipcMain.on('async-query-with-data', (event, sql, data) => {
   database.run(sql, data, (err) => {
-    event.reply('insert-result', err === null);
+    event.reply('async-query-with-data-result', err === null);
   });
 });
 

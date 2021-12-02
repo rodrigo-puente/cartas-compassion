@@ -25,10 +25,30 @@ export function sendAsync(sql) {
 export function sendInsert(datos) {
   const sql = "UPDATE cartas SET formulario = ?, estado = 'Impreso y enviado a la ICP' WHERE id = ?";
   return new Promise((resolve) => {
-    ipcRenderer.once('insert-result', (_, arg) => {
+    ipcRenderer.once('async-query-with-data-result', (_, arg) => {
       resolve(arg);
     });
-    ipcRenderer.send('async-insert', sql, datos);
+    ipcRenderer.send('async-query-with-data', sql, datos);
+  });
+}
+
+export function sendCreateOrUpdate(id, templateId, datos) {
+  let sql, data;
+
+  if (id) {
+    sql = "UPDATE cartas_especiales SET formulario = ? WHERE id = ?";
+    data = [JSON.stringify(datos), id];
+  } else {
+    let createdAt = Math.round(+new Date()/1000);
+    sql = "INSERT INTO cartas_especiales(id_plantilla, beneficiario, formulario, fecha) VALUES (?, ?, ?, ?)";
+    data = [templateId, datos.code, JSON.stringify(datos), createdAt];
+  }
+
+  return new Promise((resolve) => {
+    ipcRenderer.once('async-query-with-data-result', (_, arg) => {
+      resolve(arg);
+    });
+    ipcRenderer.send('async-query-with-data', sql, data);
   });
 }
 
