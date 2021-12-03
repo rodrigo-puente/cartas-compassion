@@ -153,7 +153,7 @@ const config = {
 				"y": 57,
 				"width": 520,
 				"lineGap": 4,
-				"max": 482
+				"max": 505
 			},
 			"img": {
 				"content": "Mi dibujo",

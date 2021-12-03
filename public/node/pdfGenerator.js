@@ -141,6 +141,10 @@ async function pdfGenerator(vineta, user, data, template){
           doc.font(font);
           doc.fontSize(11);
         }
+
+        if (user.skip_header) {
+          doc.fontSize(11);
+        }
       
         Object.keys(content).forEach((key) => {
           try {

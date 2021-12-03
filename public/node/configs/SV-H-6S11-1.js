@@ -5,11 +5,11 @@ const config = {
 			"code": {
 				"input": true,
 				"content": "Código del beneficiario (11 dígitos)",
-				"x": 40,
+				"x": 42,
 				"y": 82,
 				"width": 490,
 				"lineGap": 4,
-				"characterSpacing": 8,
+				"characterSpacing": 7,
 				"max": 11
 			},
 			"field-1": {
@@ -38,7 +38,7 @@ const config = {
 				"y": 332,
 				"width": 490,
 				"lineGap": 4,
-				"max": 190
+				"max": 195
 			},
 			"field-4": {
 				"textarea": true,
@@ -47,7 +47,7 @@ const config = {
 				"y": 417,
 				"width": 490,
 				"lineGap": 4,
-				"max": 190
+				"max": 195
 			},
 			"field-5": {
 				"textarea": true,
@@ -56,7 +56,7 @@ const config = {
 				"y": 507,
 				"width": 490,
 				"lineGap": 4,
-				"max": 190
+				"max": 195
 			},
 			"field-6": {
 				"textarea": true,
@@ -65,7 +65,7 @@ const config = {
 				"y": 597,
 				"width": 490,
 				"lineGap": 4,
-				"max": 190
+				"max": 195
 			},
 			"field-7": {
 				"textarea": true,
@@ -74,7 +74,7 @@ const config = {
 				"y": 687,
 				"width": 490,
 				"lineGap": 4,
-				"max": 190
+				"max": 195
 			},
 			"fecha": {
 				"x": 112,

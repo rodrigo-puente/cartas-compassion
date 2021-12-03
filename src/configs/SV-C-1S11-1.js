@@ -47,7 +47,7 @@ const config = {
 				"y": 678,
 				"width": 230,
 				"lineGap": 6,
-				"max": 36
+				"max": 32
 			},
 			"field-5-1": {
 				"textarea": true,

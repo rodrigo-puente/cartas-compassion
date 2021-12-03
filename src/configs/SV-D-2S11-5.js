@@ -70,7 +70,7 @@ const config = {
 				"y": 320,
 				"width": 140,
 				"lineGap": 3,
-				"max": 175
+				"max": 150
 			},
 			"field-8": {
 				"textarea": true,
@@ -80,7 +80,7 @@ const config = {
 				"y": 524,
 				"width": 140,
 				"lineGap": 2.5,
-				"max": 201
+				"max": 185
 			},
 			"fecha": {
 				"x": 250,
@@ -114,7 +114,7 @@ const config = {
 				"x": 43,
 				"y": 456,
 				"width": 240,
-				"lineGap": 8,
+				"lineGap": 9,
 				"max": 480
 			},
 			"img": {

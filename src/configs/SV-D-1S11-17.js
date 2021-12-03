@@ -14,7 +14,7 @@ const config = {
 				"y": 285,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-2": {
 				"input": true,
@@ -24,7 +24,7 @@ const config = {
 				"y": 274,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-3": {
 				"input": true,
@@ -34,7 +34,7 @@ const config = {
 				"y": 255,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-4": {
 				"input": true,
@@ -44,7 +44,7 @@ const config = {
 				"y": 258,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-5": {
 				"input": true,
@@ -54,7 +54,7 @@ const config = {
 				"y": 361,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-6": {
 				"input": true,
@@ -64,7 +64,7 @@ const config = {
 				"y": 337,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-7": {
 				"input": true,
@@ -74,7 +74,7 @@ const config = {
 				"y": 343,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-8": {
 				"input": true,
@@ -84,7 +84,7 @@ const config = {
 				"y": 395,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-9": {
 				"input": true,
@@ -94,7 +94,7 @@ const config = {
 				"y": 441,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-10": {
 				"input": true,
@@ -104,7 +104,7 @@ const config = {
 				"y": 440,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-11": {
 				"input": true,
@@ -114,7 +114,7 @@ const config = {
 				"y": 378,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-12": {
 				"input": true,
@@ -124,7 +124,7 @@ const config = {
 				"y": 430,
 				"width": 165,
 				"lineGap": 6,
-				"max": 1
+				"max": 2
 			},
 			"field-13": {
 				"radio": true,

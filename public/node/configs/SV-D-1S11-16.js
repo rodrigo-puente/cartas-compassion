@@ -140,7 +140,7 @@ const config = {
 				"y": 679,
 				"width": 185,
 				"lineGap": 2,
-				"max": 86
+				"max": 100
 			},
 			"field-4": {
 				"is_checkbox": true,
@@ -217,7 +217,7 @@ const config = {
 				"y": 59,
 				"width": 500,
 				"lineGap": 4,
-				"max": 480
+				"max": 500
 			},
 			"img": {
 				"content": "6. Adjunta un dibujo",
