@@ -136,10 +136,10 @@ const config = {
 				"content": "Otro",
 				"cols": "col-sm-12 col-md-4",
 				"x": 118,
-				"y": 652,
+				"y": 648,
 				"width": 214,
 				"lineGap": 7,
-				"max": 10,
+				"max": 30,
 				"required": false
 			},
 			"field-4": {
@@ -169,7 +169,7 @@ const config = {
 				"y": 57,
 				"width": 520,
 				"lineGap": 4,
-				"max": 460
+				"max": 480
 			},
 			"img": {
 				"content": "Adjunta un dibujo",

@@ -37,7 +37,7 @@ const config = {
 				"y": 547,
 				"width": 150,
 				"lineGap": 8,
-				"max": 32
+				"max": 36
 			},
 			"field-4": {
 				"input": true,
@@ -47,7 +47,7 @@ const config = {
 				"y": 678,
 				"width": 230,
 				"lineGap": 6,
-				"max": 32
+				"max": 36
 			},
 			"field-5-1": {
 				"textarea": true,
@@ -85,7 +85,7 @@ const config = {
 				"y": 58,
 				"width": 490,
 				"lineGap": 4,
-				"max": 460
+				"max": 480
 			},
 			"img": {
 				"content": "7. Adjunta un dibujo",

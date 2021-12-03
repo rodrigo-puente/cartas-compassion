@@ -18,7 +18,7 @@ const config = {
 				"y": 366,
 				"width": 135,
 				"lineGap": 3,
-				"max": 40
+				"max": 30
 			},
 			"field-3": {
 				"input": true,
@@ -27,7 +27,7 @@ const config = {
 				"y": 456,
 				"width": 135,
 				"lineGap": 3,
-				"max": 40
+				"max": 30
 			},
 			"field-4": {
 				"input": true,
@@ -36,7 +36,7 @@ const config = {
 				"y": 530,
 				"width": 134,
 				"lineGap": 3,
-				"max": 40
+				"max": 30
 			},
 			"field-5": {
 				"input": true,
@@ -81,11 +81,11 @@ const config = {
 				"y": 569,
 				"width": 131,
 				"lineGap": 3,
-				"max": 146
+				"max": 130
 			},
 			"fecha": {
 				"x": 233,
-				"y": 157,
+				"y": 155,
 				"width": 220,
 				"lineGap": 10
 			},
@@ -129,7 +129,7 @@ const config = {
 				"y": 456,
 				"width": 224,
 				"lineGap": 8,
-				"max": 460
+				"max": 480
 			}
 		}
 	},

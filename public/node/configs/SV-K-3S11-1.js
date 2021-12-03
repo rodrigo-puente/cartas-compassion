@@ -145,7 +145,7 @@ const config = {
 				"y": 72,
 				"width": 220,
 				"lineGap": 5,
-				"max": 237
+				"max": 247
 			},
 			"field-5": {
 				"textarea": true,
@@ -154,7 +154,7 @@ const config = {
 				"y": 276,
 				"width": 220,
 				"lineGap": 5,
-				"max": 237
+				"max": 247
 			},
 			"field-6": {
 				"textarea": true,
@@ -163,7 +163,7 @@ const config = {
 				"y": 487,
 				"width": 220,
 				"lineGap": 5,
-				"max": 237
+				"max": 247
 			}
 		}
 	},

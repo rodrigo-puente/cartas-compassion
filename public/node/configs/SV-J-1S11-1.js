@@ -233,7 +233,7 @@ const config = {
 				"y": 502,
 				"width": 220,
 				"lineGap": 7,
-				"max": 14
+				"max": 20
 			}
 		}
 	},

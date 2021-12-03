@@ -66,7 +66,7 @@ const config = {
 				"y": 497,
 				"width": 214,
 				"lineGap": 7,
-				"max": 90,
+				"max": 78,
 				"required": false
 			},
 			"field-4": {
@@ -161,7 +161,7 @@ const config = {
 			},
 			"fecha": {
 				"x": 345,
-				"y": 151,
+				"y": 149,
 				"width": 220,
 				"lineGap": 11
 			}
@@ -177,7 +177,7 @@ const config = {
 				"y": 57,
 				"width": 520,
 				"lineGap": 4,
-				"max": 460
+				"max": 480
 			},
 			"img": {
 				"content": "7. Adjunta un dibujo",

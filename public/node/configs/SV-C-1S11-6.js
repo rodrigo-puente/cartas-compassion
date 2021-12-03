@@ -21,14 +21,14 @@ const config = {
 			"field-2": {
 				"input": true,
 				"content": "2. Cuántos kilogramos peso",
-				"x": 233,
+				"x": 232,
 				"y": 278,
 				"width": 258,
 				"lineGap": 6,
-				"max": 5
+				"max": 3
 			},
 			"field-2-copy": {
-				"x": 234,
+				"x": 232,
 				"y": 303,
 				"width": 188,
 				"lineGap": 4,
@@ -45,7 +45,7 @@ const config = {
 			},
 			"field-3-copy": {
 				"x": 219,
-				"y": 370,
+				"y": 369,
 				"width": 188,
 				"lineGap": 4,
 				"max": 3
@@ -99,7 +99,7 @@ const config = {
 			},
 			"fecha": {
 				"x": 470,
-				"y": 168,
+				"y": 166,
 				"width": 220,
 				"lineGap": 11
 			}
@@ -115,7 +115,7 @@ const config = {
 				"y": 57,
 				"width": 490,
 				"lineGap": 4,
-				"max": 460
+				"max": 480
 			},
 			"img": {
 				"content": "7. Adjunta un dibujo",

@@ -9,7 +9,7 @@ const config = {
 				"y": 235,
 				"width": 135,
 				"lineGap": 7,
-				"max": 15
+				"max": 17
 			},
 			"field-2": {
 				"input": true,
@@ -45,7 +45,7 @@ const config = {
 				"y": 566,
 				"width": 135,
 				"lineGap": 3,
-				"max": 72
+				"max": 60
 			},
 			"field-6": {
 				"input": true,
@@ -54,7 +54,7 @@ const config = {
 				"y": 679,
 				"width": 135,
 				"lineGap": 3,
-				"max": 72
+				"max": 60
 			},
 			"field-7": {
 				"is_checkbox": true,
@@ -101,7 +101,7 @@ const config = {
 				"y": 658,
 				"width": 125,
 				"lineGap": 2,
-				"max": 126
+				"max": 118
 			},
 			"fecha": {
 				"x": 260,
@@ -121,7 +121,7 @@ const config = {
 				"y": 456,
 				"width": 230,
 				"lineGap": 8,
-				"max": 460
+				"max": 480
 			},
 			"img": {
 				"image": true,

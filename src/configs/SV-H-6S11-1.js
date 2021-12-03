@@ -19,7 +19,7 @@ const config = {
 				"y": 259,
 				"width": 490,
 				"lineGap": 7,
-				"max": 32
+				"max": 38
 			},
 			"field-2": {
 				"input": true,
@@ -28,7 +28,7 @@ const config = {
 				"y": 278,
 				"width": 490,
 				"lineGap": 7,
-				"max": 25,
+				"max": 32,
 				"required": false
 			},
 			"field-3": {
@@ -37,8 +37,8 @@ const config = {
 				"x": 65,
 				"y": 332,
 				"width": 490,
-				"lineGap": 3,
-				"max": 165
+				"lineGap": 4,
+				"max": 190
 			},
 			"field-4": {
 				"textarea": true,
@@ -46,8 +46,8 @@ const config = {
 				"x": 65,
 				"y": 417,
 				"width": 490,
-				"lineGap": 3,
-				"max": 165
+				"lineGap": 4,
+				"max": 190
 			},
 			"field-5": {
 				"textarea": true,
@@ -55,8 +55,8 @@ const config = {
 				"x": 65,
 				"y": 507,
 				"width": 490,
-				"lineGap": 3,
-				"max": 165
+				"lineGap": 4,
+				"max": 190
 			},
 			"field-6": {
 				"textarea": true,
@@ -64,8 +64,8 @@ const config = {
 				"x": 65,
 				"y": 597,
 				"width": 490,
-				"lineGap": 3,
-				"max": 165
+				"lineGap": 4,
+				"max": 190
 			},
 			"field-7": {
 				"textarea": true,
@@ -73,8 +73,8 @@ const config = {
 				"x": 65,
 				"y": 687,
 				"width": 490,
-				"lineGap": 3,
-				"max": 165
+				"lineGap": 4,
+				"max": 190
 			},
 			"fecha": {
 				"x": 112,

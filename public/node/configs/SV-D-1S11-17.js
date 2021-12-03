@@ -246,7 +246,7 @@ const config = {
 			},
 			"fecha": {
 				"x": 445,
-				"y": 145,
+				"y": 142,
 				"width": 220,
 				"lineGap": 11
 			}
@@ -262,7 +262,7 @@ const config = {
 				"y": 58,
 				"width": 490,
 				"lineGap": 4,
-				"max": 460
+				"max": 480
 			},
 			"img": {
 				"content": "5. Mi dibujo",
