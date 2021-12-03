@@ -8,11 +8,12 @@ function Template() {
   const { userId, templateId } = useParams();
   const templateConfig = require(`../configs/${templateId}`);
   const bgStyles = {
-    backgroundImage: `url(${require(`../assets/${templateId}.png`).default})`,
+    backgroundImage: `url(${require(`./images/${templateId}.png`).default})`,
   }
 
   useEffect(() => {
     document.getElementById('title-focus').focus();
+    window.scrollTo(0, 0);
   }, []);
 
 

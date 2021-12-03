@@ -9,6 +9,7 @@ function Template() {
 
   useEffect(() => {
     document.getElementById('title-focus').focus();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
