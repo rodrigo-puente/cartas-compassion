@@ -129,7 +129,7 @@ const config = {
 				"y": 456,
 				"width": 224,
 				"lineGap": 8,
-				"max": 480
+				"max": 465
 			}
 		}
 	},

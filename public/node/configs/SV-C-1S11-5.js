@@ -18,7 +18,7 @@ const config = {
 				"y": 357,
 				"width": 258,
 				"lineGap": 6,
-				"max": 72
+				"max": 70
 			},
 			"field-3": {
 				"input": true,
@@ -27,7 +27,7 @@ const config = {
 				"y": 459,
 				"width": 258,
 				"lineGap": 6,
-				"max": 72
+				"max": 70
 			},
 			"field-4": {
 				"radio": true,

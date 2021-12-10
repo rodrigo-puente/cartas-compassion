@@ -131,7 +131,7 @@ const config = {
 				"y": 592,
 				"width": 235,
 				"lineGap": 2,
-				"max": 100
+				"max": 110
 			},
 			"field-3-2": {
 				"textarea": true,

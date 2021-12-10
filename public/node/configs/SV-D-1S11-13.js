@@ -140,8 +140,8 @@ const config = {
 				"x": 330,
 				"y": 268,
 				"width": 206,
-				"lineGap": 2.5999999999999996,
-				"max": 89
+				"lineGap": 3,
+				"max": 75
 			},
 			"label": {
 				"is_label": true,

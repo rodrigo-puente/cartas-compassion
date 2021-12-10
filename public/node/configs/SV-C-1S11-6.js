@@ -95,7 +95,7 @@ const config = {
 				"y": 246,
 				"width": 159,
 				"lineGap": 8,
-				"max": 215
+				"max": 200
 			},
 			"fecha": {
 				"x": 470,

@@ -76,7 +76,7 @@ const config = {
 				"y": 597,
 				"width": 230,
 				"lineGap": 7,
-				"max": 97
+				"max": 92
 			},
 			"field-5": {
 				"is_checkbox": true,

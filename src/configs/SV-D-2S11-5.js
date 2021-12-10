@@ -30,7 +30,7 @@ const config = {
 				"y": 372,
 				"width": 140,
 				"lineGap": 3,
-				"max": 93
+				"max": 80
 			},
 			"field-4": {
 				"textarea": true,
@@ -40,7 +40,7 @@ const config = {
 				"y": 502,
 				"width": 140,
 				"lineGap": 3,
-				"max": 74
+				"max": 70
 			},
 			"field-5": {
 				"textarea": true,
@@ -50,7 +50,7 @@ const config = {
 				"y": 618,
 				"width": 140,
 				"lineGap": 3,
-				"max": 60
+				"max": 50
 			},
 			"field-6": {
 				"textarea": true,
@@ -60,7 +60,7 @@ const config = {
 				"y": 715,
 				"width": 140,
 				"lineGap": 3,
-				"max": 57
+				"max": 50
 			},
 			"field-7": {
 				"textarea": true,
