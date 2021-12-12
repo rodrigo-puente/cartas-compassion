@@ -1,57 +1,10 @@
 const { app, ipcMain, dialog } = require('electron');
 const { autoUpdater } = require('electron-updater');
-const fs = require('fs');
-const path = require('path');
-const sqlite3 = require('sqlite3');
 const isDev = require('electron-is-dev');
-const moment = require("moment");
-const { generateRandomIntegerInRange, generateSQL, exportXLSX } = require('./misc');
-const { fillVineta, generateCodeImage, pdfGenerator } = require('./pdfGenerator');
 
-let dbURL;
-
-if (isDev) {
-  dbURL = "./cartas.sqlite";
-} else {
-  dbURL = path.join(app.getPath('userData'), "cartas.sqlite");
-}
-
-const database = new sqlite3.Database(dbURL, (err) => {
-  if (err) console.error('Database opening error: ', err);
-});
-
-database.exec(`
-  CREATE TABLE IF NOT EXISTS "cartas" (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "beneficiario_iglesia" TEXT,
-    "beneficiario_id" TEXT, 
-    "beneficiario_preferido" TEXT, 
-    "beneficiario_id_global" TEXT, 
-    "beneficiario_sexo" TEXT,
-    "beneficiario_edad" TEXT, 
-    "estado" TEXT, 
-    "preguntas" TEXT, 
-    "comunicacion_tipo" TEXT, 
-    "comunicacion_id_global" TEXT, 
-    "supporter_favorito" TEXT, 
-    "supporter_tipo_relacion" TEXT,
-    "supporter_sexo" TEXT,
-    "supporter_id_global" TEXT, 
-    "supporter_country" TEXT,
-    "target_lang" TEXT, 
-    "id_plantilla" TEXT,
-    "formulario" TEXT,
-    "fecha" INTEGER
-  );
-
-  CREATE TABLE IF NOT EXISTS "cartas_especiales" (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "beneficiario" TEXT,
-    "id_plantilla" TEXT,
-    "formulario" TEXT,
-    "fecha" INTEGER   
-  );
-`);
+const { database } = require('./lib/database');
+const { generateSQL, exportXLSX } = require('./lib/misc');
+const { generatePDF } = require('./lib/pdfGenerator');
 
 ipcMain.on('async-query', (event, sql) => {
   database.all(sql, (err, rows) => {
@@ -65,25 +18,10 @@ ipcMain.on('async-query-with-data', (event, sql, data) => {
   });
 });
 
-ipcMain.on('generate-pdf', (event, user, data, template) => {
-  if (user.skip_header) { //SPECIAL FORM
-    const date = moment().format('YYYYMMDD');
-    const randomId = generateRandomIntegerInRange(10000, 99999);
-
-    pdfGenerator({pdfName: `${data.code}-${user.id_plantilla}-${date}-${randomId}.pdf`}, user, data, template).then( x => {
-      event.reply('pdf-result', x);
-    });
-  } else { // NORMAL FORM
-    const vineta = fillVineta(user);
-    
-    generateCodeImage('qrcode.png', vineta.qrcode, 'datamatrix').then( x => {
-      return generateCodeImage('barcode.png', vineta.barcode, 'code128');
-    }).then( x => {
-      return pdfGenerator(vineta, user, data, template);
-    }).then( x => {
-      event.reply('pdf-result', x);
-    });
-  }
+ipcMain.on('generate-pdf', async(event, user, data, template) => {
+  generatePDF(template, user, data).then( result => {
+    event.reply('pdf-result', result);
+  });
 });
 
 ipcMain.on('select-dir', async (event) => {

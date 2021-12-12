@@ -27,8 +27,14 @@ function FormEspecial({ id, templateId }) {
   };
 
   const CONFIG = useMemo(() => { 
-    return { ...templateConfig?.page1.items, ...templateConfig?.page2.items }
-  }, [templateConfig?.page1.items, templateConfig?.page2.items]);
+    let items = {};
+
+    templateConfig.pages.forEach((page) => {
+      items = { ...items, ...page.items }
+    });
+
+    return items;
+  }, [templateConfig]);
 
   useEffect(() => {
     console.log(id);
