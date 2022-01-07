@@ -72,7 +72,7 @@ function Vineta({ id }) {
       </div>
       <div className="col-sm-12 text-center mb-5">
         Preguntas:<br/>
-        <strong>{vineta.preguntas}</strong>
+        <strong className="text-black">{vineta.preguntas}</strong>
       </div>
       <hr/>
     </div>
