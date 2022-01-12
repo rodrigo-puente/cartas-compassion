@@ -52,6 +52,17 @@ function Importer() {
     }
   }
 
+  const cleanFile = (e) => {
+    let file = document.getElementById("file");
+
+    if (file) {
+      file.value = "";
+    }
+
+    setData([]);
+    setLoading(false);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -59,7 +70,8 @@ function Importer() {
           <form className="text-center" onSubmit={insertData}>
             <div className="form-group mb-3">
               <label className="mb-2 text-white">Elige el archivo a importar</label> 
-              <input name="file" type="file" className="form-control" accept={fileTypes} required onChange={handleFile} readOnly disabled={loading} />
+              <input name="file" type="file" id="file" className="form-control" accept={fileTypes} required onChange={handleFile} readOnly disabled={loading} />
+              <button onClick={cleanFile} type="button" className="btn btn-link text-white">Limpiar</button>
             </div>
             { loading && 
               <div className="form-group mb-3 text-center">
