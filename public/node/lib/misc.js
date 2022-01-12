@@ -42,12 +42,17 @@ function generateSQL(data) {
 
   for (let i = 0; i < data.length; i++) {
     let dataRow = data[i];
-    let stringRow = Object.keys(xlsxHeaders).map((x) => `"${dataRow[xlsxHeaders[x]] || ''}"`).join(", ");
+    let stringRow = Object.keys(xlsxHeaders).map((x) => `"${cleanValue(dataRow[xlsxHeaders[x]])}"`).join(", ");
     insertValues.push(`(${stringRow}, "Sin comenzar", ${createdAt})`);
   }
 
   let fields = Object.keys(xlsxHeaders).map((x) => x).join(", ");
   return `INSERT INTO cartas(${fields}, "estado", "fecha") VALUES ${insertValues.join(", ")};`;
+}
+
+function cleanValue(val) {
+  if (typeof val != "string") return val;
+  return (val || '').replace(/"/g, "").replace(/'/g, "");
 }
 
 module.exports = {
