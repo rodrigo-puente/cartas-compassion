@@ -30,13 +30,13 @@ function Navbar() {
         <div className="col text-center">
           <Link to="/">
             <img src={process.env.PUBLIC_URL + "/images/envelope-regular.svg"} alt="Cartas por realizar" /> <br/>
-            Ver cartas por realizar
+            Cartas por realizar
           </Link>
         </div>
         <div className="col text-center">
           <Link to="/realizadas">
             <img src={process.env.PUBLIC_URL + "/images/envelope-open-regular.svg"} alt="Cartas realizadas" /> <br/>
-            Ver cartas realizadas
+            Cartas realizadas
           </Link>
         </div>
         <div className="col text-center">
