@@ -26,6 +26,15 @@ function Table({ state, setNumCartas }) {
     }
   }
 
+  const deleteAll = async () => { 
+    if(window.confirm("¿Estás seguro que quieres borrar TODOS los registros?")) {
+      await sendAsync(`DELETE FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
+      setCartas([]);
+      setNumCartas(`(0)`)
+      alert("Registros borrados con éxito");
+    }
+  }
+
   return (
     <div className="mb-3">
       <div className="table-responsive mb-3">
@@ -67,6 +76,9 @@ function Table({ state, setNumCartas }) {
             }
           </tbody>
         </table>
+      </div>
+      <div className="text-center">
+        <button onClick={() => deleteAll()} className="btn btn-danger btn-lg">ELIMINAR TODOS LOS REGISTROS</button>
       </div>
       { cartas.length === 0 && 
           <p className="text-center text-white">No se encontraron cartas.</p>
