@@ -48,6 +48,10 @@ database.exec(`
   );
 `);
 
+database.exec(`ALTER TABLE "CARTAS" ADD COLUMN "TUTOR" TEXT;`, (err) => {
+  console.log(err);
+  console.log("Already implemented...");
+});
 
 module.exports = {
   database

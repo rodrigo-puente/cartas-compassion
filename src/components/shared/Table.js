@@ -42,6 +42,7 @@ function Table({ state, setNumCartas }) {
           <thead>
             <tr>
               <th className="text-center">Plantilla</th>
+              <th className="text-center" scope="col">Tutor</th>
               <th className="text-center" scope="col">Tipo de comunicación</th>
               <th className="text-center" scope="col">Proyecto</th>
               <th className="text-center" scope="col">Código</th>
@@ -60,6 +61,7 @@ function Table({ state, setNumCartas }) {
               cartas.map((x) => 
                 <tr key={x.id}>
                   <td><Link to={`/template/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                  <td className="text-center">{x.tutor}</td>
                   <td className="text-center">{x.comunicacion_tipo}</td>
                   <td className="text-center">{x.beneficiario_iglesia}</td>
                   <td className="text-center">{x.beneficiario_id}</td>
@@ -77,12 +79,17 @@ function Table({ state, setNumCartas }) {
           </tbody>
         </table>
       </div>
-      <div className="text-center">
-        <button onClick={() => deleteAll()} className="btn btn-danger btn-lg">ELIMINAR TODOS LOS REGISTROS</button>
-      </div>
+      
+      { cartas.length &&
+        <div className="text-center">
+          <button onClick={() => deleteAll()} className="btn btn-danger btn-lg">ELIMINAR TODOS LOS REGISTROS</button>
+        </div>
+      }
+
       { cartas.length === 0 && 
-          <p className="text-center text-white">No se encontraron cartas.</p>
-        }
+         <p className="text-center text-white">No se encontraron cartas.</p>
+      }
+
     </div>
   );
 }
