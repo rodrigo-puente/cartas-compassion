@@ -48,7 +48,12 @@ database.exec(`
   );
 `);
 
-database.exec(`ALTER TABLE "CARTAS" ADD COLUMN "TUTOR" TEXT;`, (err) => {
+database.exec(`ALTER TABLE "cartas" ADD COLUMN "fecha" INTEGER;`, (err) => {
+  console.log(err);
+  console.log("Already implemented...");
+});
+
+database.exec(`ALTER TABLE "cartas" ADD COLUMN "tutor" TEXT;`, (err) => {
   console.log(err);
   console.log("Already implemented...");
 });
