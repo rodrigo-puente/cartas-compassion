@@ -71,6 +71,8 @@ function Vineta({ id }) {
 
       </div>
       <div className="col-sm-12 text-center mb-5">
+        Tutor:<br/>
+        <strong className="text-black">{vineta.tutor == "" ? "Sin asignar" : vineta.tutor}</strong><br/>
         Preguntas:<br/>
         <strong className="text-black">{vineta.preguntas}</strong>
       </div>

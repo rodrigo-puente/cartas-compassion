@@ -41,8 +41,7 @@ function Importer() {
       const response = await importXLSX(data);
       if (response) {
         alert("Registros insertados con éxito");
-        setLoading(false);
-        setData([]);
+        cleanFile();
       } else {
         throw new Error("DB Error");
       }

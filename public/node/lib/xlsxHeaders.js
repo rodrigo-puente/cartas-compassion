@@ -1,4 +1,5 @@
 const xlsxHeaders = {
+  "tutor": "Tutor",
   "beneficiario_iglesia": "ID de la Iglesia Socia del Beneficiario",
   "beneficiario_id": "ID Local del Beneficiario", 
   "beneficiario_preferido": "Cuenta personal: Nombre Preferido", 

@@ -9,26 +9,31 @@ function generateRandomIntegerInRange(min, max) {
 
 function exportXLSX(data, route, kind) {
   try {
-    let headers = [];
-    headers.push("id");
-    Object.values(xlsxHeaders).forEach((x) => headers.push(x));
-    headers.push("formulario");
-    headers.push("estado");
-
-    let keyMapping = []
-    keyMapping.push("id");
-    Object.keys(xlsxHeaders).forEach((x) => keyMapping.push(x));
-    keyMapping.push("formulario");
-    keyMapping.push("estado");
-
+    const exportColumns = {
+      "tutor": "Tutor",
+      "beneficiario_iglesia": "FCP",
+      "beneficiario_id": "Código", 
+      "beneficiario_preferido": "Beneficiario nombre preferido", 
+      "supporter_favorito": "Patrocinador nombre preferido", 
+      "comunicacion_tipo": "Tipo de Comunicación", 
+      "preguntas": "Preguntas del Patrocinador", 
+      "comunicacion_id_global": "Comunicación: ID de Comunicación Global"
+    };
     const date = moment().format('YYYY-MM-DD-h-mm-ss');
+    const transformed_data = data.map((item) => Object.keys(exportColumns).reduce((a, key) => ({ ...a, [key]: item[key]}), {}));
+    console.log(transformed_data);
 
     let workBook = reader.utils.book_new();
-    let workSheet = reader.utils.aoa_to_sheet([headers]);
-    reader.utils.sheet_add_json(workSheet, data, { header: keyMapping, skipHeader: true, origin: 'A2' });
+    let workSheet = reader.utils.aoa_to_sheet([Object.values(exportColumns)]);
+    reader.utils.sheet_add_json(workSheet, transformed_data, { 
+      header: Object.keys(exportColumns), 
+      skipHeader: true, 
+      origin: 'A2' 
+    });
     reader.utils.book_append_sheet(workBook, workSheet, "realizadas");
     let exportFileName = `${route}/reporte-${kind.toLowerCase().replaceAll(" ", "-")}-${date}.xlsx`;
     reader.writeFile(workBook, exportFileName);
+
     return true;
   } catch (err) {
     console.log("ERR generating the XLSX: ", err);
@@ -51,8 +56,13 @@ function generateSQL(data) {
 }
 
 function cleanValue(val) {
-  if (typeof val != "string") return val;
-  return (val || '').replace(/"/g, "").replace(/'/g, "");
+  if (typeof val === "string") {
+    return (val || '').replace(/"/g, "").replace(/'/g, "");
+  } else if (typeof val === "undefined") {
+    return "";
+  } else {
+    return val;
+  }
 }
 
 module.exports = {
