@@ -5,11 +5,13 @@ import { CARD_STATES } from '../../lib/constants';
 
 function Table({ state, setNumCartas }) {
   const [cartas, setCartas] = useState([]);
+  const [cartasBackup, setCartasBackup] = useState([]);
 
   useEffect(() => {
     async function getData() {
       const data = await sendAsync(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
       setCartas(data);
+      setCartasBackup(data);
       setNumCartas(`(${data.length})`)
     }
     
@@ -35,8 +37,22 @@ function Table({ state, setNumCartas }) {
     }
   }
 
+  const filterList = (event) => {
+    let updatedList = cartasBackup;
+    updatedList = updatedList.filter((list) => {
+      return (
+        list.beneficiario_id.toLowerCase().search(event.target.value.toLowerCase()) !==
+        -1
+      );
+    });
+
+    setCartas(updatedList);
+  };
+
+
   return (
     <div className="mb-3">
+      <input type="text" className="form-control" placeholder="Buscar por código de beneficiario" onChange={ (e) => filterList(e) } />
       <div className="table-responsive mb-3">
         <table className="table">
           <thead>
