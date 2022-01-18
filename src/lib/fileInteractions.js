@@ -88,13 +88,19 @@ export const submitForm = (id, templateId, carta, form, route, imgs, setDisabled
     fieldsToCopy[`${i}-copy`] = data[i];
   });
 
+  //Cartas por realizar
   sendInsert([JSON.stringify(data), id]).then((response) => {
     console.log("SEND INSERT RESPONSE: ", response);
     return generatePDF(carta, { ...data, ...fieldsToCopy }, templateId);
   }).then((response) => {
     console.log("GENERATE PDF RESPONSE: ", response);
-    response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-    setDisabled(false);
+    if(response===true){
+      alert("Formulario guardado con éxito");
+      window.location = "/";
+    }else{
+      alert("Hubo un error guardando el formulario...");
+      setDisabled(false);
+    }
   }).catch((err) => {
     console.dir("HANDLE SUBMIT ERROR: ", err);
     setDisabled(false);
@@ -144,12 +150,19 @@ export const submitFormEspecial = (id, templateId, form, route, imgs, setDisable
     fieldsToCopy[`${i}-copy`] = data[i];
   });
 
+  //Cartas especiales
   sendCreateOrUpdate(id, templateId, data).then((response) => {
     console.log("SEND OR CREATE RESPONSE: ", response);
     generatePDF({ id_plantilla: templateId, skip_header: true }, { ...data, ...fieldsToCopy }, templateId).then((response) => {
       console.log("GENERATE PDF RESPONSE: ", response);
-      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-      setDisabled(false);
+      if(response===true){
+        alert("Formulario guardado con éxito");
+        window.location="/especiales";
+      }else{
+        alert("Hubo un error guardando el formulario...");
+        setDisabled(false);
+      }
+      
     })
   }).catch((err) => {
     console.dir("HANDLE SUBMIT ERROR: ", err);
