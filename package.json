@@ -67,7 +67,7 @@
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
     "start": "yarn copy-config && concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\"",
-    "release": "yarn copy-config && yarn react-build && electron-builder --publish=always --all",
+    "release": "yarn copy-config && yarn react-build && electron-builder --publish=always --x64=true --ia32=true",
     "build": "yarn copy-config && yarn react-build && yarn electron-builder -p never",
     "copy-config": "copyfiles -u 3 public/node/configs/*js src/configs",
     "test": "node public/test/test.js"
