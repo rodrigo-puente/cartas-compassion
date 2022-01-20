@@ -1,6 +1,6 @@
 {
   "name": "cartas_compassion",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Aplicación para generación de cartas dentro de Compassion",
   "private": true,
   "main": "public/electron.js",
@@ -67,7 +67,7 @@
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
     "start": "yarn copy-config && concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on tcp:3000 && electron .\"",
-    "release": "yarn copy-config && yarn react-build && electron-builder --publish=always",
+    "release": "yarn copy-config && yarn react-build && electron-builder --publish=always --all",
     "build": "yarn copy-config && yarn react-build && yarn electron-builder -p never",
     "copy-config": "copyfiles -u 3 public/node/configs/*js src/configs",
     "test": "node public/test/test.js"
@@ -90,7 +90,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
+  "devDependencies": {r
     "concurrently": "^6.3.0",
     "copyfiles": "^2.4.1",
     "electron": "^15.1.0",
