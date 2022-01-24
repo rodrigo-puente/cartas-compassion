@@ -75,7 +75,7 @@ export const getData = async (id, config, setCarta, setValue) => {
   }
 }
 
-export const submitForm = async (id, templateId, carta, form, route, imgs, setDisabled, copyFields = []) => {
+export const submitForm = async (id, templateId, carta, form, route, imgs, copyFields = []) => {
   const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
   let fieldsToCopy = {};
@@ -84,14 +84,33 @@ export const submitForm = async (id, templateId, carta, form, route, imgs, setDi
   });
 
   try {
-    const insertResponse = await sendInsert([JSON.stringify(data), id]);
-    console.log("SEND INSERT RESPONSE: ", insertResponse);
-    return generatePDF(carta, { ...data, ...fieldsToCopy }, templateId);
+    await sendInsert([JSON.stringify(data), id]);
+    return await generatePDF(carta, { ...data, ...fieldsToCopy }, templateId);
   } catch (err) {
     throw (err);
   }
 }
 
+export const submitFormEspecial = async (id, templateId, form, route, imgs, setDisabled, copyFields = []) => {
+  const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
+
+  let fieldsToCopy = {};
+  copyFields.forEach((i, idx) => {
+    fieldsToCopy[`${i}-copy`] = data[i];
+  });
+
+  try {
+    const createOrUpdateResponse = await sendCreateOrUpdate(id, templateId, data);
+    console.log("SEND OR CREATE RESPONSE: ", createOrUpdateResponse);
+    return generatePDF(
+      { id_plantilla: templateId, skip_header: true }, 
+      { ...data, ...fieldsToCopy }, 
+      templateId
+    );
+  } catch (err) {
+    throw err;
+  }
+}
 
 export const getDataEspecial = async (id, config, setCarta, setValue) => {
   const result = await sendAsync(`SELECT * FROM cartas_especiales WHERE id = ${id}`);
@@ -120,25 +139,4 @@ export const getDataEspecial = async (id, config, setCarta, setValue) => {
       console.log("Propiedad no existe: ", key);
     }
   });
-}
-
-export const submitFormEspecial = async (id, templateId, form, route, imgs, setDisabled, copyFields = []) => {
-  const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
-
-  let fieldsToCopy = {};
-  copyFields.forEach((i, idx) => {
-    fieldsToCopy[`${i}-copy`] = data[i];
-  });
-
-  try {
-    const createOrUpdateResponse = await sendCreateOrUpdate(id, templateId, data);
-    console.log("SEND OR CREATE RESPONSE: ", createOrUpdateResponse);
-    return await generatePDF(
-      { id_plantilla: templateId, skip_header: true }, 
-      { ...data, ...fieldsToCopy }, 
-      templateId
-    );
-  } catch (err) {
-    throw err;
-  }
 }

@@ -225,12 +225,10 @@ async function pdfGenerator(vineta, user, data, template) {
 async function generateCodeImage(name, vineta, type) {
   const writeFileAsync = promisify(fs.writeFile)
   const image = await generateCode(vineta, type);
-  await writeFileAsync(path.join(assetPath, name), image);
-  return true;
+  return writeFileAsync(path.join(assetPath, name), image);
 }
 
 async function generatePDF(template, user, data) {
-  console.log("USER: ", user);
   if (user.skip_header) { //SPECIAL FORM
     const date = moment().format('YYYYMMDD');
     const randomId = generateRandomIntegerInRange(10000, 99999);
@@ -239,11 +237,9 @@ async function generatePDF(template, user, data) {
   } else { // NORMAL FORM
     const vineta = fillVineta(user);
     
-    return generateCodeImage('qrcode.png', vineta.qrcode, 'datamatrix').then( x => {
-      return generateCodeImage('barcode.png', vineta.barcode, 'code128');
-    }).then( x => {
-      return pdfGenerator(vineta, user, data, template);
-    });
+    await generateCodeImage('qrcode.png', vineta.qrcode, 'datamatrix');
+    await generateCodeImage('barcode.png', vineta.barcode, 'code128');
+    return pdfGenerator(vineta, user, data, template);
   }
 }
 

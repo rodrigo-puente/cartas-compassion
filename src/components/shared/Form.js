@@ -24,14 +24,14 @@ function Form({ id, templateId, cardState }) {
     return `color-${number}`;
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (!route.length) {
       alert.show("Debes elegir dónde quieres guardar el archivo");
       return;
     }
 
     try {
-      const response = submitForm(id, templateId, carta, data, route, imgs, setDisabled, templateConfig.extras.copy);
+      const response = await submitForm(id, templateId, carta, data, route, imgs, templateConfig.extras.copy);
       if (response) {
         alert.show("Formulario guardado con éxito", {
           onClose: () => {
@@ -46,7 +46,7 @@ function Form({ id, templateId, cardState }) {
         alert.show("Hubo un error guardando el formulario...");
       }
     } catch (err) {
-      console.dir("HANDLE SUBMIT ERROR: ", err);
+      console.log("HANDLE SUBMIT ERROR: ", err);
       setDisabled(false)
     } 
   };

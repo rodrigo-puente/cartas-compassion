@@ -18,10 +18,9 @@ ipcMain.on('async-query-with-data', (event, sql, data) => {
   });
 });
 
-ipcMain.on('generate-pdf', async(event, user, data, template) => {
-  generatePDF(template, user, data).then( result => {
-    event.reply('pdf-result', result);
-  });
+ipcMain.on('generate-pdf', async (event, user, data, template) => {
+  const result = await generatePDF(template, user, data);
+  event.reply('pdf-result', result);
 });
 
 ipcMain.on('select-dir', async (event) => {
