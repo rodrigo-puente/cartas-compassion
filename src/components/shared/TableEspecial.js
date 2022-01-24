@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 import { sendAsync } from '../../message-control/renderer';
 
 function Table({ state, setNumCartas }) {
   const [cartas, setCartas] = useState([]);
+  const alert = useAlert();
 
   useEffect(() => {
     async function getData() {
@@ -20,8 +22,8 @@ function Table({ state, setNumCartas }) {
       await sendAsync(`DELETE FROM cartas_especiales WHERE id = "${id}"`);
       let filteredCartas = cartas.filter(item => item.id !== id);
       setCartas(filteredCartas);
-      setNumCartas(`(${filteredCartas.length})`)
-      alert("Registro borrado con éxito");
+      setNumCartas(`(${filteredCartas.length})`);
+      alert.show("Registro borrado con éxito");      
     }
   }
 

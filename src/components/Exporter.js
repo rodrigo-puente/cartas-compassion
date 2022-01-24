@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useAlert } from 'react-alert';
 import { handleDir } from '../lib/fileInteractions';
 import { sendAsync, generateXLSX } from "../message-control/renderer";
 import { CARD_STATES } from '../lib/constants';
@@ -9,6 +10,7 @@ function Exporter({ state }) {
   const [disabled, setDisabled] = useState(false);
   const [route, setRoute] = useState("");
   const [cartas, setCartas] = useState([]);
+  const alert = useAlert();
 
   useEffect(() => {
     async function getData() {
@@ -21,13 +23,17 @@ function Exporter({ state }) {
 
   const onSubmit = () => {
     if (!route.length) {
-      alert("Debes elegir dónde quieres guardar el archivo");
+      alert.show("Debes elegir dónde quieres guardar el archivo");
       return;
     }
 
     setDisabled(true);
     generateXLSX(cartas, route, CARD_STATES[state]).then((response) => {
-      response ? alert("Reporte guardado con éxito") : alert("Hubo un error guardando el reporte...");
+      if (response) {
+        alert.show("Reporte guardado con éxito");
+      } else {
+        alert.show("Hubo un error guardando el reporte...");
+      }
       setDisabled(false);
     }).catch((err) => {
       console.dir("HANDLE SUBMIT ERROR: ", err);

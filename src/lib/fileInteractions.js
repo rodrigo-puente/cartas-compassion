@@ -75,12 +75,7 @@ export const getData = async (id, config, setCarta, setValue) => {
   }
 }
 
-export const submitForm = (id, templateId, carta, form, route, imgs, setDisabled, copyFields = []) => {
-  if (!route.length) {
-    alert("Debes elegir dónde quieres guardar el archivo");
-    return;
-  }
-
+export const submitForm = async (id, templateId, carta, form, route, imgs, setDisabled, copyFields = []) => {
   const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
   let fieldsToCopy = {};
@@ -88,17 +83,13 @@ export const submitForm = (id, templateId, carta, form, route, imgs, setDisabled
     fieldsToCopy[`${i}-copy`] = data[i];
   });
 
-  sendInsert([JSON.stringify(data), id]).then((response) => {
-    console.log("SEND INSERT RESPONSE: ", response);
+  try {
+    const insertResponse = await sendInsert([JSON.stringify(data), id]);
+    console.log("SEND INSERT RESPONSE: ", insertResponse);
     return generatePDF(carta, { ...data, ...fieldsToCopy }, templateId);
-  }).then((response) => {
-    console.log("GENERATE PDF RESPONSE: ", response);
-    response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-    setDisabled(false);
-  }).catch((err) => {
-    console.dir("HANDLE SUBMIT ERROR: ", err);
-    setDisabled(false);
-  });
+  } catch (err) {
+    throw (err);
+  }
 }
 
 
@@ -131,12 +122,7 @@ export const getDataEspecial = async (id, config, setCarta, setValue) => {
   });
 }
 
-export const submitFormEspecial = (id, templateId, form, route, imgs, setDisabled, copyFields = []) => {
-  if (!route.length) {
-    alert("Debes elegir dónde quieres guardar el archivo");
-    return;
-  }
-
+export const submitFormEspecial = async (id, templateId, form, route, imgs, setDisabled, copyFields = []) => {
   const data = { ...form, route, imgs, fecha: moment().format('DD-MMM-YYYY') };
 
   let fieldsToCopy = {};
@@ -144,15 +130,15 @@ export const submitFormEspecial = (id, templateId, form, route, imgs, setDisable
     fieldsToCopy[`${i}-copy`] = data[i];
   });
 
-  sendCreateOrUpdate(id, templateId, data).then((response) => {
-    console.log("SEND OR CREATE RESPONSE: ", response);
-    generatePDF({ id_plantilla: templateId, skip_header: true }, { ...data, ...fieldsToCopy }, templateId).then((response) => {
-      console.log("GENERATE PDF RESPONSE: ", response);
-      response ? alert("Formulario guardado con éxito") : alert("Hubo un error guardando el formulario...");
-      setDisabled(false);
-    })
-  }).catch((err) => {
-    console.dir("HANDLE SUBMIT ERROR: ", err);
-    setDisabled(false);
-  });
+  try {
+    const createOrUpdateResponse = await sendCreateOrUpdate(id, templateId, data);
+    console.log("SEND OR CREATE RESPONSE: ", createOrUpdateResponse);
+    return await generatePDF(
+      { id_plantilla: templateId, skip_header: true }, 
+      { ...data, ...fieldsToCopy }, 
+      templateId
+    );
+  } catch (err) {
+    throw err;
+  }
 }

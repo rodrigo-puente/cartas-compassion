@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 import { sendAsync } from '../../message-control/renderer';
 import { CARD_STATES } from '../../lib/constants';
 
 function Table({ state, setNumCartas }) {
   const [cartas, setCartas] = useState([]);
   const [cartasBackup, setCartasBackup] = useState([]);
+  const alert = useAlert();
 
   useEffect(() => {
     async function getData() {
@@ -24,7 +26,7 @@ function Table({ state, setNumCartas }) {
       let filteredCartas = cartas.filter(item => item.id !== id);
       setCartas(filteredCartas);
       setNumCartas(`(${filteredCartas.length})`)
-      alert("Registro borrado con éxito");
+      alert.show("Registro borrado con éxito");
     }
   }
 
@@ -32,8 +34,8 @@ function Table({ state, setNumCartas }) {
     if(window.confirm("¿Estás seguro que quieres borrar TODOS los registros?")) {
       await sendAsync(`DELETE FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
       setCartas([]);
-      setNumCartas(`(0)`)
-      alert("Registros borrados con éxito");
+      setNumCartas(`(0)`);
+      alert.show("Registros borrados con éxito.");
     }
   }
 
@@ -76,7 +78,7 @@ function Table({ state, setNumCartas }) {
             { 
               cartas.map((x) => 
                 <tr key={x.id}>
-                  <td><Link to={`/template/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                  <td><Link to={`/template/${state}/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
                   <td className="text-center">{x.tutor}</td>
                   <td className="text-center">{x.comunicacion_tipo}</td>
                   <td className="text-center">{x.beneficiario_iglesia}</td>

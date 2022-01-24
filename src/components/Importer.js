@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import XLSX from "xlsx";
+import { useAlert } from 'react-alert';
 import { importXLSX } from "../message-control/renderer";
 
 function Importer() {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([]);
+  const alert = useAlert();
   const fileTypes = [".xlsx", ".xlsb", ".xlsm", ".xls", ".xml", ".csv"].join(",");
 
   const handleFile = (e) => {
@@ -40,13 +42,13 @@ function Importer() {
       e.preventDefault();
       const response = await importXLSX(data);
       if (response) {
-        alert("Registros insertados con éxito");
+        alert.show("Registros insertados con éxito");
         cleanFile();
       } else {
         throw new Error("DB Error");
       }
     } catch (err) {
-      alert("Hubo un error.");
+      alert.show("Hubo un error.");
       console.log(err);
     }
   }

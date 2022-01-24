@@ -30,7 +30,7 @@ export default function App() {
         <Route exact path="/realizadas" component={CartasRealizadas} />
         <Route exact path="/importar" component={ImportarCartas} />
         <Route exact path="/revision" component={CartasRevision} />
-        <Route exact path="/template/:templateId/:userId" component={Template} />
+        <Route exact path="/template/:cardState/:templateId/:userId" component={Template} />
         <Route exact path="/especiales" component={CartasEspeciales} />
         <Route exact path="/especiales/:templateId/:id?" component={TemplateEspecial} />
         <Route exact path="/data-exporter-realizadas" component={DataExporterRealizadas} />

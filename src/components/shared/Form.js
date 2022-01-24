@@ -1,20 +1,22 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
+import { useAlert } from 'react-alert';
 
 import { getData, submitForm } from '../../lib/fileInteractions';
 import SharedSelectors from "../shared/SharedSelectors";
 import Input from "../shared/Input";
 import TextArea from "../shared/TextArea";
 import ImageSelector from "../shared/ImageSelector";
+import { CARDS_SIN_COMENZAR } from "../../lib/constants";
 
-function Form({ id, templateId }) {
+function Form({ id, templateId, cardState }) {
   const templateConfig = require(`../../configs/${templateId}`);
   const { register, handleSubmit, setValue } = useForm();
-
   const [route, setRoute] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
   const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
+  const alert = useAlert();
 
   //max excluded
   const colors = (min, max) => {
@@ -23,7 +25,30 @@ function Form({ id, templateId }) {
   }
 
   const onSubmit = (data) => {
-    submitForm(id, templateId, carta, data, route, imgs, setDisabled, templateConfig.extras.copy);
+    if (!route.length) {
+      alert.show("Debes elegir dónde quieres guardar el archivo");
+      return;
+    }
+
+    try {
+      const response = submitForm(id, templateId, carta, data, route, imgs, setDisabled, templateConfig.extras.copy);
+      if (response) {
+        alert.show("Formulario guardado con éxito", {
+          onClose: () => {
+            if (cardState === CARDS_SIN_COMENZAR) {
+              window.location = '/';
+            } else {              
+              window.location = '/realizadas';
+            }
+          } 
+        });
+      } else {
+        alert.show("Hubo un error guardando el formulario...");
+      }
+    } catch (err) {
+      console.dir("HANDLE SUBMIT ERROR: ", err);
+      setDisabled(false)
+    } 
   };
 
   const CONFIG = useMemo(() => { 

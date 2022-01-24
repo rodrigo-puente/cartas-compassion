@@ -5,7 +5,7 @@ import Form from "../components/shared/Form";
 import '../styles/_cartas.scss';
 
 function Template() {
-  const { userId, templateId } = useParams();
+  const { userId, templateId, cardState } = useParams();
   const templateConfig = require(`../configs/${templateId}`);
   const bgStyles = {
     backgroundImage: `url(${require(`./images/${templateId}.png`).default})`,
@@ -34,7 +34,7 @@ function Template() {
             <Vineta id={userId}/>
           </div>
           <div className="col-sm-12 mb-5">
-            <Form id={userId} templateId={templateId} />
+            <Form id={userId} templateId={templateId} cardState={cardState} />
           </div>
         </div>
       </div>
