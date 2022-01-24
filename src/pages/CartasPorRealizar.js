@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Table from "../components/shared/Table";
 import { CARDS_SIN_COMENZAR } from "../lib/constants";
@@ -6,6 +6,11 @@ import '../styles/_cartasPorRealizar.scss';
 
 function CartasPorRealizar() {
   const [numCartas, setNumCartas] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   return (
     <div className="container-fluid page">

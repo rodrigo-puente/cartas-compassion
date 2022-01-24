@@ -36,9 +36,9 @@ function Form({ id, templateId, cardState }) {
         alert.show("Formulario guardado con éxito", {
           onClose: () => {
             if (cardState === CARDS_SIN_COMENZAR) {
-              window.location = '/';
+              window.location = window.location.pathname + "#/";
             } else {              
-              window.location = '/realizadas';
+              window.location = window.location.pathname + "#/realizadas";
             }
           } 
         });

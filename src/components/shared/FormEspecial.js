@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { Redirect } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useAlert } from 'react-alert';
 
@@ -34,7 +35,7 @@ function FormEspecial({ id, templateId }) {
       if (response) {
         alert.show("Formulario guardado con éxito", {
           onClose: () => {
-            window.location = '/especiales';
+            window.location = window.location.pathname + "#/especiales";
           } 
         });
       } else {
