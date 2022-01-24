@@ -9,6 +9,11 @@ function generateRandomIntegerInRange(min, max) {
 
 function exportXLSX(data, route, kind) {
   try {
+    const reportName = {
+      "Sin comenzar": "cartas-por-realizar",
+      "Impreso y enviado a la ICP": "cartas-realizadas"
+    };
+
     const exportColumns = {
       "tutor": "Tutor",
       "beneficiario_iglesia": "FCP",
@@ -31,7 +36,7 @@ function exportXLSX(data, route, kind) {
       origin: 'A2' 
     });
     reader.utils.book_append_sheet(workBook, workSheet, "realizadas");
-    let exportFileName = `${route}/reporte-${kind.toLowerCase().replaceAll(" ", "-")}-${date}.xlsx`;
+    let exportFileName = `${route}/reporte-${reportName[kind]}-${date}.xlsx`;
     reader.writeFile(workBook, exportFileName);
 
     return true;
