@@ -223,7 +223,7 @@ const config = {
 		}
 	],
 	"extras": {
-		"title": "Qué es lo que más me gusta",
+		"title": "Mi proyecto",
 		"copy": []
 	}
 }; 
