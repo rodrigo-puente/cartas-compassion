@@ -82,25 +82,23 @@ function Table({ state, setNumCartas }) {
             { 
               // eslint-disable-next-line array-callback-return
               cartas.map((x) => {
-                if (new Date(x.fecha * 1000) >= date) {
-                  return ( 
-                    <tr key={x.id}>
-                      <td><Link to={`/template/${state}/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
-                      <td className="text-center">{x.tutor}</td>
-                      <td className="text-center">{x.comunicacion_tipo}</td>
-                      <td className="text-center">{x.beneficiario_iglesia}</td>
-                      <td className="text-center">{x.beneficiario_id}</td>
-                      <td className="text-center">{x.beneficiario_preferido}</td>
-                      <td className="text-center">{x.beneficiario_sexo}</td>
-                      <td className="text-center">{x.beneficiario_edad}</td>
-                      <td className="text-center">{x.comunicacion_id_global}</td>
-                      <td className="text-center">{x.supporter_favorito}</td>
-                      <td className="text-center">{x.supporter_sexo}</td>
-                      <td className="text-center">{x.supporter_country}</td>
-                      <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
-                    </tr>
-                  )
-                }
+                return ( 
+                  <tr key={x.id}>
+                    <td><Link to={`/template/${state}/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                    <td className="text-center">{x.tutor}</td>
+                    <td className="text-center">{x.comunicacion_tipo}</td>
+                    <td className="text-center">{x.beneficiario_iglesia}</td>
+                    <td className="text-center">{x.beneficiario_id}</td>
+                    <td className="text-center">{x.beneficiario_preferido}</td>
+                    <td className="text-center">{x.beneficiario_sexo}</td>
+                    <td className="text-center">{x.beneficiario_edad}</td>
+                    <td className="text-center">{x.comunicacion_id_global}</td>
+                    <td className="text-center">{x.supporter_favorito}</td>
+                    <td className="text-center">{x.supporter_sexo}</td>
+                    <td className="text-center">{x.supporter_country}</td>
+                    <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
+                  </tr>
+                )
               })
             }
           </tbody>

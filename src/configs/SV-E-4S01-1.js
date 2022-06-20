@@ -10,7 +10,16 @@ const config = {
 					"y": 206,
 					"width": 500,
 					"lineGap": 7,
-					"max": 1800
+					"max": 1700
+				},
+				"field-2": {
+					"input": true,
+					"content": "Si la escritura de esta carta fue en tercera persona, coloca quien escribió la carta y cargo",
+					"x": 45,
+					"y": 720,
+					"width": 500,
+					"lineGap": 7,
+					"max": 60
 				},
 				"fecha": {
 					"x": 450,
@@ -36,15 +45,6 @@ const config = {
 						"align": "center"
 					}
 				},
-				"field-2": {
-					"input": true,
-					"content": "Si la escritura de esta carta fue en tercera persona, coloca quien escribió la carta y cargo",
-					"x": 370,
-					"y": 502,
-					"width": 220,
-					"lineGap": 7,
-					"max": 40
-				}
 			}
 		}
 	],

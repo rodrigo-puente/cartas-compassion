@@ -1,3 +1,4 @@
+// TO-DO: review this
 const config = {
 	"pages": [
 		{

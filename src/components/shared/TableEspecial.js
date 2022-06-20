@@ -48,15 +48,13 @@ function Table({ state, setNumCartas }) {
             { 
               // eslint-disable-next-line array-callback-return
               cartas.map((x) => {
-                if (new Date(x.fecha * 1000) >= date) {
-                  return ( 
-                    <tr key={x.id}>
-                      <td className="text-center"><Link to={`/especiales/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
-                      <td className="text-center">{x.beneficiario}</td>
-                      <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
-                    </tr>
-                  )
-                }
+                return ( 
+                  <tr key={x.id}>
+                    <td className="text-center"><Link to={`/especiales/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                    <td className="text-center">{x.beneficiario}</td>
+                    <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
+                  </tr>
+                )
               })
             }
           </tbody>
