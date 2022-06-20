@@ -41,7 +41,7 @@ const config = {
 					"y": 264,
 					"width": 65,
 					"lineGap": 6,
-					"max": 4
+					"max": 6
 				},
 				"field-5": {
 					"input": true,

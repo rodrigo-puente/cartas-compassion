@@ -10,11 +10,17 @@ function Table({ state, setNumCartas }) {
   const alert = useAlert();
 
   useEffect(() => {
-    async function getData() {
+    async function getData() {        
+      const dateOffset = (24*60*60*1000) * 90; 
+      const date = new Date(); 
+      date.setTime(date.getTime() - dateOffset);
+
       const data = await sendAsync(`SELECT * FROM cartas WHERE estado = "${CARD_STATES[state]}"`);
-      setCartas(data);
-      setCartasBackup(data);
-      setNumCartas(`(${data.length})`)
+      const filteredData = data.filter((item) => new Date(item.fecha * 1000) >= date);
+
+      setCartas(filteredData);
+      setCartasBackup(filteredData);
+      setNumCartas(`(${filteredData.length})`);
     }
     
     getData();
@@ -23,7 +29,7 @@ function Table({ state, setNumCartas }) {
   const deleteRow = async (id) => {
     if(window.confirm("¿Estás seguro que quieres borrar este registro?")) {
       await sendAsync(`DELETE FROM cartas WHERE id = "${id}"`);
-      let filteredCartas = cartas.filter(item => item.id !== id);
+      const filteredCartas = cartas.filter(item => item.id !== id);
       setCartas(filteredCartas);
       setNumCartas(`(${filteredCartas.length})`)
       alert.show("Registro borrado con éxito");
@@ -43,14 +49,12 @@ function Table({ state, setNumCartas }) {
     let updatedList = cartasBackup;
     updatedList = updatedList.filter((list) => {
       return (
-        list.beneficiario_id.toLowerCase().search(event.target.value.toLowerCase()) !==
-        -1
+        list.beneficiario_id.toLowerCase().search(event.target.value.toLowerCase()) !== -1
       );
     });
 
     setCartas(updatedList);
   };
-
 
   return (
     <div className="mb-3">
@@ -76,23 +80,28 @@ function Table({ state, setNumCartas }) {
           </thead>
           <tbody>
             { 
-              cartas.map((x) => 
-                <tr key={x.id}>
-                  <td><Link to={`/template/${state}/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
-                  <td className="text-center">{x.tutor}</td>
-                  <td className="text-center">{x.comunicacion_tipo}</td>
-                  <td className="text-center">{x.beneficiario_iglesia}</td>
-                  <td className="text-center">{x.beneficiario_id}</td>
-                  <td className="text-center">{x.beneficiario_preferido}</td>
-                  <td className="text-center">{x.beneficiario_sexo}</td>
-                  <td className="text-center">{x.beneficiario_edad}</td>
-                  <td className="text-center">{x.comunicacion_id_global}</td>
-                  <td className="text-center">{x.supporter_favorito}</td>
-                  <td className="text-center">{x.supporter_sexo}</td>
-                  <td className="text-center">{x.supporter_country}</td>
-                  <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
-                </tr>
-              )
+              // eslint-disable-next-line array-callback-return
+              cartas.map((x) => {
+                if (new Date(x.fecha * 1000) >= date) {
+                  return ( 
+                    <tr key={x.id}>
+                      <td><Link to={`/template/${state}/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                      <td className="text-center">{x.tutor}</td>
+                      <td className="text-center">{x.comunicacion_tipo}</td>
+                      <td className="text-center">{x.beneficiario_iglesia}</td>
+                      <td className="text-center">{x.beneficiario_id}</td>
+                      <td className="text-center">{x.beneficiario_preferido}</td>
+                      <td className="text-center">{x.beneficiario_sexo}</td>
+                      <td className="text-center">{x.beneficiario_edad}</td>
+                      <td className="text-center">{x.comunicacion_id_global}</td>
+                      <td className="text-center">{x.supporter_favorito}</td>
+                      <td className="text-center">{x.supporter_sexo}</td>
+                      <td className="text-center">{x.supporter_country}</td>
+                      <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
+                    </tr>
+                  )
+                }
+              })
             }
           </tbody>
         </table>

@@ -9,9 +9,15 @@ function Table({ state, setNumCartas }) {
 
   useEffect(() => {
     async function getData() {
+      const dateOffset = (24*60*60*1000) * 90; 
+      const date = new Date(); 
+      date.setTime(date.getTime() - dateOffset);
+
       const data = await sendAsync(`SELECT * FROM cartas_especiales`);
-      setCartas(data);
-      setNumCartas(`(${data.length})`)
+      const filteredData = data.filter((item) => new Date(item.fecha * 1000) >= date);
+
+      setCartas(filteredData);
+      setNumCartas(`(${filteredData.length})`);
     }
     
     getData();
@@ -40,13 +46,18 @@ function Table({ state, setNumCartas }) {
           </thead>
           <tbody>
             { 
-              cartas.map((x) => 
-                <tr key={x.id}>
-                  <td className="text-center"><Link to={`/especiales/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
-                  <td className="text-center">{x.beneficiario}</td>
-                  <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
-                </tr>
-              )
+              // eslint-disable-next-line array-callback-return
+              cartas.map((x) => {
+                if (new Date(x.fecha * 1000) >= date) {
+                  return ( 
+                    <tr key={x.id}>
+                      <td className="text-center"><Link to={`/especiales/${x.id_plantilla.toUpperCase()}/${x.id}`}>{x.id_plantilla.toUpperCase()}</Link></td>
+                      <td className="text-center">{x.beneficiario}</td>
+                      <td className="text-center"><button onClick={() => deleteRow(x.id)} className="btn btn-danger btn-sm">Eliminar</button></td>
+                    </tr>
+                  )
+                }
+              })
             }
           </tbody>
         </table>

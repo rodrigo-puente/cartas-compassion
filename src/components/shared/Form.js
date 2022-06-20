@@ -163,7 +163,7 @@ function Form({ id, templateId, cardState }) {
                       Array(CONFIG[key].times).fill(0).map((item, idx) => {
                         idx = idx + 1
                         return (
-                          <div className="col-sm-3 col-md-6 mb-4" key={`${index}-${idx}`}>
+                          <div className="col-sm-12 col-md-12 mb-4" key={`${index}-${idx}`}>
                             <div style={ {padding: '10px', backgroundColor: '#005DAA', borderRadius: '5px'} }>
                               <div className="form-group mb-3">
                                 {
@@ -171,7 +171,12 @@ function Form({ id, templateId, cardState }) {
                                     return(
                                       <div key={`${index}-${idx}-${i}`}>
                                         <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2 text-white">{item.content}</label><br/>
-                                        <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} />
+                                        <input type="text" 
+                                          {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} 
+                                          id={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
+                                          name={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
+                                          className="form-control mb-3" 
+                                          maxLength={item.max} />
                                       </div>
                                     )
                                   })

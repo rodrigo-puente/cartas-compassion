@@ -35,6 +35,15 @@ const config = {
 						],
 						"align": "center"
 					}
+				},
+				"field-2": {
+					"input": true,
+					"content": "Si la escritura de esta carta fue en tercera persona, coloca quien escribió la carta y cargo",
+					"x": 370,
+					"y": 502,
+					"width": 220,
+					"lineGap": 7,
+					"max": 40
 				}
 			}
 		}

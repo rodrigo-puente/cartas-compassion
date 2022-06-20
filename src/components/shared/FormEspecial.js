@@ -163,7 +163,7 @@ function FormEspecial({ id, templateId }) {
                       Array(CONFIG[key].times).fill(0).map((item, idx) => {
                         idx = idx + 1
                         return (
-                          <div className="col-sm-3 col-md-6 mb-4" key={`${index}-${idx}`}>
+                          <div className="col-sm-12 col-md-12 mb-4" key={`${index}-${idx}`}>
                             <div style={ {padding: '10px', backgroundColor: '#005DAA', borderRadius: '5px'} }>
                               <div className="form-group mb-3">
                                 {
