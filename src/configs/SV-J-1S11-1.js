@@ -230,7 +230,7 @@ const config = {
 				},
 				"field-6": {
 					"input": true,
-					"content": "Escritura individual, sino el niño",
+					"content": "Nombre de quien escribió la carta sin apellidos",
 					"x": 370,
 					"y": 502,
 					"width": 220,

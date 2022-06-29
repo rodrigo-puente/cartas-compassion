@@ -77,6 +77,13 @@ function Form({ id, templateId, cardState }) {
                   <Input id={key} register={register} config={CONFIG[key]} color={colors(1,6)} />
                 </div>
               )
+            } else if (CONFIG[key].nokey_input) {
+              return (
+                <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} >
+                  <label htmlFor={key} className="mb-2 me-2">{CONFIG[key].content}</label>
+                  <Input id={key} register={register} config={CONFIG[key]} color={colors(1,6)} />
+                </div>
+              )
             } else if (CONFIG[key].textarea) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
@@ -94,7 +101,26 @@ function Form({ id, templateId, cardState }) {
                         <tr>
                           { 
                             Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" {...register(key)} id={k} value={k} name={key} />{CONFIG[key].options[k].content}</label></td>
+                              return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" {...register(key)} id={k} value={k} name={key} required/>{CONFIG[key].options[k].content}</label></td>
+                            })
+                          }
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )
+            } else if (CONFIG[key].nokey_radio) {
+              return (
+                <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
+                  <label className="mb-2">{CONFIG[key].content}</label> 
+                  <div className="table-responsive">
+                    <table className="table mb-2">
+                      <tbody>
+                        <tr>
+                          { 
+                            Object.keys(CONFIG[key].options).map((k, i) => {
+                              return <td key={`${index}-${i}`}><label><input type="radio" className="form-check-input me-2" {...register(key)} id={k} value={k} name={key}/>{CONFIG[key].options[k].content}</label></td>
                             })
                           }
                         </tr>
