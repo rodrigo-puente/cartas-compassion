@@ -24,7 +24,7 @@ const config = {
 				},
 				"field-2-2": {
 					"input": true,
-					"content": "2. Cuántas hermanos tengo",
+					"content": "2. Cuántas hermanas tengo",
 					"cols": "col-sm-12 col-md-6",
 					"x": 160,
 					"y": 333,

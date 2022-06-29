@@ -4,7 +4,7 @@ const config = {
 			"bg": "1.jpg",
 			"items": {
 				"field-1": {
-					"radio": true,
+					"nokey_radio": true,
 					"content": "1. En el futuro espero aprender sobre",
 					"options": {
 						"field-1-1": {
@@ -87,7 +87,7 @@ const config = {
 					}
 				},
 				"field-3": {
-					"radio": true,
+					"nokey_radio": true,
 					"content": "3. En el futuro me gustaría ser",
 					"options": {
 						"field-3-1": {
@@ -134,7 +134,7 @@ const config = {
 					"required": false
 				},
 				"field-4": {
-					"radio": true,
+					"nokey_radio": true,
 					"content": "4. Espero un día poder tocar",
 					"options": {
 						"field-4-1": {
@@ -175,7 +175,7 @@ const config = {
 					"required": false
 				},
 				"field-5": {
-					"radio": true,
+					"nokey_radio": true,
 					"content": "5. Un día espero ser como este personaje bíblico",
 					"options": {
 						"field-5-1": {
