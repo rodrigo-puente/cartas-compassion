@@ -173,6 +173,21 @@ function Form({ id, templateId, cardState }) {
                   }
                 </div>
               )
+            } else if (CONFIG[key].especial_radio) {
+              return (
+                <div key={index}>
+                  {
+                    Object.keys(CONFIG[key].options).map((k, i) => {
+                      return (
+                        <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
+                          <label className="mb-2">{CONFIG[key].content}</label> 
+                          <label><input type="radio" className="form-check-input me-2" {...register(key)} value={k} id={k} name={key} required />{CONFIG[key].options[k].content}</label>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+              )
             } else if (CONFIG[key].image) {
               return (
                 <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
