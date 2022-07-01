@@ -29,14 +29,8 @@ const config = {
                 },
                 "field-3": {
                     "input": true,
-                    "content": "Nombre sin apellidos",
-                    "max": 15,
-                    "required":false
-                },
-                "field-4": {
-                    "input": true,
-                    "content": "Parentesco o cargo",
-                    "max": 15,
+                    "content": "Nombre sin apellidos y cargo o parentesco",
+                    "max": 31,
                     "required":false
                 },
                 "fecha": {
