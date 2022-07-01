@@ -13,16 +13,26 @@ const config = {
 					"max": 1700
 				},
 				"field-2": {
-					"input": true,
-					"content": "Si la escritura de esta carta fue en tercera persona, coloca quien escribió la carta y cargo",
-					"default": "La carta fue escrita por el niño",
-					"x": 45,
-					"y": 720,
-					"width": 500,
-					"lineGap": 7,
-					"max": 60,
-					"required": false
-				},
+                    "especial_radio": true,
+                    "options": {
+                        "Esta carta esta escrita por el participante ": {
+                            "content": "Carta escrita por el participante",
+                            "x": 45,
+                            "y": 720
+                        },
+                        "Esta carta está escrita en tercera persona por ": {
+                            "content": "Carta escrita en tercera persona por",
+                            "x": 45,
+                            "y": 720
+                        },
+                    }
+                },
+                "field-3": {
+                    "input": true,
+                    "content": "Nombre sin apellidos y cargo o parentesco",
+                    "max": 31,
+                    "required":false
+                },
 				"fecha": {
 					"x": 450,
 					"y": 187,
