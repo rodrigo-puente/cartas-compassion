@@ -8,8 +8,9 @@ const { generateRandomIntegerInRange } = require('./misc');
 const assetPath = path.join(__dirname, '..', 'assets');
 
 function addText(doc, text, content) {
-  if (text === undefined) return;
-  doc.text(text.replace(/\r?\n|\r/g, " "), content.x, content.y, {
+  const realText = text || content.default;
+  if (realText === undefined || realText === '') return;
+  doc.text(realText?.replace(/\r?\n|\r/g, " ") || "", content.x, content.y, {
     width: content.width || null,
     lineGap: content.lineGap || 8,
     characterSpacing: content.characterSpacing || 0,

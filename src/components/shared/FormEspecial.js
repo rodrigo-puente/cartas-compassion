@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Redirect } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useAlert } from 'react-alert';
 
@@ -25,6 +24,28 @@ function FormEspecial({ id, templateId }) {
   }
 
   const onSubmit = async (data) => {
+    let missingCheckbox = false;
+
+    Object.keys(CONFIG).every((key) => {
+      if (CONFIG[key].is_checkbox) {
+        console.log(key);
+
+        const checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
+        if (checkboxes.map(i => i.checked).includes(true)) {
+          return true;
+        }              
+        
+        missingCheckbox = true;
+      }
+
+      return true;
+    });
+
+    if (missingCheckbox) {
+      alert.show("Te hace falta seleccionar al menos un cheque en alguna pregunta");
+      return;
+    }
+
     if (!route.length) {
       alert.show("Debes elegir dónde quieres guardar el archivo");
       return;
@@ -113,7 +134,7 @@ function FormEspecial({ id, templateId }) {
                         <tr>
                           { 
                             Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
+                              return <td key={`${index}-${i}`}><label><input type="checkbox" className={`checkbox-${key} form-check-input me-2`} {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
                             })
                           }
                         </tr>
@@ -171,8 +192,8 @@ function FormEspecial({ id, templateId }) {
                                     return(
                                       <div key={`${index}-${idx}-${i}`}>
                                         <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2 text-white">{item.content}</label><br/>
-                                        <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} />
-                                      </div>
+                                        <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} required={idx === 1}/>
+                                     </div>
                                     )
                                   })
                                 }

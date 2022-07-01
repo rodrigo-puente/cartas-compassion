@@ -25,6 +25,28 @@ function Form({ id, templateId, cardState }) {
   }
 
   const onSubmit = async (data) => {
+    let missingCheckbox = false;
+
+    Object.keys(CONFIG).every((key) => {
+      if (CONFIG[key].is_checkbox) {
+        console.log(key);
+
+        const checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
+        if (checkboxes.map(i => i.checked).includes(true)) {
+          return true;
+        }              
+        
+        missingCheckbox = true;
+      }
+
+      return true;
+    });
+
+    if (missingCheckbox) {
+      alert.show("Te hace falta seleccionar al menos un cheque en alguna pregunta");
+      return;
+    }
+
     if (!route.length) {
       alert.show("Debes elegir dónde quieres guardar el archivo");
       return;
@@ -113,7 +135,7 @@ function Form({ id, templateId, cardState }) {
                         <tr>
                           { 
                             Object.keys(CONFIG[key].options).map((k, i) => {
-                              return <td key={`${index}-${i}`}><label><input type="checkbox" className="form-check-input me-2" {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
+                              return <td key={`${index}-${i}`}><label><input type="checkbox" className={`checkbox-${key} form-check-input me-2`} {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
                             })
                           }
                         </tr>
@@ -176,7 +198,8 @@ function Form({ id, templateId, cardState }) {
                                           id={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
                                           name={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
                                           className="form-control mb-3" 
-                                          maxLength={item.max} />
+                                          maxLength={item.max} 
+                                          required={idx === 1}/>
                                       </div>
                                     )
                                   })

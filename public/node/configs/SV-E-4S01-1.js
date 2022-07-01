@@ -15,11 +15,13 @@ const config = {
 				"field-2": {
 					"input": true,
 					"content": "Si la escritura de esta carta fue en tercera persona, coloca quien escribió la carta y cargo",
+					"default": "La carta fue escrita por el niño",
 					"x": 45,
 					"y": 720,
 					"width": 500,
 					"lineGap": 7,
-					"max": 60
+					"max": 60,
+					"required": false
 				},
 				"fecha": {
 					"x": 450,
