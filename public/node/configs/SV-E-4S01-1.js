@@ -21,7 +21,7 @@ const config = {
                             "y": 720
                         },
                         "Esta carta está escrita en tercera persona por ": {
-                            "content": "Carta escrita en tercera persona por",
+                            "content": "Carta escrita en tercera persona por (Escribe nombre sin apellido y el cargo o parentesco de quién escribe la carta)",
                             "x": 45,
                             "y": 720
                         },
@@ -29,7 +29,6 @@ const config = {
                 },
                 "field-3": {
                     "input": true,
-                    "content": "Nombre sin apellidos y cargo o parentesco",
                     "max": 31,
                     "required":false
                 },

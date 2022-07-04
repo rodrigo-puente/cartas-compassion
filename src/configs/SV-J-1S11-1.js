@@ -117,7 +117,7 @@ const config = {
 					"prefix": "field-3-",
 					"fields": [
 						{
-							"content": "Nombre",
+							"content": "Nombre sin apellido",
 							"max": 18,
 							"sufix": "-A"
 						},
@@ -228,7 +228,7 @@ const config = {
 				},
 				"field-6": {
 					"input": true,
-					"content": "Nombre de quien escribió la carta sin apellidos",
+					"content": "Si la carta fue escrita en tercera persona escribir nombre y cargo, sino solo escribir el nombre del participante",
 					"x": 370,
 					"y": 502,
 					"width": 220,

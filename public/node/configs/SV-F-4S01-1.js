@@ -5,8 +5,9 @@ const config = {
 			"items": {
 				"field-1": {
 					"input": true,
-					"content": "Fecha de ingreso de salida a Connect",
-					"lineGap": 7,
+					"content": "Fecha de ingreso de salida a Connect (día, mes, año)",
+					"x": 0,
+					"y":0,
 					"max": 35
 				},
 				"field-2": {
