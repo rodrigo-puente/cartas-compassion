@@ -6,8 +6,8 @@ const config = {
 				"field-1": {
 					"input": true,
 					"content": "Fecha de ingreso de salida a Connect (día, mes, año)",
-					"x": 0,
-					"y":0,
+					"x": -300,
+					"y":-300,
 					"max": 35
 				},
 				"field-2": {
