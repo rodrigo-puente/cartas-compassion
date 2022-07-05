@@ -30,8 +30,7 @@ const config = {
 				},
 				"field-2": {
 					"select": true,
-					"content": "2. Vivo aquí",
-					"cols": "col-sm-12 col-md-6",
+					"content": "2. Selecciona el departamento donde vives",
 					"x": 350,
 					"y": 460,
 					"width": 490,
@@ -98,7 +97,6 @@ const config = {
 				"field-3": {
 					"input": true,
 					"content": "3. ¿Cuántas personas viven en mi casa?",
-					"cols": "col-sm-12 col-md-6",
 					"x": 79,
 					"y": 513,
 					"width": 490,
@@ -119,7 +117,7 @@ const config = {
 					"prefix": "field-3-",
 					"fields": [
 						{
-							"content": "Nombre",
+							"content": "Nombre sin apellido",
 							"max": 18,
 							"sufix": "-A"
 						},
@@ -230,7 +228,7 @@ const config = {
 				},
 				"field-6": {
 					"input": true,
-					"content": "Escritura individual, sino el niño",
+					"content": "Si la carta fue escrita en tercera persona escribir nombre y cargo, sino solo escribir el nombre del participante",
 					"x": 370,
 					"y": 502,
 					"width": 220,
