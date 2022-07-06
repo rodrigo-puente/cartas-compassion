@@ -80,7 +80,6 @@ function FormEspecial({ id, templateId }) {
   }, [templateConfig]);
 
   useEffect(() => {
-    console.log(id);
     if (id !== undefined) {
       getDataEspecial(id, CONFIG, setCarta, setValue);
     }
