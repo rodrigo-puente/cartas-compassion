@@ -172,8 +172,6 @@ function generateThirdPage(data, doc) {
     const sizes = {
       1: 300,
       2: 250,
-      3: 200,
-      4: 120,
     }
     const size = sizes[imgs.length];
 

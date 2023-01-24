@@ -5,11 +5,12 @@ const config = {
 			"items": {
 				"field-1": {
 					"textarea": true,
-					"content": "1. Escribe algo especial o agradecimiento",
+					"content": "1. Escribe algo especial o agradecimiento (Colocar el nombre correcto del patrocinador en el saludo) - Escribir mínimo 1200 caracteres",
 					"x": 45,
 					"y": 206,
 					"width": 500,
 					"lineGap": 7,
+					"min": 1200,
 					"max": 1700
 				},
 				"field-2": {
@@ -45,7 +46,7 @@ const config = {
 			"items": {
 				"img": {
 					"image": true,
-					"content": "2. Adjunta un dibujo",
+					"content": "2. Adjunta un dibujo elaborado por el participante (no colocar imágenes de internet)",
 					"x": 100,
 					"y": 460,
 					"config": {
