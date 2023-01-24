@@ -26,7 +26,6 @@ function Form({ id, templateId, cardState }) {
 
   const onSubmit = async (data) => {
     let missingCheckbox = false;
-    let missingtextarea = false;
 
     Object.keys(CONFIG).every((key) => {
       if (CONFIG[key].is_checkbox) {
