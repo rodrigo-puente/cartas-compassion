@@ -18,9 +18,9 @@ function exportXLSX(data, route, kind) {
       "tutor": "Tutor",
       "beneficiario_iglesia": "FCP",
       "beneficiario_id": "Código", 
-      "beneficiario_preferido": "Participante nombre preferido", 
+      "beneficiario_preferido": "Beneficiario nombre preferido", 
       "supporter_favorito": "Patrocinador nombre preferido", 
-      "comunicacion_tipo": "Tipo de carta", 
+      "comunicacion_tipo": "Tipo de Comunicación", 
       "preguntas": "Preguntas del Patrocinador", 
       "comunicacion_id_global": "Comunicación: ID de Comunicación Global"
     };

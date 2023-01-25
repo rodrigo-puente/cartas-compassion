@@ -5,7 +5,7 @@ const config = {
 			"items": {
 				"code": {
 					"input": true,
-					"content": "Código del participante (11 dígitos)",
+					"content": "Código del beneficiario (11 dígitos)",
 					"x": 42,
 					"y": 82,
 					"width": 490,
