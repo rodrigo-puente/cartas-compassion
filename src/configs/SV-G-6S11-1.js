@@ -5,7 +5,7 @@ const config = {
 			"items": {
 				"code": {
 					"input": true,
-					"content": "Código del participante (11 dígitos)",
+					"content": "Código del beneficiario (11 dígitos)",
 					"x": 42,
 					"y": 82,
 					"width": 490,
@@ -21,6 +21,16 @@ const config = {
 					"width": 490,
 					"lineGap": 7,
 					"max": 1200
+				},
+				"field-2": {
+					"textarea": true,
+					"content": "Sigue escribiendo ese mensaje especial o agradecimiento ",
+					"x": 50,
+					"y": 589,
+					"width": 350,
+					"lineGap": 7,
+					"max": 335,
+					"required": false
 				},
 				"fecha": {
 					"x": 450,

@@ -58,7 +58,7 @@ function Vineta({ id }) {
           <thead>
             <tr>
               <th scope="col">C0</th>
-              <th scope="col">Tipo de carta</th>
+              <th scope="col">Tipo de comunicación</th>
             </tr>
           </thead>
           <tbody>

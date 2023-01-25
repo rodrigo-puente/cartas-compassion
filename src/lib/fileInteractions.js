@@ -64,7 +64,6 @@ export const getData = async (id, config, setCarta, setValue) => {
           return;
         } else {
           document.getElementById(key).value = val;
-          document.getElementById(`${key}-min`).innerHTML = val.length || 0;
           document.getElementById(`${key}-max`).innerHTML = val.length || 0;
         }
 
@@ -132,7 +131,6 @@ export const getDataEspecial = async (id, config, setCarta, setValue) => {
         return;
       } else {
         document.getElementById(key).value = val;
-        document.getElementById(`${key}-min`).innerHTML = val.length || 0;
         document.getElementById(`${key}-max`).innerHTML = val.length || 0;
       }
 

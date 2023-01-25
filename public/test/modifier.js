@@ -16,6 +16,14 @@ fs.readdir('./', (err, files) => {
       }
     });
 
+    Object.keys(json?.page2?.items || {}).forEach((key) => {
+      if (json.page2.items[key].input || json.page2.items[key].textarea) {
+        json.page2.items[key].y -= 3;
+        json.page2.items[key].lineGap -= 4;
+        json.page2.items[key].max = parseInt(json.page2.items[key].max * 0.72);
+      }
+    });
+
     let jsonTXT = `const config = ${JSON.stringify(json, null, "\t")}; \n\n module.exports = config;`;
     console.log(util.inspect(jsonTXT, false, null, true /* enable colors */));
 

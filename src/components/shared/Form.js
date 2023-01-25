@@ -13,7 +13,7 @@ function Form({ id, templateId, cardState }) {
   const templateConfig = require(`../../configs/${templateId}`);
   const { register, handleSubmit, setValue } = useForm();
   const [route, setRoute] = useState("");
-  const [imgs, setImgs] = useState([{img: '', msg: ''}, {img: '', msg: ''}]);
+  const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
   const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
   const alert = useAlert();
@@ -46,7 +46,7 @@ function Form({ id, templateId, cardState }) {
       alert.show("Te hace falta seleccionar al menos un cheque en alguna pregunta");
       return;
     }
-  
+
     if (!route.length) {
       alert.show("Debes elegir dónde quieres guardar el archivo");
       return;
@@ -239,13 +239,12 @@ function Form({ id, templateId, cardState }) {
                                           id={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
                                           name={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
                                           className="form-control mb-3" 
-                                          minLength={item.min}
                                           maxLength={item.max} 
                                           required={idx === 1}/>
                                       </div>
-                                    ) 
+                                    )
                                   })
-                                } 
+                                }
                               </div>
                             </div>
                           </div>
