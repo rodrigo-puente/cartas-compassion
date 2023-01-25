@@ -109,7 +109,7 @@ const config = {
 				},
 				"field-7": {
 					"radio": true,
-					"content": "7. Mi hogar se encuentra cerca del",
+					"content": "7. Mi hogar se encuentra",
 					"options": {
 						"field-7-1": {
 							"checkbox": true,
@@ -119,13 +119,13 @@ const config = {
 						},
 						"field-7-2": {
 							"checkbox": true,
-							"content": "Campo",
+							"content": "En el campo",
 							"x": 443,
 							"y": 310
 						},
 						"field-7-3": {
 							"checkbox": true,
-							"content": "Ciudad",
+							"content": "En la ciudad",
 							"x": 534,
 							"y": 310
 						}
@@ -158,7 +158,7 @@ const config = {
 			"items": {
 				"field-10": {
 					"textarea": true,
-					"content": "10. Un mensaje a mi patrocinador",
+					"content": "10. Mensaje a mi patrocinador (Saludo y agradecimiento por el patrocinio, contarle lo qué quiere ser cuando sea grande, materia favorita (si aplica), historia bíblica favorita, petición de oración y una despedida)",
 					"x": 50,
 					"y": 58,
 					"width": 490,
@@ -166,7 +166,7 @@ const config = {
 					"max": 480
 				},
 				"img": {
-					"content": "10. Adjunta un dibujo",
+					"content": "11. Adjunta un dibujo elaborado por el participante (no colocar imágenes de internet)",
 					"image": true,
 					"x": 120,
 					"y": 290,
