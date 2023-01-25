@@ -10,6 +10,7 @@ const config = {
 					"y": 206,
 					"width": 500,
 					"lineGap": 7,
+					"min": 1200,
 					"max": 1700
 				},
 				"field-2": {
