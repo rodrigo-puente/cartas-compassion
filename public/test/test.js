@@ -37,6 +37,8 @@ fs.readdir(`${__dirname}/../node/configs`, async (err, files) => {
       imgs: [
         { img: `${__dirname}/test.png`, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' },
         { img: `${__dirname}/test.png`, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' },
+        { img: `${__dirname}/test.png`, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' },
+        { img: `${__dirname}/test.png`, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' },
       ],
       route: `${__dirname}/pdfs`
     };

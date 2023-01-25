@@ -112,7 +112,7 @@ const config = {
 			"items": {
 				"img": {
 					"image": true,
-					"content": "Adjunta un dibujo elaborado por el participante de su familia (no colocar imágenes de internet)",
+					"content": "Dibuja a tu familia",
 					"x": 126,
 					"y": 71,
 					"config": {
