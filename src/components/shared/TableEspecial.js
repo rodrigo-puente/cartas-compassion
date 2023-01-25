@@ -40,7 +40,7 @@ function Table({ state, setNumCartas }) {
           <thead>
             <tr>
               <th className="text-center">Plantilla</th>
-              <th className="text-center" scope="col">Código del beneficiario</th>
+              <th className="text-center" scope="col">Código del participante</th>
               <th className="text-center" scope="col">Acciones</th>
             </tr>
           </thead>
