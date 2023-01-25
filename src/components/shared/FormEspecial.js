@@ -12,7 +12,7 @@ function FormEspecial({ id, templateId }) {
   const templateConfig = require(`../../configs/${templateId}`);
   const { register, handleSubmit, setValue } = useForm();
   const [route, setRoute] = useState("");
-  const [imgs, setImgs] = useState([{img: '', msg: ''}, { img: '', msg: ''}, {img: '', msg: ''}, {img: '', msg: ''}]);
+  const [imgs, setImgs] = useState([{img: '', msg: ''}, {img: '', msg: ''}]);
   const [carta, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
   const alert = useAlert();
@@ -191,7 +191,7 @@ function FormEspecial({ id, templateId }) {
                                     return(
                                       <div key={`${index}-${idx}-${i}`}>
                                         <label htmlFor={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="mb-2 text-white">{item.content}</label><br/>
-                                        <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" maxLength={item.max} required={idx === 1}/>
+                                        <input type="text" {...register(`${CONFIG[key].prefix}${idx}${item.sufix}`)} id={`${CONFIG[key].prefix}${idx}${item.sufix}`} name={`${CONFIG[key].prefix}${idx}${item.sufix}`} className="form-control mb-3" minLength={item.min} maxLength={item.max} required={idx === 1}/>
                                      </div>
                                     )
                                   })

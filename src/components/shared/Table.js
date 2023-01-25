@@ -65,10 +65,10 @@ function Table({ state, setNumCartas }) {
             <tr>
               <th className="text-center">Plantilla</th>
               <th className="text-center" scope="col">Tutor</th>
-              <th className="text-center" scope="col">Tipo de comunicación</th>
+              <th className="text-center" scope="col">Tipo de carta</th>
               <th className="text-center" scope="col">Proyecto</th>
               <th className="text-center" scope="col">Código</th>
-              <th className="text-center" scope="col">Beneficiario nombre preferido</th>
+              <th className="text-center" scope="col">Participante nombre preferido</th>
               <th className="text-center" scope="col">Sexo</th>
               <th className="text-center" scope="col">Edad</th>
               <th className="text-center" scope="col">C0</th>
