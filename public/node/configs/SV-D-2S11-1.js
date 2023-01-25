@@ -126,7 +126,7 @@ const config = {
 				},
 				"img": {
 					"image": true,
-					"content": "Adjunta un dibujo elaborado por el participante de su vida saludable (no colocar imágenes de internet)",
+					"content": "Dibuja cómo es tu vida saludable",
 					"x": 100,
 					"y": 100,
 					"config": {

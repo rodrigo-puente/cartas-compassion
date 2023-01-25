@@ -102,6 +102,16 @@ const config = {
 					"width": 230,
 					"lineGap": 6,
 					"max": 180
+				},
+				"field-5-2": {
+					"textarea": true,
+					"content": "Continua con tu petición de oración",
+					"cols": "col-sm-12 col-md-6",
+					"x": 418,
+					"y": 350,
+					"width": 125,
+					"lineGap": 6,
+					"max": 100
 				}
 			}
 		},
@@ -110,7 +120,7 @@ const config = {
 			"items": {
 				"field-6": {
 					"textarea": true,
-					"content": "6. Información que debe brindar el Cuidador:  Saludo y agradecimiento por el patrocinio, contarle sobre aprendizaje del bebé en el proyecto, colocar quien lo cuida, su juego preferido, petición de oración y una despedida de parte del cuidador y el bebé ",
+					"content": "6. Un mensaje a mi patrocinador",
 					"x": 50,
 					"y": 57,
 					"width": 490,
@@ -119,7 +129,7 @@ const config = {
 				},
 				"img": {
 					"image": true,
-					"content": "7. Adjunta un dibujo elaborado por el participante (no colocar imágenes de internet)",
+					"content": "7. Mi dibujo",
 					"x": 120,
 					"y": 250,
 					"config": {
