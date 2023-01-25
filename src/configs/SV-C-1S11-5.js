@@ -84,7 +84,7 @@ const config = {
 					"max": 480
 				},
 				"img": {
-					"content": "7. Adjunta un dibujo",
+					"content": "7. Adjunta un dibujo elaborado por el participante (no colocar imágenes de internet)",
 					"image": true,
 					"x": 100,
 					"y": 260,
