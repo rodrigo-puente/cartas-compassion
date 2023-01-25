@@ -21,7 +21,7 @@ function Vineta({ id }) {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Beneficiario</th>
+              <th scope="col">Participante</th>
               <th scope="col">Código</th>
               <th scope="col">Edad</th>
               <th scope="col">Sexo</th>

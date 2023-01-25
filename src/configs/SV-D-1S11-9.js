@@ -317,7 +317,7 @@ const config = {
 				},
 				"field-6": {
 					"radio": true,
-					"content": "El clima de hoy es",
+					"content": "En mi cumpleaños el clima normalmente es",
 					"options": {
 						"field-6-1": {
 							"content": "Soleado",

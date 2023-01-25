@@ -11,6 +11,7 @@ const config = {
 					"width": 490,
 					"lineGap": 4,
 					"characterSpacing": 7,
+					"min": 11,
 					"max": 11
 				},
 				"field-1": {
