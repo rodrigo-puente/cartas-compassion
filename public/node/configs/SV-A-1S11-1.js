@@ -96,7 +96,6 @@ const config = {
 				"field-5-1": {
 					"textarea": true,
 					"content": "5. Mis peticiones de oración son",
-					"cols": "col-sm-12 col-md-6",
 					"x": 315,
 					"y": 225,
 					"width": 230,
@@ -110,7 +109,7 @@ const config = {
 			"items": {
 				"field-6": {
 					"textarea": true,
-					"content": "6. Información que debe brindar el Cuidador:  Saludo y agradecimiento por el patrocinio, contarle sobre aprendizaje del bebé en el proyecto, colocar quien lo cuida, su juego preferido, petición de oración y una despedida de parte del cuidador y el bebé",
+					"content": "6. Información que debe brindar el Cuidador: Saludo y agradecimiento por el patrocinio, contarle sobre aprendizaje del bebé en el proyecto, colocar quien lo cuida, su juego preferido y una despedida de parte del cuidador y el bebé",
 					"x": 50,
 					"y": 57,
 					"width": 490,
