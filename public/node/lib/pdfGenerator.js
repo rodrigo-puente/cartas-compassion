@@ -103,7 +103,7 @@ function fillVineta(user) {
     barcode: data.barcode,
     pdfName: data.pdfname,
     socio: data.socio,
-    beneficiario: `${user.beneficiario_id} - ${user.beneficiario_preferido} - ${user.beneficiario_sexo || ""} - ${user.beneficiario_edad}`,
+    participante: `${user.beneficiario_id} - ${user.beneficiario_preferido} - ${user.beneficiario_sexo || ""} - ${user.beneficiario_edad}`,
     tl: `TL: ${user.target_lang}`,
     gp: `GP: ${user.supporter_country}`,
     types: `Types:`,
