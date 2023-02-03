@@ -3,7 +3,7 @@ const config = {
     x: 50,
     y: 30,
   },
-  "beneficiario": {
+  "participante": {
     x: 50,
     y: 45,
   },
