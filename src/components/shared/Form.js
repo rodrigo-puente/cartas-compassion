@@ -239,7 +239,7 @@ function Form({ id, templateId, cardState }) {
                                           id={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
                                           name={`${CONFIG[key].prefix}${idx}${item.sufix}`} 
                                           className="form-control mb-3" 
-                                          mixLength={item.min} 
+                                          minLength={item.min}
                                           maxLength={item.max} 
                                           required={idx === 1}/>
                                       </div>

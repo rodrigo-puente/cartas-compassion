@@ -14,7 +14,7 @@ fs.readdir(`${__dirname}/../node/configs`, async (err, files) => {
       barcode: '5859929-8142189',
       pdfName: `${file}.pdf`,
       socio: '8142189 - Nancy ',
-      participante: 'ES080700093 - Christian - Masculino - 20',
+      beneficiario: 'ES080700093 - Christian - Masculino - 20',
       tl: 'TL: English',
       gp: 'GP: US',
       types: 'Types:',
