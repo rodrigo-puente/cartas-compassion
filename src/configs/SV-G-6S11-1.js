@@ -11,7 +11,6 @@ const config = {
 					"width": 490,
 					"lineGap": 4,
 					"characterSpacing": 7,
-					"min": 11,
 					"max": 11
 				},
 				"field-1": {
@@ -21,6 +20,7 @@ const config = {
 					"y": 226,
 					"width": 490,
 					"lineGap": 7,
+					"min": 1150,
 					"max": 1200
 				},
 				"fecha": {
