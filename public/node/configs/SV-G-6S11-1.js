@@ -15,7 +15,7 @@ const config = {
 				},
 				"field-1": {
 					"textarea": true,
-					"content": "1. Escribe un mensaje especial o agradecimiento",
+					"content": "1. Escribe un mensaje especial o agradecimiento - Escribir mínimo 1150 caracteres",
 					"x": 50,
 					"y": 226,
 					"width": 490,
