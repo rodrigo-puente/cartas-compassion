@@ -13,7 +13,7 @@ const xlsxHeaders = {
   "supporter_tipo_relacion": "Tipo de Relacionamiento",
   "supporter_sexo": "Patrocinador / Corresponsal: Sexo",
   "supporter_id_global": "Patrocinador / Corresponsal: ID Número de Identificación Global", 
-  "supporter_country": "ID del Patrocinador Global",
+  "supporter_country": "ID del Socio Global",
   "target_lang": "Target Language", 
   "id_plantilla": "ID de la Plantilla",
 };
