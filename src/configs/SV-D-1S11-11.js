@@ -4,7 +4,7 @@ const config = {
 			"bg": "1.jpg",
 			"items": {
 				"field-1": {
-					"nokey_radio": true,
+					"radio": true,
 					"content": "1. En el futuro espero aprender sobre",
 					"options": {
 						"field-1-1": {
@@ -30,10 +30,16 @@ const config = {
 							"checkbox": true,
 							"x": 250,
 							"y": 275
+						},
+						"field-1-5": {
+							"content": "Otro ",
+							"checkbox": false,
+							"x": 40,
+							"y": 330
 						}
 					}
 				},
-				"field-1-5": {
+				"field-1-6": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",
@@ -87,7 +93,7 @@ const config = {
 					}
 				},
 				"field-3": {
-					"nokey_radio": true,
+					"radio": true,
 					"content": "3. En el futuro me gustaría ser",
 					"options": {
 						"field-3-1": {
@@ -119,10 +125,16 @@ const config = {
 							"checkbox": true,
 							"x": 117,
 							"y": 705
+						},
+						"field-3-6": {
+							"content": "Otro",
+							"checkbox": false,
+							"x": 85,
+							"y": 750
 						}
 					}
 				},
-				"field-3-6": {
+				"field-3-7": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",
@@ -134,7 +146,7 @@ const config = {
 					"required": false
 				},
 				"field-4": {
-					"nokey_radio": true,
+					"radio": true,
 					"content": "4. Espero un día poder tocar",
 					"options": {
 						"field-4-1": {
@@ -160,10 +172,16 @@ const config = {
 							"checkbox": true,
 							"x": 534,
 							"y": 195
+						},
+						"field-4-5": {
+							"content": "Otro",
+							"checkbox": false,
+							"x": 323,
+							"y": 270
 						}
 					}
 				},
-				"field-4-5": {
+				"field-4-6": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",
@@ -175,7 +193,7 @@ const config = {
 					"required": false
 				},
 				"field-5": {
-					"nokey_radio": true,
+					"radio": true,
 					"content": "5. Un día espero ser como este personaje bíblico",
 					"options": {
 						"field-5-1": {
@@ -207,10 +225,16 @@ const config = {
 							"checkbox": true,
 							"x": 465,
 							"y": 431
+						},
+						"field-5-6": {
+							"content": "Otro",
+							"checkbox": true,
+							"x": 368,
+							"y": 495
 						}
 					}
 				},
-				"field-5-6": {
+				"field-5-7": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",

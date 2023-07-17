@@ -18,6 +18,9 @@ const config = {
 						},
 						"field-1-4": {
 							"content": "Jugar baloncesto"
+						},
+						"field-1-5": {
+							"content": "Otro"
 						}
 					}
 				},
@@ -42,6 +45,11 @@ const config = {
 					"y": 365
 				},
 				"field-1-5": {
+					"checkbox": true,
+					"x": 50,
+					"y": 395
+				},
+				"field-1-6": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",
@@ -120,6 +128,9 @@ const config = {
 						},
 						"field-4-6": {
 							"content": "Dormir"
+						},
+						"field-4-7": {
+							"content": "Otro"
 						}
 					}
 				},
@@ -154,6 +165,11 @@ const config = {
 					"y": 345
 				},
 				"field-4-7": {
+					"checkbox": true,
+					"x": 328,
+					"y": 420
+				},
+				"field-4-8": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",

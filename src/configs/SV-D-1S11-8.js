@@ -94,16 +94,22 @@ const config = {
 							"content": "Perro"
 						},
 						"field-3-2": {
-							"content": "Perico"
+							"content": "Ninguno"
 						},
 						"field-3-3": {
-							"content": "Pájaro"
+							"content": "Perico"
 						},
 						"field-3-4": {
-							"content": "Pollo"
+							"content": "Pájaro"
 						},
 						"field-3-5": {
+							"content": "Pollo"
+						},
+						"field-3-6": {
 							"content": "Gato"
+						},
+						"field-3-7": {
+							"content": "Otro"
 						}
 					}
 				},
@@ -114,25 +120,35 @@ const config = {
 				},
 				"field-3-2": {
 					"checkbox": true,
+					"x": 55,
+					"y": 572
+				},
+				"field-3-3": {
+					"checkbox": true,
 					"x": 118,
 					"y": 578
 				},
-				"field-3-3": {
+				"field-3-4": {
 					"checkbox": true,
 					"x": 210,
 					"y": 577
 				},
-				"field-3-4": {
+				"field-3-5": {
 					"checkbox": true,
 					"x": 330,
 					"y": 430
 				},
-				"field-3-5": {
+				"field-3-6": {
 					"checkbox": true,
 					"x": 420,
 					"y": 460
 				},
-				"field-3-6": {
+				"field-3-7": {
+					"checkbox": true,
+					"x": 50,
+					"y": 652
+				},
+				"field-3-7-2": {
 					"input": true,
 					"content": "Otro",
 					"cols": "col-sm-12 col-md-4",

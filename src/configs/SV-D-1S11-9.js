@@ -10,12 +10,6 @@ const config = {
 						"field-1-1": {
 							"content": "Invierno"
 						},
-						"field-1-2": {
-							"content": "Primavera"
-						},
-						"field-1-3": {
-							"content": "Otoño"
-						},
 						"field-1-4": {
 							"content": "Verano"
 						}

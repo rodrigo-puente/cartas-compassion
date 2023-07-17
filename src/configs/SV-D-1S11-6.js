@@ -45,7 +45,7 @@ const config = {
 				},
 				"field-5": {
 					"textarea": true,
-					"content": "5. Mi familia celebra el Año NUevo haciendo",
+					"content": "5. Mi familia celebra el Año Nuevo haciendo",
 					"cols": "col-sm-12 col-md-6",
 					"x": 50,
 					"y": 601,
