@@ -8,7 +8,7 @@
   "author": "Compassion International El Salvador",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EstefanyCompassion/cartas-compassion.git"
+    "url": "https://github.com/rodrigo-puente/cartas-compassion.git"
   },
   "build": {
     "appId": "com.rodrigopuente.triciclo",
