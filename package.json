@@ -5,7 +5,7 @@
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
-  "author": "Compassion International El Salvador",
+  "author": "Rodrigo Puente",
   "repository": {
     "type": "git",
     "url": "https://github.com/rodrigo-puente/cartas-compassion.git"
