@@ -5,7 +5,7 @@ const config = {
 			"items": {
 				"field-1": {
 					"is_checkbox": true,
-					"content": "Chequea 2 cosas que más te gusta hacer con tu familia",
+					"content": "Marca 2 cosas que más te gusta hacer con tu familia",
 					"options": {
 						"field-1-1": {
 							"content": "Comer juntos"

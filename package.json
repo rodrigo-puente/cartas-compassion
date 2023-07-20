@@ -1,14 +1,14 @@
 {
   "name": "cartas_compassion",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Aplicación para generación de cartas dentro de Compassion",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
-  "author": "Rodrigo Puente",
+  "author": "Compassion International El Salvador",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rodrigo-puente/cartas-compassion.git"
+    "url": "https://github.com/EstefanyCompassion/cartas-compassion.git"
   },
   "build": {
     "appId": "com.rodrigopuente.triciclo",

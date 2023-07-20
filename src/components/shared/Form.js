@@ -23,9 +23,36 @@ function Form({ id, templateId, cardState }) {
     const number = Math.floor(Math.random() * (max - min)) + min;
     return `color-${number}`;
   }
+  
 
   const onSubmit = async (data) => {
     let missingCheckbox = false;
+
+    Object.keys(CONFIG).every((key) => {
+      if (CONFIG[key].checkboxdos) {
+        console.log(key);
+  
+        var checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
+        var cont = 0;
+        for(var x=0; x <checkboxes.length; x++){
+          if (checkboxes[x].checked){
+            cont=cont+1;
+          }
+        }       
+        if(cont==2){
+          return false;  
+        } else if(cont<2){
+          alert.show("Debes seleccionar dos opciones en la primer pregunta");
+          return;
+        }
+        else if(cont>2){
+          alert.show("Debes seleccionar solo dos opciones en la primer pregunta");
+          return;
+        }   
+        
+      }
+  
+    });
 
     Object.keys(CONFIG).every((key) => {
       if (CONFIG[key].is_checkbox) {
@@ -43,7 +70,7 @@ function Form({ id, templateId, cardState }) {
     });
 
     if (missingCheckbox) {
-      alert.show("Te hace falta seleccionar al menos un cheque en alguna pregunta");
+      alert.show("Te hace falta seleccionar al menos una opción en alguna pregunta");
       return;
     }
 
@@ -72,7 +99,7 @@ function Form({ id, templateId, cardState }) {
       setDisabled(false)
     } 
   };
-
+  
   const CONFIG = useMemo(() => { 
     let items = {};
 
@@ -162,6 +189,25 @@ function Form({ id, templateId, cardState }) {
                           { 
                             Object.keys(CONFIG[key].options).map((k, i) => {
                               return <td key={`${index}-${i}`}><label><input type="checkbox" className={`checkbox-${key} form-check-input me-2`} {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
+                            })
+                          }
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )
+            } else if (CONFIG[key].checkboxdos) {
+              return (
+                <div className={`${CONFIG[key].cols || "col-sm-12"} form-group mb-4`} key={index}>
+                  <label className="mb-2">{CONFIG[key].content}</label> 
+                  <div className="table-responsive">
+                    <table className="table mb-2">
+                      <tbody>
+                        <tr>
+                          { 
+                            Object.keys(CONFIG[key].options).map((k, i) => {
+                              return <td key={`${index}-${i}`} ><label><input type="checkbox" className={`checkbox-${key} form-check-input me-2`} {...register(k)} id={k} name={k} />{CONFIG[key].options[k].content}</label></td>
                             })
                           }
                         </tr>

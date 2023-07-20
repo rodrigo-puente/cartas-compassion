@@ -4,7 +4,7 @@ const config = {
 			"bg": "1.jpg",
 			"items": {
 				"field-1": {
-					"is_checkbox": true,
+					"checkboxdos": true,
 					"content": "Algunos de mis pasatiempos son (elige 2)",
 					"options": {
 						"field-1-1": {

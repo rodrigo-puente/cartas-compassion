@@ -58,6 +58,8 @@ export const getData = async (id, config, setCarta, setValue) => {
         const val = form[key];
         if(config[key].checkbox) {
           document.getElementById(key).checked = val;
+        }else if(config[key].checkbox) {
+          document.getElementById(key).checked = val;
         } else if (config[key].radio || config[key].special_radio) {
           document.getElementById(val).checked = true;
         } else if (config[key].image) {
@@ -131,7 +133,7 @@ export const getDataEspecial = async (id, config, setCarta, setValue) => {
         return;
       } else {
         document.getElementById(key).value = val;
-        document.getElementById(`${key}-max`).innerHTML = val.length || 0;
+        document.getElementById(`}-max`).innerHTML = val.length || 0;
       }
 
       setValue(key, val);

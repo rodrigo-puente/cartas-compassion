@@ -89,7 +89,7 @@ const config = {
 				},
 				"field-3": {
 					"is_checkbox": true,
-					"content": "Chequea los beneficios que recibes en el proyecto",
+					"content": "Marca los beneficios que recibes en el proyecto",
 					"options": {
 						"field-3-1": {
 							"content": "Chequeos médicos"
