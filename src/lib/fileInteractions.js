@@ -46,35 +46,29 @@ export const cleanImg = (setValue, id) => async (e) => {
 
 export const getData = async (id, config, setCarta, setValue) => {
   const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
-  setCarta(result[0]);
+  if (!result.length) return;
 
-  if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
-    const form = JSON.parse(result[0].formulario);
+  const carta = result[0];
+  setCarta(carta);
 
-    const skipKeys = ["fecha", "imgs", "route"];
-    Object.keys(form).forEach((key) => {
-      if (skipKeys.includes(key)) return;
-      try {
-        const val = form[key];
-        if(config[key].checkbox) {
-          document.getElementById(key).checked = val;
-        }else if(config[key].checkbox) {
-          document.getElementById(key).checked = val;
-        } else if (config[key].radio || config[key].special_radio) {
-          document.getElementById(val).checked = true;
-        } else if (config[key].image) {
-          return;
-        } else {
-          document.getElementById(key).value = val;
-          document.getElementById(`${key}-max`).innerHTML = val.length || 0;
-        }
+  if (carta.estado === CARD_STATES[CARDS_SIN_COMENZAR] || !carta.formulario) return;
 
-        setValue(key, val);
-      } catch(err) {
-        console.log("Propiedad no existe: ", key);
-      }
-    });
-  }
+  const form = JSON.parse(carta.formulario);
+  const skipKeys = ["fecha", "imgs", "route"];
+
+  Object.keys(form).forEach((key) => {
+    if (skipKeys.includes(key) || !config[key] || config[key].image) return;
+
+    const val = form[key];
+
+    // React Hook Form actualiza los controles registrados. Esto permite que al
+    // reabrir una carta realizada se recuperen también los campos repetidos de
+    // plantillas como SV-K-3S11-1.
+    setValue(key, val == null ? "" : val);
+
+    const counter = document.getElementById(`${key}-max`);
+    if (counter) counter.innerHTML = String(val == null ? 0 : String(val).length);
+  });
 }
 
 export const submitForm = async (id, templateId, carta, form, route, imgs, copyFields = []) => {
