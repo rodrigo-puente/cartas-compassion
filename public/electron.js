@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu, MenuItem } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
 const { autoUpdater } = require('electron-updater');
@@ -6,6 +6,47 @@ const { autoUpdater } = require('electron-updater');
 require('./node/main');
 
 let mainWindow;
+
+function configureSpanishSpellChecker(window) {
+  const currentSession = window.webContents.session;
+  const availableLanguages = currentSession.availableSpellCheckerLanguages;
+  const spanishLanguage = ['es', 'es-ES'].find((language) =>
+    availableLanguages.includes(language)
+  ) || availableLanguages.find((language) => language.toLowerCase().startsWith('es-'));
+
+  currentSession.setSpellCheckerEnabled(true);
+
+  if (spanishLanguage) {
+    currentSession.setSpellCheckerLanguages([spanishLanguage]);
+  } else {
+    console.warn('No se encontró un diccionario de español para el corrector ortográfico.');
+  }
+
+  window.webContents.on('context-menu', (_, params) => {
+    if (!params.isEditable || !params.misspelledWord) return;
+
+    const menu = new Menu();
+    const suggestions = params.dictionarySuggestions || [];
+
+    if (suggestions.length) {
+      suggestions.forEach((suggestion) => {
+        menu.append(new MenuItem({
+          label: suggestion,
+          click: () => window.webContents.replaceMisspelling(suggestion)
+        }));
+      });
+    } else {
+      menu.append(new MenuItem({ label: 'No hay sugerencias', enabled: false }));
+    }
+
+    menu.append(new MenuItem({ type: 'separator' }));
+    menu.append(new MenuItem({
+      label: 'Agregar al diccionario',
+      click: () => currentSession.addWordToSpellCheckerDictionary(params.misspelledWord)
+    }));
+    menu.popup({ window });
+  });
+}
 
 if (isDev) {
   // Permite live-reload 
@@ -16,18 +57,6 @@ if (isDev) {
 }
 
 function createWindow() {
-  if (isDev) {
-    // Añadir el debugger de React
-    const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
-
-    installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
-        console.log(`Added Extension:  ${name}`);
-    })
-    .catch((err) => {
-        console.log('An error occurred: ', err);
-    });
-  }
-
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -35,9 +64,12 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
-      contextIsolation: false
+      contextIsolation: false,
+      spellcheck: true
     },
   });
+
+  configureSpanishSpellChecker(mainWindow);
 
   // and load the index.html of the app.
   // mainWindow.loadFile("index.html");
@@ -46,13 +78,8 @@ function createWindow() {
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
-  // Open the DevTools.
-  if (isDev) {
-    mainWindow.webContents.openDevTools({ mode: 'detach' });
-  }
-
   mainWindow.once('ready-to-show', () => {
-    autoUpdater.checkForUpdatesAndNotify();
+    if (!isDev) autoUpdater.checkForUpdatesAndNotify();
   });
 }
 

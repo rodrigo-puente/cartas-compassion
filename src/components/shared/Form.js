@@ -26,47 +26,25 @@ function Form({ id, templateId, cardState }) {
   
 
   const onSubmit = async (data) => {
-    let missingCheckbox = false;
-
-    Object.keys(CONFIG).every((key) => {
+    for (const key of Object.keys(CONFIG)) {
       if (CONFIG[key].checkboxdos) {
-        console.log(key);
-  
-        var checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
-        var cont = 0;
-        for(var x=0; x <checkboxes.length; x++){
-          if (checkboxes[x].checked){
-            cont=cont+1;
-          }
-        }       
-        if(cont==2){
-          return false;  
-        } else if(cont<2){
+        const checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
+        const selectedCount = checkboxes.filter((checkbox) => checkbox.checked).length;
+
+        if (selectedCount < 2) {
           alert.show("Debes seleccionar dos opciones en la primer pregunta");
           return;
-        }
-        else if(cont>2){
+        } else if (selectedCount > 2) {
           alert.show("Debes seleccionar solo dos opciones en la primer pregunta");
           return;
-        }   
-        
+        }
       }
-  
-    });
+    }
 
-    Object.keys(CONFIG).every((key) => {
-      if (CONFIG[key].is_checkbox) {
-        console.log(key);
-
-        const checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
-        if (checkboxes.map(i => i.checked).includes(true)) {
-          return true;
-        }              
-        
-        missingCheckbox = true;
-      }
-
-      return true;
+    const missingCheckbox = Object.keys(CONFIG).some((key) => {
+      if (!CONFIG[key].is_checkbox) return false;
+      const checkboxes = [...document.getElementsByClassName(`checkbox-${key}`)];
+      return !checkboxes.some((checkbox) => checkbox.checked);
     });
 
     if (missingCheckbox) {

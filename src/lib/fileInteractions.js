@@ -56,6 +56,12 @@ export const getData = async (id, config, setCarta, setValue) => {
       if (skipKeys.includes(key)) return;
       try {
         const val = form[key];
+
+        // Sincroniza primero el valor con React Hook Form. Los campos repetidos
+        // no tienen contador de caracteres y el acceso directo al DOM podía
+        // fallar antes de ejecutar setValue, dejándolos vacíos al guardar.
+        setValue(key, val);
+
         if(config[key].checkbox) {
           document.getElementById(key).checked = val;
         }else if(config[key].checkbox) {
@@ -66,10 +72,9 @@ export const getData = async (id, config, setCarta, setValue) => {
           return;
         } else {
           document.getElementById(key).value = val;
-          document.getElementById(`${key}-max`).innerHTML = val.length || 0;
+          const counter = document.getElementById(`${key}-max`);
+          if (counter) counter.innerHTML = val.length || 0;
         }
-
-        setValue(key, val);
       } catch(err) {
         console.log("Propiedad no existe: ", key);
       }
