@@ -13,7 +13,7 @@ function FormEspecial({ id, templateId }) {
   const { register, handleSubmit, setValue } = useForm();
   const [route, setRoute] = useState("");
   const [imgs, setImgs] = useState([{img: '', msg: ''}, {img: '', msg: ''}]);
-  const [carta, setCarta] = useState({});
+  const [, setCarta] = useState({});
   const [disabled, setDisabled] = useState(false);
   const alert = useAlert();
 

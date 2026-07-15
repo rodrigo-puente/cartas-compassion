@@ -45,7 +45,7 @@ ipcMain.on('select-file', async (event, conf) => {
 ipcMain.on('import-xlxs', (event, data) => {
   const sqlData = generateSQL(data);
   database.all(sqlData, (err) => {
-    console.log("SQL ERROR: ", err);
+    if (err) console.error("SQL ERROR: ", err);
     event.reply('xlxs-result', err === null);
   });
 })

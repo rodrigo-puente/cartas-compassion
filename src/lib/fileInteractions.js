@@ -57,14 +57,15 @@ export const getData = async (id, config, setCarta, setValue) => {
   const skipKeys = ["fecha", "imgs", "route"];
 
   Object.keys(form).forEach((key) => {
-    if (skipKeys.includes(key) || !config[key] || config[key].image) return;
+    if (skipKeys.includes(key)) return;
 
     const val = form[key];
 
-    // React Hook Form actualiza los controles registrados. Esto permite que al
-    // reabrir una carta realizada se recuperen también los campos repetidos de
-    // plantillas como SV-K-3S11-1.
+    // Primero se sincronizan todos los controles registrados, incluso las
+    // opciones de checkbox que no tienen una entrada propia en la configuración.
     setValue(key, val == null ? "" : val);
+
+    if (!config[key] || config[key].image) return;
 
     const counter = document.getElementById(`${key}-max`);
     if (counter) counter.innerHTML = String(val == null ? 0 : String(val).length);

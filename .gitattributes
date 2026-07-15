@@ -1,0 +1,5 @@
+.gitattributes text eol=lf
+/public/electron.js text eol=lf
+/public/index.html text eol=lf
+/src/lib/fileInteractions.js text eol=lf
+/public/node/main.js whitespace=cr-at-eol
