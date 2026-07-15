@@ -46,40 +46,30 @@ export const cleanImg = (setValue, id) => async (e) => {
 
 export const getData = async (id, config, setCarta, setValue) => {
   const result = await sendAsync(`SELECT * FROM cartas WHERE id = ${id}`);
-  setCarta(result[0]);
+  if (!result.length) return;
 
-  if(result.length && result[0].estado !== CARD_STATES[CARDS_SIN_COMENZAR]) {
-    const form = JSON.parse(result[0].formulario);
+  const carta = result[0];
+  setCarta(carta);
 
-    const skipKeys = ["fecha", "imgs", "route"];
-    Object.keys(form).forEach((key) => {
-      if (skipKeys.includes(key)) return;
-      try {
-        const val = form[key];
+  if (carta.estado === CARD_STATES[CARDS_SIN_COMENZAR] || !carta.formulario) return;
 
-        // Sincroniza primero el valor con React Hook Form. Los campos repetidos
-        // no tienen contador de caracteres y el acceso directo al DOM podía
-        // fallar antes de ejecutar setValue, dejándolos vacíos al guardar.
-        setValue(key, val);
+  const form = JSON.parse(carta.formulario);
+  const skipKeys = ["fecha", "imgs", "route"];
 
-        if(config[key].checkbox) {
-          document.getElementById(key).checked = val;
-        }else if(config[key].checkbox) {
-          document.getElementById(key).checked = val;
-        } else if (config[key].radio || config[key].special_radio) {
-          document.getElementById(val).checked = true;
-        } else if (config[key].image) {
-          return;
-        } else {
-          document.getElementById(key).value = val;
-          const counter = document.getElementById(`${key}-max`);
-          if (counter) counter.innerHTML = val.length || 0;
-        }
-      } catch(err) {
-        console.log("Propiedad no existe: ", key);
-      }
-    });
-  }
+  Object.keys(form).forEach((key) => {
+    if (skipKeys.includes(key)) return;
+
+    const val = form[key];
+
+    // Primero se sincronizan todos los controles registrados, incluso las
+    // opciones de checkbox que no tienen una entrada propia en la configuración.
+    setValue(key, val == null ? "" : val);
+
+    if (!config[key] || config[key].image) return;
+
+    const counter = document.getElementById(`${key}-max`);
+    if (counter) counter.innerHTML = String(val == null ? 0 : String(val).length);
+  });
 }
 
 export const submitForm = async (id, templateId, carta, form, route, imgs, copyFields = []) => {
